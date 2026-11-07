@@ -1,5 +1,7 @@
 # Phase 0 : direction artistique
 
+**Choix validés** : maquette B « Nuit », Fraunces + Inter Tight, colibri du Cuarteto Tafi (voir `docs/decisions.md`).
+
 Ouvrir **`index.html`** : il présente les choix à faire et renvoie vers le reste.
 
 | Fichier | Contenu |
@@ -8,9 +10,9 @@ Ouvrir **`index.html`** : il présente les choix à faire et renvoie vers le res
 | `maquette-b-nuit.html` | Proposition B : héros plein écran au crépuscule, jacaranda, reflet sur le sel |
 | `typographies.html` | Les deux paires typographiques côte à côte |
 | `assets/logo-tierradentro-a.svg` / `-b.svg` | Logo complet (colibri + mot, en tracés) pour chaque paire |
-| `assets/colibri-trait.svg` | Colibri seul, monochrome (`currentColor`) |
+| `assets/colibri-trait.svg` | Colibri seul, monochrome (`currentColor`), tracé depuis l'aquarelle du Tafi |
 | `assets/colibri-favicon.svg` | Version épaissie pour 16–24 px, s'adapte au mode sombre |
-| `assets/colibri-aquarelle.svg` | **Provisoire** : évocation du colibri aquarelle, à remplacer par l'original |
+| `assets/colibri-tafi.webp` | Aquarelle originale du Cuarteto Tafi (droits à confirmer) |
 | `assets/salar-croute.svg` | Croûte de sel en perspective (générée) |
 
 Dans chaque maquette, le bouton **Typo** en bas à droite bascule entre les deux paires. On peut aussi ajouter `?pair=a` ou `?pair=b` à l'adresse.

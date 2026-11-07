@@ -18,7 +18,14 @@ Conséquences :
 - Dans le CSV, une date sans spectacle renseigné est rattachée au projet Cuarteto Tafi (confirmé : les dates à venir sont des concerts du Cuarteto).
 - La discographie appartient au projet Cuarteto Tafi : *El infinito y un amor* (19/01/2024), *Amanecer* (19/03/2021), *Semillas*, et les albums antérieurs à compléter.
 
-## 2. Colibri au trait : posture de la référence
+## 2. Direction artistique validée (phase 0)
 
-Le colibri du logo reprend la posture de l'aquarelle d'origine : vertical, tourné vers la droite,
-grande aile levée vers l'arrière, queue en éventail vers le bas.
+- **Maquette B « Nuit »** : héros plein écran au crépuscule sur le salar, dates en billets,
+  projets en aplats de couleur, tableau des documents pro.
+- **Typographies** : Fraunces (titres) + Inter Tight (texte), auto-hébergées.
+- **Colibri** : celui du Cuarteto Tafi.
+  - Couleur : l'aquarelle originale (`Colibri-002-Home-Page-2024.png` du site cuartetotafi.com),
+    copiée dans `reference/colibri-original-cuartetotafi.png` et en WebP dans `design/phase-0/assets/colibri-tafi.webp`.
+  - Logo : version monochrome tracée automatiquement à partir de l'aquarelle (traits blancs des plumes en réserve),
+    avec une version allégée pour le favicon.
+  - Droits d'usage par Tierradentro et nom à créditer : à confirmer avec l'illustrateur ou l'illustratrice avant la mise en ligne.
