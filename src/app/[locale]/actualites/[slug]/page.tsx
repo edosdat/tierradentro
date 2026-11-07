@@ -1,4 +1,6 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
+import {urlImage} from '@/sanity/lib/image'
 import {notFound} from 'next/navigation'
 import {getLocale, getTranslations} from 'next-intl/server'
 import {Link} from '@/i18n/navigation'
@@ -17,7 +19,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({params}: PageProps<'/[locale]/actualites/[slug]'>): Promise<Metadata> {
   const [{slug}, locale] = await Promise.all([params, getLocale()])
   const a = await actualite(slug)
-  return a ? {title: tr(a.titre, locale), description: tr(a.resume, locale)} : {}
+  return a ? metaPage({titre: tr(a.titre, locale), description: tr(a.resume, locale), chemin: `/actualites/${slug}`, image: a.image?.asset ? urlImage(a.image).width(1200).height(630).url() : undefined}) : {}
 }
 
 export default async function PageActualite({params}: PageProps<'/[locale]/actualites/[slug]'>) {

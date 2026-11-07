@@ -93,7 +93,6 @@ const projets: Doc[] = [
       albumDoc('El infinito y un amor', {dateSortie: '2024-01-19', nombreTitres: 11}),
       albumDoc('Amanecer', {dateSortie: '2021-03-19', nombreTitres: 10}),
       albumDoc('Semillas', {nombreTitres: 11}),
-      // Titres lus dans le nom des pochettes sur cuartetotafi.com : à vérifier.
       albumDoc('Tierradentro', {nombreTitres: 12}),
       albumDoc('Primerita', {nombreTitres: 12}),
     ],

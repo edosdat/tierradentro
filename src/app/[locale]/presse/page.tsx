@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
 import {getLocale, getTranslations} from 'next-intl/server'
 import {formaterDate, tr} from '@/lib/traduction'
 import {EnTete} from '@/components/EnTete'
@@ -8,7 +9,7 @@ import {presse} from '@/sanity/lib/requetes'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('presse')
-  return {title: t('titre'), description: t('intro')}
+  return metaPage({titre: t('titre'), description: t('intro'), chemin: '/presse'})
 }
 
 export default async function PagePresse() {

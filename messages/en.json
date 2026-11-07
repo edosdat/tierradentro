@@ -1,32 +1,203 @@
 {
   "meta": {
     "titre": "Tierradentro · live performance production",
-    "description": "Tierradentro, a live performance production company based in Toulouse: touring projects, concert dates and press area."
+    "description": "Tierradentro is a non-profit live performance production company based in Toulouse, France: touring projects, concert dates and a press and venue area.",
+    "suffixe": "Tierradentro"
   },
   "nav": {
+    "accueil": "Home",
     "association": "About us",
     "projets": "Projects",
     "agenda": "Dates",
     "presse": "Press",
     "actualites": "News",
     "contact": "Contact",
-    "espacePro": "Press & venues",
+    "espacePro": "Venues & press",
     "langue": "Language",
+    "menu": "Menu",
+    "fermer": "Close",
+    "principale": "Main navigation",
     "allerAuContenu": "Skip to content"
+  },
+  "commun": {
+    "voirTout": "See all",
+    "enSavoirPlus": "Learn more",
+    "retour": "Back",
+    "aValider": "To be confirmed",
+    "telecharger": "Download",
+    "misAJour": "updated {date}",
+    "pdf": "PDF",
+    "aucunContenu": "Nothing to show yet.",
+    "creditPhoto": "Photo: {credit}",
+    "lienExterne": "(opens in a new window)",
+    "lireVideo": "Play video"
+  },
+  "statut": {
+    "en-tournee": "On tour",
+    "creation": "New creation",
+    "a-venir": "Coming soon",
+    "archive": "Archived"
   },
   "accueil": {
     "surtitre": "Live performance production · Toulouse",
     "accroche": "A non-profit that supports artists from creation to touring, with shows ready to travel and up-to-date technical riders.",
-    "chantier": "This website is under construction.",
+    "decouvrir": "Discover",
+    "introKicker": "About us",
+    "introLien": "Who we are",
+    "introTexte": "Tierradentro comes from the Spanish \"tierra adentro\": inland, the heart of the land. We produce projects that come from there, and we take them wherever they are awaited.",
+    "chiffreDates": "shows played since {annee}",
+    "chiffreDepartements": "French départements",
+    "chiffrePays": "and {pays}",
+    "chiffreProjets": "projects on tour",
     "prochainesDates": "Upcoming dates",
-    "aucuneDate": "No dates announced yet."
+    "agendaComplet": "All dates and archives",
+    "aucuneDate": "No dates announced yet.",
+    "nosProjets": "Our projects",
+    "nosProjetsKicker": "What we present",
+    "tousLesProjets": "All projects",
+    "aLaUne": "Featured project",
+    "discographie": "Discography",
+    "voirLeProjet": "See the project",
+    "votreProjet": "Your project here?",
+    "votreProjetTexte": "Tierradentro welcomes new projects.",
+    "proposerUnProjet": "Submit a project",
+    "videoUne": "Featured video",
+    "proKicker": "Venues & press",
+    "proTitre": "Book a project",
+    "proTexte": "All documents, up to date, ready to download. No account, no password.",
+    "proLien": "Open the venues & press area",
+    "partenaires": "Our supporters"
   },
   "concert": {
     "billetterie": "Tickets",
+    "billetterieBientot": "Tickets soon",
     "complet": "Sold out",
-    "annule": "Cancelled"
+    "annule": "Cancelled",
+    "projet": "Project"
+  },
+  "agenda": {
+    "titre": "Dates",
+    "intro": "All upcoming dates of the projects presented by Tierradentro. Past dates move to the archives the following day.",
+    "aVenir": "Upcoming",
+    "archives": "Archives",
+    "archivesIntro": "Every show played, year by year.",
+    "filtrer": "Filter by project",
+    "tousProjets": "All projects",
+    "aucune": "No upcoming dates for this project.",
+    "nbDates": "{n, plural, =0 {no shows} one {# show} other {# shows}}"
+  },
+  "projets": {
+    "titre": "Projects",
+    "intro": "The projects presented by Tierradentro: bands, new creations and collaborations, ready to tour.",
+    "rejoindre": "Join Tierradentro",
+    "rejoindreTexte": "Do you have a show and are you looking for a production company? Tell us about it.",
+    "distribution": "Cast",
+    "duree": "Length",
+    "public": "Audience",
+    "jauge": "Venue size",
+    "dates": "Upcoming dates",
+    "aucuneDate": "No dates announced yet.",
+    "videos": "Videos",
+    "photos": "Photos",
+    "discographie": "Discography",
+    "titres": "{n} tracks",
+    "ecouter": "Listen",
+    "paroles": "Lyrics",
+    "presse": "In the press",
+    "pro": "Book this project",
+    "proTexte": "Technical rider, press kit and high-resolution photos in the venues & press area.",
+    "contactDiffusion": "Booking contact"
+  },
+  "pro": {
+    "titre": "Venues & press",
+    "intro": "For programmers, venues, festivals and journalists: every document up to date, with direct access. No sign-up required.",
+    "documents": "Documents",
+    "aucunDocument": "Documents for this project are coming soon.",
+    "photosHD": "High-resolution photos, free to use",
+    "photosNote": "Free to use to promote the project, with photo credit.",
+    "texteCourt": "Short description",
+    "texteLong": "Long description",
+    "copier": "Copy text",
+    "copie": "Copied",
+    "contact": "Booking contact",
+    "type": {
+      "fiche-technique": "Technical rider",
+      "plan-de-scene": "Stage plot",
+      "dossier-de-presse": "Press kit",
+      "dossier-artistique": "Artistic dossier",
+      "rapport-activite": "Activity report",
+      "autre": "Document"
+    }
+  },
+  "presse": {
+    "titre": "Press",
+    "intro": "What the media say about the projects presented by Tierradentro.",
+    "lire": "Read the article",
+    "aucun": "No articles yet."
+  },
+  "actualites": {
+    "titre": "News",
+    "intro": "Album releases, residencies, new creations: news from Tierradentro.",
+    "aucune": "No news yet.",
+    "lire": "Read more"
+  },
+  "association": {
+    "titre": "About us",
+    "mission": "Mission and artistic vision",
+    "valeurs": "Our values",
+    "equipe": "The team",
+    "identite": "Organisation details",
+    "nomLegal": "Name",
+    "forme": "Legal status",
+    "siret": "SIRET number",
+    "licence": "Performing arts licence",
+    "tva": "VAT",
+    "siege": "Registered office",
+    "aCompleter": "to be completed",
+    "rapports": "Activity reports",
+    "aucunRapport": "Activity reports will be published here."
+  },
+  "contact": {
+    "titre": "Contact",
+    "intro": "A date to book, a press request, a project to submit: write to us.",
+    "contacts": "Who to contact",
+    "contactsVides": "The team's contact details will be published here soon.",
+    "formulaire": "Write to us",
+    "nom": "Name",
+    "email": "Email",
+    "structure": "Organisation (optional)",
+    "objet": "Subject",
+    "objets": {
+      "programmation": "Booking",
+      "presse": "Press",
+      "proposition": "Project submission",
+      "autre": "Other"
+    },
+    "message": "Message",
+    "envoyer": "Send",
+    "envoi": "Sending…",
+    "succes": "Thank you, your message has been sent. We will get back to you soon.",
+    "erreurChamps": "Please check the highlighted fields.",
+    "erreurEnvoi": "Your message could not be sent. Please try again in a few minutes.",
+    "indisponible": "The form is not active yet. In the meantime, please write to us directly using the contact details opposite.",
+    "trop": "Too many messages have been sent from your connection. Please try again later.",
+    "rgpd": "Your data is only used to reply to you. It is not stored on the website and is never shared with third parties.",
+    "requis": "required"
   },
   "pied": {
-    "credit": "Hummingbird: illustration by {nom}"
+    "association": "Non-profit live performance production company, Toulouse, France.",
+    "identite": "Organisation",
+    "contacts": "Contacts",
+    "leSite": "Website",
+    "mentions": "Legal notice",
+    "confidentialite": "Privacy",
+    "credits": "Credits",
+    "credit": "Hummingbird illustration by {nom}",
+    "droits": "© Tierradentro"
+  },
+  "introuvable": {
+    "titre": "Page not found",
+    "texte": "This hummingbird has flown elsewhere. The page you are looking for does not exist or has moved.",
+    "retour": "Back to the home page"
   }
 }

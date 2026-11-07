@@ -62,3 +62,17 @@ Décision du 7 novembre 2026, après comparaison avec Payload + Supabase (Paris)
 - **Lieu des données** : Union européenne, centre Google Cloud en Belgique. Sanity ne permet pas de choisir la France.
   Conforme au RGPD (pas de transfert hors de l'UE pour le stockage). Le site ne doit donc pas annoncer un hébergement « en France ».
 - Le site lui-même reste hébergé sur Vercel.
+
+## 6. Phase 3 : langues et référencement
+
+- Interface entièrement traduite (`messages/en.json`, `messages/es.json`) ; contenu de départ traduit dans Sanity
+  par `scripts/traductions-depart.py` (ne remplit que les champs EN/ES encore vides).
+- Adresses identiques dans les trois langues (`/en/projets`, `/es/agenda`…) : plus simple à maintenir ;
+  la traduction des adresses reste possible plus tard avec next-intl.
+- Chaque page déclare ses versions dans les autres langues (hreflang), son adresse canonique et une image de partage
+  (photo du projet si elle existe, sinon `public/images/og-tierradentro.jpg`).
+- `sitemap.xml` et `robots.txt` générés automatiquement ; `/studio` et `/api/` exclus de l'indexation.
+- Données structurées schema.org : `Organization` (Tierradentro), `MusicEvent` pour chaque date à venir,
+  `MusicGroup` / `PerformingGroup` pour chaque projet, avec membres et albums.
+- Documents du Cuarteto Tafi repris de cuartetotafi.com : fiche technique son, plan de scène (converti en PDF),
+  dossier de presse 2024, paroles de deux albums et les cinq pochettes (crédit « Cuarteto Tafi »).

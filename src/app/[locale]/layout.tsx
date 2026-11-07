@@ -6,6 +6,7 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl'
 import {getTranslations} from 'next-intl/server'
 import {routing} from '@/i18n/routing'
 import {PiedDePage} from '@/components/PiedDePage'
+import {SITE_URL, alternates} from '@/lib/seo'
 import '../globals.css'
 
 // Polices auto-hébergées : aucun appel à Google Fonts.
@@ -31,8 +32,16 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('meta')
-  return {title: {default: t('titre'), template: `%s · ${t('suffixe')}`}, description: t('description')}
+  const [t, racine] = await Promise.all([getTranslations('meta'), localeRacine()])
+  const locale = racine ?? routing.defaultLocale
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {default: t('titre'), template: `%s · ${t('suffixe')}`},
+    description: t('description'),
+    alternates: alternates(locale),
+    openGraph: {type: 'website', siteName: 'Tierradentro', title: t('titre'), description: t('description'), url: `/${locale}`, images: [{url: '/images/og-tierradentro.jpg', width: 1200, height: 630, alt: 'Tierradentro'}]},
+    twitter: {card: 'summary_large_image'},
+  }
 }
 
 export default async function LayoutSite({children}: LayoutProps<'/[locale]'>) {

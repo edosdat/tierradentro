@@ -1,26 +1,31 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
 import {getTranslations} from 'next-intl/server'
 import {EnTete} from '@/components/EnTete'
 import {LigneConcert} from '@/components/Concerts'
 import {FiltreProjets} from '@/components/FiltreProjets'
 import {Conteneur, EnTetePage, TeteSection} from '@/components/Section'
 import {concertsAVenir, concertsPasses, type Concert} from '@/sanity/lib/requetes'
+import {jsonLd} from '@/lib/seo'
+import {evenement} from '@/lib/donnees-structurees'
+import {getLocale} from 'next-intl/server'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('agenda')
-  return {title: t('titre'), description: t('intro')}
+  return metaPage({titre: t('titre'), description: t('intro'), chemin: '/agenda'})
 }
 
 const projetsDe = (liste: Concert[]) =>
   [...new Map(liste.filter((c) => c.projet).map((c) => [c.projet!.slug, {slug: c.projet!.slug, titre: c.projet!.titre}])).values()]
 
 export default async function PageAgenda() {
-  const [t, aVenir, passes] = await Promise.all([getTranslations('agenda'), concertsAVenir(), concertsPasses()])
+  const [t, aVenir, passes, locale] = await Promise.all([getTranslations('agenda'), concertsAVenir(), concertsPasses(), getLocale()])
   const parAnnee = Map.groupBy(passes, (c) => c.date.slice(0, 4))
   return (
     <>
       <EnTete />
       <main id="contenu">
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(aVenir.map((c) => evenement(c, locale)))} />
         <EnTetePage titre={t('titre')} intro={t('intro')} />
         <Conteneur className="py-[clamp(48px,7vw,110px)]">
           <section aria-labelledby="a-venir">

@@ -1,9 +1,11 @@
 {
   "meta": {
     "titre": "Tierradentro · producción de artes escénicas",
-    "description": "Tierradentro, asociación de producción de artes escénicas con sede en Toulouse: proyectos en gira, agenda de conciertos y espacio profesional."
+    "description": "Tierradentro es una asociación de producción de artes escénicas con sede en Toulouse (Francia): proyectos en gira, agenda de conciertos y espacio profesional.",
+    "suffixe": "Tierradentro"
   },
   "nav": {
+    "accueil": "Inicio",
     "association": "La asociación",
     "projets": "Proyectos",
     "agenda": "Agenda",
@@ -12,21 +14,190 @@
     "contact": "Contacto",
     "espacePro": "Espacio pro",
     "langue": "Idioma",
+    "menu": "Menú",
+    "fermer": "Cerrar",
+    "principale": "Navegación principal",
     "allerAuContenu": "Ir al contenido"
+  },
+  "commun": {
+    "voirTout": "Ver todo",
+    "enSavoirPlus": "Más información",
+    "retour": "Volver",
+    "aValider": "Por confirmar",
+    "telecharger": "Descargar",
+    "misAJour": "actualizado el {date}",
+    "pdf": "PDF",
+    "aucunContenu": "Todavía no hay nada que mostrar.",
+    "creditPhoto": "Foto: {credit}",
+    "lienExterne": "(se abre en una ventana nueva)",
+    "lireVideo": "Reproducir el vídeo"
+  },
+  "statut": {
+    "en-tournee": "En gira",
+    "creation": "Creación",
+    "a-venir": "Próximamente",
+    "archive": "Archivado"
   },
   "accueil": {
     "surtitre": "Producción de artes escénicas · Toulouse",
     "accroche": "Una asociación que acompaña a artistas desde la creación hasta la gira, con espectáculos listos para viajar y fichas técnicas al día.",
-    "chantier": "El sitio está en construcción.",
+    "decouvrir": "Descubrir",
+    "introKicker": "La asociación",
+    "introLien": "Quiénes somos",
+    "introTexte": "Tierradentro viene de « tierra adentro »: el interior de la tierra. Producimos proyectos que vienen de allí y los llevamos a todos los lugares donde se los espera.",
+    "chiffreDates": "fechas desde {annee}",
+    "chiffreDepartements": "departamentos franceses",
+    "chiffrePays": "y {pays}",
+    "chiffreProjets": "proyectos en gira",
     "prochainesDates": "Próximas fechas",
-    "aucuneDate": "Todavía no hay fechas anunciadas."
+    "agendaComplet": "Agenda completa y archivo",
+    "aucuneDate": "Todavía no hay fechas anunciadas.",
+    "nosProjets": "Nuestros proyectos",
+    "nosProjetsKicker": "Lo que presentamos",
+    "tousLesProjets": "Todos los proyectos",
+    "aLaUne": "Proyecto destacado",
+    "discographie": "Discografía",
+    "voirLeProjet": "Ver el proyecto",
+    "votreProjet": "¿Tu proyecto aquí?",
+    "votreProjetTexte": "Tierradentro acoge nuevos proyectos.",
+    "proposerUnProjet": "Proponer un proyecto",
+    "videoUne": "Vídeo destacado",
+    "proKicker": "Espacio pro",
+    "proTitre": "Programar un proyecto",
+    "proTexte": "Todos los documentos, al día, para descargar directamente. Sin cuenta ni contraseña.",
+    "proLien": "Abrir el espacio pro",
+    "partenaires": "Nos apoyan"
   },
   "concert": {
     "billetterie": "Entradas",
+    "billetterieBientot": "Entradas próximamente",
     "complet": "Agotado",
-    "annule": "Cancelado"
+    "annule": "Cancelado",
+    "projet": "Proyecto"
+  },
+  "agenda": {
+    "titre": "Agenda",
+    "intro": "Todas las próximas fechas de los proyectos presentados por Tierradentro. Una fecha pasada se archiva al día siguiente.",
+    "aVenir": "Próximas",
+    "archives": "Archivo",
+    "archivesIntro": "Todas las fechas realizadas, año por año.",
+    "filtrer": "Filtrar por proyecto",
+    "tousProjets": "Todos los proyectos",
+    "aucune": "No hay próximas fechas para este proyecto.",
+    "nbDates": "{n, plural, =0 {ninguna fecha} one {# fecha} other {# fechas}}"
+  },
+  "projets": {
+    "titre": "Proyectos",
+    "intro": "Los proyectos presentados por Tierradentro: grupos, creaciones y colaboraciones, listos para girar.",
+    "rejoindre": "Unirse a Tierradentro",
+    "rejoindreTexte": "¿Tienes un proyecto escénico y buscas una estructura de producción? Cuéntanoslo.",
+    "distribution": "Reparto",
+    "duree": "Duración",
+    "public": "Público",
+    "jauge": "Aforo",
+    "dates": "Próximas fechas",
+    "aucuneDate": "Todavía no hay fechas anunciadas.",
+    "videos": "Vídeos",
+    "photos": "Fotos",
+    "discographie": "Discografía",
+    "titres": "{n} canciones",
+    "ecouter": "Escuchar",
+    "paroles": "Letras",
+    "presse": "En la prensa",
+    "pro": "Programar este proyecto",
+    "proTexte": "Ficha técnica, dossier de prensa y fotos en alta resolución en el espacio pro.",
+    "contactDiffusion": "Contacto de difusión"
+  },
+  "pro": {
+    "titre": "Espacio pro",
+    "intro": "Para programadores, salas, festivales y prensa: todos los documentos al día, con acceso directo. Sin registro.",
+    "documents": "Documentos",
+    "aucunDocument": "Los documentos de este proyecto llegarán pronto.",
+    "photosHD": "Fotos en alta resolución, libres de derechos",
+    "photosNote": "Libres de derechos para la promoción del proyecto, citando el crédito.",
+    "texteCourt": "Texto corto",
+    "texteLong": "Texto largo",
+    "copier": "Copiar el texto",
+    "copie": "Copiado",
+    "contact": "Contacto de difusión",
+    "type": {
+      "fiche-technique": "Ficha técnica",
+      "plan-de-scene": "Plano de escena",
+      "dossier-de-presse": "Dossier de prensa",
+      "dossier-artistique": "Dossier artístico",
+      "rapport-activite": "Informe de actividad",
+      "autre": "Documento"
+    }
+  },
+  "presse": {
+    "titre": "Prensa",
+    "intro": "Lo que dicen los medios sobre los proyectos presentados por Tierradentro.",
+    "lire": "Leer el artículo",
+    "aucun": "Todavía no hay artículos."
+  },
+  "actualites": {
+    "titre": "Noticias",
+    "intro": "Lanzamientos de discos, residencias, creaciones: las novedades de Tierradentro.",
+    "aucune": "Todavía no hay noticias.",
+    "lire": "Seguir leyendo"
+  },
+  "association": {
+    "titre": "La asociación",
+    "mission": "Misión y proyecto artístico",
+    "valeurs": "Nuestros valores",
+    "equipe": "El equipo",
+    "identite": "Datos de la asociación",
+    "nomLegal": "Nombre",
+    "forme": "Forma jurídica",
+    "siret": "Número SIRET",
+    "licence": "Licencia de empresario de espectáculos",
+    "tva": "IVA",
+    "siege": "Sede",
+    "aCompleter": "por completar",
+    "rapports": "Informes de actividad",
+    "aucunRapport": "Los informes de actividad se publicarán aquí."
+  },
+  "contact": {
+    "titre": "Contacto",
+    "intro": "Una fecha que programar, una solicitud de prensa, un proyecto que proponernos: escríbenos.",
+    "contacts": "Vuestros interlocutores",
+    "contactsVides": "Los datos de contacto del equipo se publicarán aquí próximamente.",
+    "formulaire": "Escríbenos",
+    "nom": "Nombre",
+    "email": "Correo electrónico",
+    "structure": "Organización (opcional)",
+    "objet": "Asunto",
+    "objets": {
+      "programmation": "Programación",
+      "presse": "Prensa",
+      "proposition": "Propuesta de proyecto",
+      "autre": "Otro"
+    },
+    "message": "Mensaje",
+    "envoyer": "Enviar",
+    "envoi": "Enviando…",
+    "succes": "Gracias, tu mensaje se ha enviado. Te responderemos pronto.",
+    "erreurChamps": "Revisa los campos señalados.",
+    "erreurEnvoi": "No se ha podido enviar el mensaje. Inténtalo de nuevo dentro de unos minutos.",
+    "indisponible": "El formulario todavía no está activo. Mientras tanto, escríbenos directamente a las direcciones indicadas.",
+    "trop": "Se han enviado demasiados mensajes desde tu conexión. Inténtalo más tarde.",
+    "rgpd": "Tus datos solo sirven para responderte. No se guardan en el sitio ni se comparten con terceros.",
+    "requis": "obligatorio"
   },
   "pied": {
-    "credit": "Colibrí: ilustración de {nom}"
+    "association": "Asociación de producción de artes escénicas, Toulouse (Francia).",
+    "identite": "Datos",
+    "contacts": "Contactos",
+    "leSite": "El sitio",
+    "mentions": "Aviso legal",
+    "confidentialite": "Privacidad",
+    "credits": "Créditos",
+    "credit": "Colibrí: ilustración de {nom}",
+    "droits": "© Tierradentro"
+  },
+  "introuvable": {
+    "titre": "Página no encontrada",
+    "texte": "Este colibrí ha volado a otra parte. La página que buscas no existe o ha cambiado de dirección.",
+    "retour": "Volver al inicio"
   }
 }

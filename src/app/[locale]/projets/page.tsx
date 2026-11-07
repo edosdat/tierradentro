@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
 import {getTranslations} from 'next-intl/server'
 import {Link} from '@/i18n/navigation'
 import {EnTete} from '@/components/EnTete'
@@ -8,7 +9,7 @@ import {projets} from '@/sanity/lib/requetes'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('projets')
-  return {title: t('titre'), description: t('intro')}
+  return metaPage({titre: t('titre'), description: t('intro'), chemin: '/projets'})
 }
 
 export default async function PageProjets() {

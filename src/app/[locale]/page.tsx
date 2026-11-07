@@ -8,6 +8,8 @@ import {CarteProjet, Statut} from '@/components/Projets'
 import {Conteneur, Kicker, LienFleche, TeteSection} from '@/components/Section'
 import {VideoLite} from '@/components/VideoLite'
 import {ImageSanity} from '@/components/ImageSanity'
+import {jsonLd} from '@/lib/seo'
+import {evenement, organisation} from '@/lib/donnees-structurees'
 import {chiffresActivite, concertsAVenir, partenaires, projet, projets, projetsPro, reglages} from '@/sanity/lib/requetes'
 
 export default async function Accueil() {
@@ -32,6 +34,10 @@ export default async function Accueil() {
     <>
       <EnTete surHeros />
       <main id="contenu">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLd([organisation(regl?.reseaux?.map((r) => r.url)), ...dates.slice(0, 6).map((c) => evenement(c, locale))])}
+        />
         <HerosAccueil accroche={accroche} />
 
         {/* Présentation et preuve d'activité */}

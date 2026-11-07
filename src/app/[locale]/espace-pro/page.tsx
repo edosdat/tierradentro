@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
 import {getLocale, getTranslations} from 'next-intl/server'
 import {Link} from '@/i18n/navigation'
 import {formaterDate, tr} from '@/lib/traduction'
@@ -12,7 +13,7 @@ import {projetsPro} from '@/sanity/lib/requetes'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('pro')
-  return {title: t('titre'), description: t('intro')}
+  return metaPage({titre: t('titre'), description: t('intro'), chemin: '/espace-pro'})
 }
 
 const taille = (octets?: number) => (octets ? `${Math.max(1, Math.round(octets / 1024 / 102.4) / 10)} Mo` : '')

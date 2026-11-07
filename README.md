@@ -14,7 +14,7 @@ Le Cuarteto Tafi est l'un des projets présentés, à côté de collaborations e
 | 0 | Direction artistique : maquette B « Nuit », Fraunces + Inter Tight, colibri du Cuarteto Tafi | Validée |
 | 1 | Next.js 16 + Sanity (Studio en français sur `/studio`), schémas, import des dates | **Livrée**, contenu importé |
 | 2 | Pages publiques en français | **Livrée** |
-| 3 | Anglais et espagnol, SEO, données structurées | À faire |
+| 3 | Anglais et espagnol, SEO, données structurées | **Livrée** |
 | 4 | Sécurité, performance, accessibilité, guide d'administration | À faire |
 
 ## Technique
@@ -60,11 +60,11 @@ Réglages à faire dans [sanity.io/manage](https://www.sanity.io/manage) → pro
   en cochant **Allow credentials**. Sans cela, le Studio ne peut pas se connecter.
 - **Members** : inviter Ludo avec le rôle *Editor* ; Eloi garde *Administrator*. Double authentification activée sur les deux comptes Google.
 
-Réimporter le contenu de départ (remplace les documents de même identifiant, sans doublons) :
+Réimporter le contenu de départ (sans écraser ce qui a été modifié dans le Studio) :
 
 ```bash
 npm run seed                                     # régénère data/seed.ndjson à partir du CSV
-SANITY_API_WRITE_TOKEN=… npm run seed:importer   # jeton « Editor » créé dans API → Tokens
+SANITY_API_WRITE_TOKEN=… npm run seed:importer   # crée seulement les documents absents (ajouter -- --remplacer pour écraser)
 ```
 
 ### Contenu importé

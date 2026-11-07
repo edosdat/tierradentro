@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import {metaPage} from '@/lib/seo'
 import {notFound} from 'next/navigation'
 import {getLocale} from 'next-intl/server'
 import {tr} from '@/lib/traduction'
@@ -16,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({params}: PageProps<'/[locale]/[page]'>): Promise<Metadata> {
   const [{page: slug}, locale] = await Promise.all([params, getLocale()])
   const p = await page(slug)
-  return p ? {title: tr(p.titre, locale)} : {}
+  return p ? metaPage({titre: tr(p.titre, locale), chemin: `/${slug}`}) : {}
 }
 
 export default async function PageSimple({params}: PageProps<'/[locale]/[page]'>) {

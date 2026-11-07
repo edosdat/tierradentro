@@ -1,4 +1,7 @@
 import type {Metadata} from 'next'
+import {jsonLd, metaPage} from '@/lib/seo'
+import {evenement, groupe} from '@/lib/donnees-structurees'
+import {urlImage} from '@/sanity/lib/image'
 import {notFound} from 'next/navigation'
 import {getLocale, getTranslations} from 'next-intl/server'
 import {Link} from '@/i18n/navigation'
@@ -21,7 +24,7 @@ export async function generateMetadata({params}: PageProps<'/[locale]/projets/[s
   const [{slug}, locale] = await Promise.all([params, getLocale()])
   const p = await projet(slug)
   if (!p) return {}
-  return {title: p.titre, description: tr(p.accroche, locale)}
+  return metaPage({titre: p.titre, description: tr(p.accroche, locale), chemin: `/projets/${slug}`, image: p.imagePrincipale?.asset ? urlImage(p.imagePrincipale).width(1200).height(630).url() : undefined})
 }
 
 const H2 = ({children, id}: {children: React.ReactNode; id: string}) => (
@@ -45,6 +48,7 @@ export default async function PageProjet({params}: PageProps<'/[locale]/projets/
     <>
       <EnTete />
       <main id="contenu">
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([groupe(p, locale), ...p.dates.map((d) => evenement(d, locale))])} />
         <section className={`${c.fond} ${c.texte} ${c.sombre ? 'sur-nuit' : ''} relative overflow-hidden`}>
           <Conteneur className="grid gap-10 pt-14 pb-16 sm:pt-20 lg:grid-cols-[7fr_5fr] lg:items-end">
             <div>

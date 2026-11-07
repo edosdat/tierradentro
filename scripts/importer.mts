@@ -1,7 +1,11 @@
 /**
- * Envoie data/seed.ndjson dans le projet Sanity (createOrReplace : relançable sans doublons).
+ * Envoie data/seed.ndjson dans le projet Sanity.
  *
- *   SANITY_API_WRITE_TOKEN=… npm run seed:importer
+ *   SANITY_API_WRITE_TOKEN=… npm run seed:importer              → crée seulement les documents absents
+ *   SANITY_API_WRITE_TOKEN=… npm run seed:importer -- page      → idem, pour un type de document
+ *   SANITY_API_WRITE_TOKEN=… npm run seed:importer -- --remplacer   → ÉCRASE les documents existants
+ *
+ * Par défaut, rien de ce qui a été saisi ou modifié dans le Studio n'est écrasé.
  *
  * Le jeton (Sanity → API → Tokens, permission « Editor ») n'est jamais enregistré dans le dépôt.
  */
@@ -23,13 +27,17 @@ const docs = readFileSync(resolve(import.meta.dirname, '../data/seed.ndjson'), '
   .filter(Boolean)
   .map((ligne) => JSON.parse(ligne))
   // Import partiel : `npm run seed:importer -- page reglages` n'envoie que ces types de documents.
-  .filter((doc) => process.argv.length <= 2 || process.argv.slice(2).includes(doc._type))
+  .filter((doc) => {
+    const types = process.argv.slice(2).filter((a) => !a.startsWith('--'))
+    return types.length === 0 || types.includes(doc._type)
+  })
+const remplacer = process.argv.includes('--remplacer')
 
 const TAILLE_LOT = 50
 for (let i = 0; i < docs.length; i += TAILLE_LOT) {
   const lot = docs.slice(i, i + TAILLE_LOT)
   const transaction = client.transaction()
-  for (const doc of lot) transaction.createOrReplace(doc)
+  for (const doc of lot) (remplacer ? transaction.createOrReplace(doc) : transaction.createIfNotExists(doc))
   await transaction.commit({visibility: 'async'})
   console.log(`  ${Math.min(i + TAILLE_LOT, docs.length)} / ${docs.length}`)
 }
