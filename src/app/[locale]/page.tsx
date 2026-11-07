@@ -38,7 +38,7 @@ export default async function Accueil() {
           type="application/ld+json"
           dangerouslySetInnerHTML={jsonLd([organisation(regl?.reseaux?.map((r) => r.url)), ...dates.slice(0, 6).map((c) => evenement(c, locale))])}
         />
-        <HerosAccueil accroche={accroche} />
+        <HerosAccueil accroche={accroche} video={regl?.videoFond} />
 
         {/* Présentation et preuve d'activité */}
         <section id="suite" aria-labelledby="titre-intro" className="py-[clamp(64px,9vw,140px)]">

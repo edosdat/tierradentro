@@ -6,6 +6,7 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl'
 import {getTranslations} from 'next-intl/server'
 import {routing} from '@/i18n/routing'
 import {PiedDePage} from '@/components/PiedDePage'
+import {Analytics} from '@vercel/analytics/next'
 import {SITE_URL, alternates} from '@/lib/seo'
 import '../globals.css'
 
@@ -49,11 +50,17 @@ export default async function LayoutSite({children}: LayoutProps<'/[locale]'>) {
   if (!hasLocale(routing.locales, locale)) notFound()
   return (
     <html lang={locale} className={`${fraunces.variable} ${interTight.variable}`}>
+      <head>
+        {/* Connexion anticipée au serveur d'images : les photos arrivent plus vite. */}
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+      </head>
       <body className="min-h-dvh font-sans antialiased">
         <NextIntlClientProvider>
           {children}
           <PiedDePage />
         </NextIntlClientProvider>
+        {/* Mesure d'audience Vercel : sans cookie, aucune bannière nécessaire */}
+        <Analytics />
       </body>
     </html>
   )

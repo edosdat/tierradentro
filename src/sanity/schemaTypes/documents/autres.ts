@@ -168,6 +168,24 @@ export const reglages = defineType({
     defineField({name: 'emailContact', title: 'Adresse qui reçoit le formulaire de contact', type: 'email'}),
     defineField({name: 'reseaux', title: 'Réseaux sociaux', type: 'array', of: [{type: 'lienExterne'}]}),
     defineField({name: 'videoUne', title: 'Vidéo à la une (page d\'accueil)', type: 'videoYoutube'}),
+    defineField({
+      name: 'videoFond',
+      title: 'Vidéo de fond de l\'accueil',
+      description:
+        'Courte vidéo sans son qui tourne en boucle derrière le titre (10 à 30 secondes, format MP4, moins de 10 Mo). Laisser vide pour garder le ciel de nuit.',
+      type: 'file',
+      options: {accept: 'video/mp4,video/webm'},
+      fields: [
+        defineField({
+          name: 'cadrage',
+          title: 'Cadrage vertical sur téléphone',
+          description: 'Sur un téléphone, la vidéo est recadrée. 50 = centre, 20 = plutôt le haut, 80 = plutôt le bas.',
+          type: 'number',
+          initialValue: 50,
+          validation: (rule) => rule.min(0).max(100),
+        }),
+      ],
+    }),
     defineField({name: 'creditIllustration', title: 'Crédit de l\'illustration du colibri', type: 'string', initialValue: 'Ludo Deny'}),
   ],
   preview: {prepare: () => ({title: 'Réglages du site'})},

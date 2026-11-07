@@ -11,9 +11,12 @@ export async function PiedDePage() {
   const aCompleter = <span className="italic opacity-70">{ta('aCompleter')}</span>
   return (
     <footer className="sur-nuit overflow-hidden bg-nuit text-sable">
-      <p aria-hidden="true" className="titre-display -mb-4 -translate-y-[0.12em] whitespace-nowrap text-[clamp(4rem,18vw,17rem)] leading-[0.8] text-sable/[0.07]">
-        Tierradentro
-      </p>
+      {/* Décor : le mot est dessiné par CSS, il n'est donc ni lu ni compté comme du texte. */}
+      <div
+        aria-hidden="true"
+        data-mot="Tierradentro"
+        className="titre-display -mb-4 -translate-y-[0.12em] whitespace-nowrap text-[clamp(4rem,18vw,17rem)] leading-[0.8] text-sable/[0.07] before:content-[attr(data-mot)]"
+      />
       <Conteneur className="pb-8">
         <div className="grid gap-10 text-[15px] sm:grid-cols-2 lg:grid-cols-4">
           <div>

@@ -20,7 +20,8 @@ export async function Statut({statut, className = ''}: {statut: ProjetCourt['sta
 }
 
 // Carte en aplat de couleur (accueil, liste des projets).
-export async function CarteProjet({p, grande = true}: {p: ProjetCourt; grande?: boolean}) {
+export async function CarteProjet({p, grande = true, niveau = 3}: {p: ProjetCourt; grande?: boolean; niveau?: 2 | 3}) {
+  const Titre = niveau === 2 ? 'h2' : 'h3'
   const locale = await getLocale()
   const c = couleurProjet(p.couleur)
   const enAttente = p.statut === 'a-venir'
@@ -34,7 +35,7 @@ export async function CarteProjet({p, grande = true}: {p: ProjetCourt; grande?: 
         <span className="text-right text-sm">{tr(p.sousTitre, locale) ?? p.duree}</span>
       </div>
       <div className="relative z-10">
-        <h3 className={`titre-display max-w-[13ch] text-[clamp(2.2rem,4.2vw,3.8rem)] leading-[0.95] [text-wrap:balance] ${enAttente ? 'italic' : ''}`}>{p.titre}</h3>
+        <Titre className={`titre-display max-w-[13ch] text-[clamp(2.2rem,4.2vw,3.8rem)] leading-[0.95] [text-wrap:balance] ${enAttente ? 'italic' : ''}`}>{p.titre}</Titre>
         {p.accroche ? <p className="mt-4 max-w-xl text-[15px] leading-relaxed">{tr(p.accroche, locale)}</p> : null}
       </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}

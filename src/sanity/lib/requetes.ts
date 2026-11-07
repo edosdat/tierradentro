@@ -130,8 +130,8 @@ const ASSOCIATION = defineQuery(`*[_id == "association"][0] { mission, valeurs, 
   "rapports": rapports[]{_key, type, libelle, miseAJour, "url": fichier.asset->url, "taille": fichier.asset->size} }`)
 export const association = () => chercher<Association | null>(ASSOCIATION)
 
-export type Reglages = {accroche?: Traduit; contacts?: Contact[]; emailContact?: string; reseaux?: {_key: string; libelle: string; url: string}[]; videoUne?: Video; creditIllustration?: string}
-const REGLAGES = defineQuery(`*[_id == "reglages"][0] { accroche, contacts, emailContact, reseaux, videoUne, creditIllustration }`)
+export type Reglages = {accroche?: Traduit; contacts?: Contact[]; emailContact?: string; reseaux?: {_key: string; libelle: string; url: string}[]; videoUne?: Video; videoFond?: {url?: string; cadrage?: number}; creditIllustration?: string}
+const REGLAGES = defineQuery(`*[_id == "reglages"][0] { accroche, contacts, emailContact, reseaux, videoUne, creditIllustration, "videoFond": videoFond{"url": asset->url, cadrage} }`)
 export const reglages = () => chercher<Reglages | null>(REGLAGES)
 
 export type Partenaire = {_id: string; nom: string; logo: NonNullable<ImageSanity> & {alt: string}; lien?: string}

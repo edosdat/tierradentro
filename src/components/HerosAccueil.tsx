@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {getTranslations} from 'next-intl/server'
+import {VideoFond} from './VideoFond'
 
 // Héros de l'accueil : crépuscule sur le salar, jacaranda, colibri aquarelle de Ludo Deny.
 // Décor en CSS et SVG légers ; le texte reste sur des aplats de couleur unie (contraste vérifié).
@@ -40,7 +41,7 @@ function Jacaranda() {
   )
 }
 
-export async function HerosAccueil({accroche}: {accroche: string}) {
+export async function HerosAccueil({accroche, video}: {accroche: string; video?: {url?: string; cadrage?: number}}) {
   const t = await getTranslations('accueil')
   return (
     <section aria-labelledby="titre-accueil" className="sur-nuit relative isolate flex min-h-[max(640px,min(100svh,960px))] flex-col overflow-hidden text-sable">
@@ -52,6 +53,14 @@ export async function HerosAccueil({accroche}: {accroche: string}) {
       </div>
       <Montagnes className="absolute inset-x-0 top-[76%] -z-20 h-[7%] w-full -scale-y-100 opacity-45 blur-[2px]" />
       <Jacaranda />
+
+      {video?.url ? (
+        <>
+          {/* La vidéo recouvre le décor quand elle démarre ; le voile garde le texte lisible. */}
+          <VideoFond src={video.url} cadrage={video.cadrage} />
+          <div aria-hidden="true" className="absolute inset-0 -z-[5] bg-[linear-gradient(90deg,rgba(13,16,32,.82)_0%,rgba(13,16,32,.55)_45%,rgba(13,16,32,.25)_100%),linear-gradient(180deg,rgba(13,16,32,.55)_0%,transparent_30%,transparent_70%,rgba(13,16,32,.7)_100%)]" />
+        </>
+      ) : null}
 
       <Image
         src="/images/colibri-aquarelle.webp"

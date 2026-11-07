@@ -4,7 +4,8 @@ import type {Bloc} from '@/sanity/lib/requetes'
 // Rendu du texte mis en forme saisi dans le Studio : aucun HTML brut n'est interprété.
 const composants: PortableTextComponents = {
   block: {
-    h3: ({children}) => <h3 className="titre-display mt-10 mb-3 text-3xl">{children}</h3>,
+    // L'« intertitre » du Studio suit directement le titre de la page : c'est un titre de niveau 2.
+    h3: ({children}) => <h2 className="titre-display mt-10 mb-3 text-3xl">{children}</h2>,
     blockquote: ({children}) => <blockquote className="titre-display my-8 border-l-2 border-jacaranda pl-6 text-2xl italic">{children}</blockquote>,
     normal: ({children}) => <p className="my-4">{children}</p>,
   },
