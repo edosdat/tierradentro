@@ -17,7 +17,6 @@ function formaterDate(iso: string, locale: string) {
 
 async function ListeDates() {
   const [dates, t, locale] = await Promise.all([prochainesDates(), getTranslations(), getLocale()])
-  if (dates === null) return <p className="text-gris">{t('accueil.sanityNonConfigure')}</p>
   if (dates.length === 0) return <p className="text-gris">{t('accueil.aucuneDate')}</p>
   return (
     <ol className="border-t border-nuit">

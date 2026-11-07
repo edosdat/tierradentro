@@ -9,7 +9,7 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "seed": "tsx scripts/import-dates.ts",
-    "seed:importer": "sanity dataset import data/seed.ndjson production --replace",
+    "seed:importer": "tsx scripts/importer.mts",
     "sanity:valider": "sanity schema validate"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@sanity/client": "^8.15.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

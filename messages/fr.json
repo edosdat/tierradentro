@@ -19,8 +19,7 @@
     "accroche": "Une association qui accompagne des artistes de la création à la tournée, avec des spectacles prêts à partir et des dossiers techniques à jour.",
     "chantier": "Le site est en cours de construction.",
     "prochainesDates": "Prochaines dates",
-    "aucuneDate": "Aucune date annoncée pour le moment.",
-    "sanityNonConfigure": "Les dates s'afficheront ici dès que le contenu sera branché."
+    "aucuneDate": "Aucune date annoncée pour le moment."
   },
   "concert": {
     "billetterie": "Billetterie",

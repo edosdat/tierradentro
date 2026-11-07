@@ -12,7 +12,7 @@ Le Cuarteto Tafi est l'un des projets présentés, à côté de collaborations e
 | Phase | Contenu | État |
 |---|---|---|
 | 0 | Direction artistique : maquette B « Nuit », Fraunces + Inter Tight, colibri du Cuarteto Tafi | Validée |
-| 1 | Next.js 16 + Sanity (Studio en français sur `/studio`), schémas, import des dates | **Livrée** (reste à créer le projet Sanity) |
+| 1 | Next.js 16 + Sanity (Studio en français sur `/studio`), schémas, import des dates | **Livrée**, contenu importé |
 | 2 | Pages publiques en français | À faire |
 | 3 | Anglais et espagnol, SEO, données structurées | À faire |
 | 4 | Sécurité, performance, accessibilité, guide d'administration | À faire |
@@ -42,27 +42,28 @@ Il faut Node.js 22 ou plus récent.
 
 ```bash
 npm install
-cp .env.example .env.local   # puis renseigner l'identifiant du projet Sanity
+cp .env.example .env.local   # facultatif : les valeurs par défaut pointent déjà vers le projet
 npm run dev                  # http://localhost:3000 (site) et http://localhost:3000/studio
 ```
 
-Sans identifiant Sanity, le site s'affiche quand même et indique que les dates arriveront plus tard.
 
-## Brancher Sanity (à faire une fois)
+## Sanity
 
-1. Créer un compte sur [sanity.io](https://www.sanity.io) avec le compte Google d'Eloi, et activer la double authentification.
-2. Créer un projet « Tierradentro » avec un jeu de données `production` (visibilité **publique** : le site ne fait que lire le contenu publié).
-3. Copier l'identifiant du projet dans `.env.local` (`NEXT_PUBLIC_SANITY_PROJECT_ID`) et dans les variables d'environnement Vercel.
-4. Dans *API → CORS origins* du projet : autoriser `http://localhost:3000` et l'adresse du site (Vercel puis nom de domaine), **avec** « Allow credentials » (nécessaire au Studio).
-5. Importer le contenu de départ :
+Projet Sanity : **`cnmla0ea`**, jeu de données `production` (public en lecture : le site ne lit que le contenu publié).
+L'identifiant n'est pas secret : il est écrit par défaut dans `src/sanity/env.ts`.
 
-   ```bash
-   npx sanity login
-   npm run seed            # régénère data/seed.ndjson à partir du CSV
-   npm run seed:importer   # l'envoie dans Sanity (remplace les documents de même identifiant)
-   ```
+Réglages à faire dans [sanity.io/manage](https://www.sanity.io/manage) → projet Tierradentro :
 
-6. Inviter Ludo dans le projet avec le rôle *Editor* ; Eloi garde le rôle *Administrator*.
+- **API → CORS origins** : ajouter `http://localhost:3000` et l'adresse du site (Vercel, puis le nom de domaine),
+  en cochant **Allow credentials**. Sans cela, le Studio ne peut pas se connecter.
+- **Members** : inviter Ludo avec le rôle *Editor* ; Eloi garde *Administrator*. Double authentification activée sur les deux comptes Google.
+
+Réimporter le contenu de départ (remplace les documents de même identifiant, sans doublons) :
+
+```bash
+npm run seed                                     # régénère data/seed.ndjson à partir du CSV
+SANITY_API_WRITE_TOKEN=… npm run seed:importer   # jeton « Editor » créé dans API → Tokens
+```
 
 ### Contenu importé
 
