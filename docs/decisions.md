@@ -28,4 +28,12 @@ Conséquences :
     copiée dans `reference/colibri-original-cuartetotafi.png` et en WebP dans `design/phase-0/assets/colibri-tafi.webp`.
   - Logo : version monochrome tracée automatiquement à partir de l'aquarelle (traits blancs des plumes en réserve),
     avec une version allégée pour le favicon.
-  - Droits d'usage par Tierradentro et nom à créditer : à confirmer avec l'illustrateur ou l'illustratrice avant la mise en ligne.
+  - Crédit : « Colibri : illustration de Ludo Deny » (pied de page et page Crédits).
+
+## 3. Distribution des projets
+
+- **Cuarteto Tafi** : Leonor Harispe (chant, textes), Ludovic Deny (bouzouki, chœurs),
+  Matthieu Guenez (guitare, oud), Frédéric Theiler (percussions, chœurs).
+- ***Des espoirs plein le corps*** : les quatre musiciens du Cuarteto Tafi, Justine Marmouyet (danse), Fanny Do (piano).
+- ***La voix des femmes d'Amérique latine*** : les mêmes artistes (les quatre musiciens du Cuarteto Tafi et Fanny Do),
+  avec Jean-Luc Amestoy (accordéon).
