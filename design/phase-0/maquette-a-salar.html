@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="fr" data-pair="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tierradentro · Maquette A « Salar »</title>
+<meta name="description" content="Phase 0 — proposition A de page d'accueil pour Tierradentro, association toulousaine de production de spectacles vivants.">
+<link rel="icon" href="assets/colibri-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  /* ---------- En-tête ---------- */
+  .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--sable) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(20,24,43,.08); }
+  .top .wrap { display: flex; align-items: center; gap: 24px; height: 72px; }
+  .brand { display: flex; align-items: center; color: var(--nuit); text-decoration: none; }
+  .brand img { height: 30px; width: auto; }
+  .brand .logo-b { display: none; }
+  [data-pair="b"] .brand .logo-a { display: none; }
+  [data-pair="b"] .brand .logo-b { display: block; }
+  .nav { display: flex; gap: 22px; margin-left: auto; font-size: 15px; font-weight: 500; }
+  .nav a { text-decoration: none; padding: 6px 0; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .4s var(--ease); }
+  .nav a:hover { background-size: 100% 1px; }
+  .langs { display: flex; gap: 2px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+  .langs a { text-decoration: none; padding: 6px 7px; color: var(--gris); }
+  .langs a[aria-current] { color: var(--nuit); box-shadow: inset 0 -2px 0 var(--magenta); }
+  .btn-pro { font-size: 14px; font-weight: 600; text-decoration: none; padding: 10px 14px; background: var(--nuit); color: var(--sable); white-space: nowrap; }
+  .burger { display: none; margin-left: auto; background: none; border: 1px solid rgba(20,24,43,.3); padding: 9px 12px; font: 600 14px var(--f-text); color: var(--nuit); }
+  @media (max-width: 1080px) { .nav { display: none; } .langs { margin-left: auto; } }
+  @media (max-width: 620px) { .btn-pro, .langs { display: none; } .burger { display: block; } .brand img { height: 26px; } }
+
+  /* ---------- Héros ---------- */
+  .hero { position: relative; padding-top: clamp(36px, 6vw, 84px); }
+  .hero-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 24px; align-items: center; }
+  .hero-text { grid-column: 1 / span 7; position: relative; z-index: 2; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .eyebrow::before { content: ""; width: 36px; height: 1px; background: currentColor; }
+  .hero h1 { font-size: clamp(2.9rem, 7.4vw, 7.4rem); margin: 22px 0 0; }
+  .hero h1 em { color: var(--magenta-encre); }
+  .lead { max-width: 36rem; font-size: clamp(17px, 1.5vw, 20px); color: var(--gris); margin: 30px 0 0; }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 34px; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 20px; border: 1px solid var(--nuit); transition: background .3s, color .3s; }
+  .cta.primary { background: var(--nuit); color: var(--sable); }
+  .cta:hover { background: var(--magenta-encre); border-color: var(--magenta-encre); color: #fff; }
+  .hero-bird { grid-column: 8 / span 5; justify-self: end; width: min(115%, 600px); margin: 0 -3% -14% 0; position: relative; z-index: 3; }
+  .hero-bird img { width: 100%; height: auto; animation: hover 7s ease-in-out infinite alternate; }
+  @keyframes hover { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-14px) rotate(1.5deg); } }
+  @media (max-width: 900px) {
+    .hero-text { grid-column: 1 / -1; }
+    .hero-bird { grid-column: 1 / -1; width: min(70%, 360px); margin: -10px 0 -22%; }
+  }
+
+  /* ---------- Salar ---------- */
+  .salar { position: relative; height: clamp(300px, 46vw, 580px); overflow: hidden; margin: 24px 0 0; isolation: isolate; }
+  .salar .sky { position: absolute; inset: 0 0 40% 0; background: linear-gradient(180deg, #1F5F91 0%, #2E7BB5 40%, #86B9DE 80%, #CFE3F0 100%); }
+  .salar .mounts { position: absolute; left: 0; width: 100%; height: 9%; bottom: 40%; z-index: 1; }
+  .salar .mounts.mirror { bottom: auto; top: 60%; transform: scaleY(-1); opacity: .35; filter: blur(1.5px); z-index: 1; }
+  .salar .plain { position: absolute; inset: 60% 0 0 0; background: linear-gradient(180deg, #BFD8EA 0%, #E4EEF4 22%, #F7F6F2 60%, var(--sable) 100%); overflow: hidden; }
+  .salar .crust { position: absolute; inset: 0; background: url("assets/salar-croute.svg") center top / cover no-repeat; opacity: .9; }
+  .salar .flock { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+  .salar .flock svg { position: absolute; width: 22px; color: var(--nuit); opacity: .75; }
+  .salar figcaption { position: absolute; right: var(--gutter); bottom: 14px; z-index: 3; font-size: 12px; letter-spacing: .06em; color: var(--gris); font-style: italic; }
+  .crosser { position: absolute; z-index: 4; top: 22%; left: -80px; width: 54px; color: var(--nuit); animation: cross 9s 1.2s cubic-bezier(.45,.05,.35,1) 1 forwards; opacity: 0; }
+  @keyframes cross {
+    0% { transform: translate(0, 0) scaleX(-1); opacity: 0; }
+    6% { opacity: .9; }
+    40% { transform: translate(42vw, -40px) scaleX(-1); }
+    55% { transform: translate(52vw, -10px) scaleX(-1); }
+    94% { opacity: .9; }
+    100% { transform: translate(115vw, -90px) scaleX(-1); opacity: 0; }
+  }
+
+  /* ---------- Preuves ---------- */
+  .facts { border-bottom: 1px solid rgba(20,24,43,.12); }
+  .facts ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+  .facts li { padding: 34px 24px 30px 0; border-right: 1px solid rgba(20,24,43,.12); }
+  .facts li + li { padding-left: 28px; }
+  .facts li:last-child { border-right: 0; }
+  .facts strong { display: block; font-family: var(--f-display); font-weight: var(--display-wght); font-size: clamp(2.2rem, 3.6vw, 3.3rem); line-height: 1; white-space: nowrap; letter-spacing: var(--display-track); }
+  .facts span { color: var(--gris); font-size: 15px; }
+  @media (max-width: 760px) { .facts ul { grid-template-columns: 1fr; } .facts li, .facts li + li { padding: 22px 0; border-right: 0; border-bottom: 1px solid rgba(20,24,43,.12); } .facts li:last-child { border-bottom: 0; } }
+
+  /* ---------- Sections ---------- */
+  section.block { padding-block: clamp(64px, 9vw, 130px); }
+  .sec-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 56px); }
+  .sec-head h2 { font-size: clamp(2.3rem, 5.4vw, 4.6rem); margin: 0; }
+  .sec-head .kicker { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); margin: 0 0 12px; }
+  .more { font-weight: 600; font-size: 15px; text-decoration: none; border-bottom: 1px solid; padding-bottom: 3px; white-space: nowrap; }
+  .more:hover { color: var(--magenta-encre); }
+
+  /* ---------- Dates ---------- */
+  .dates { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--nuit); }
+  .date { display: grid; grid-template-columns: 150px 1.3fr 1fr auto; gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid rgba(20,24,43,.15); transition: background .3s; }
+  .date:hover { background: linear-gradient(90deg, transparent, rgba(155,123,217,.09), transparent); }
+  .d-when { display: flex; align-items: baseline; gap: 10px; }
+  .d-day { font-family: var(--f-display); font-weight: var(--display-wght); font-size: 3.4rem; line-height: .9; letter-spacing: -.03em; font-variant-numeric: lining-nums; }
+  .d-month { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; line-height: 1.25; }
+  .d-month small { display: block; font-weight: 500; color: var(--gris); letter-spacing: .04em; }
+  .d-where strong { display: block; font-size: 19px; font-weight: 600; }
+  .d-where span { color: var(--gris); }
+  .d-what { font-size: 15px; }
+  .d-what em { color: var(--gris); font-style: normal; display: block; }
+  .d-tix { font-size: 14px; font-weight: 600; padding: 11px 14px; border: 1px solid rgba(20,24,43,.35); text-decoration: none; white-space: nowrap; color: var(--gris); }
+  @media (max-width: 860px) {
+    .date { grid-template-columns: 96px 1fr; gap: 6px 18px; }
+    .d-when { grid-row: span 3; flex-direction: column; gap: 4px; align-self: start; padding-top: 4px; }
+    .d-day { font-size: 2.8rem; }
+    .d-tix { justify-self: start; margin-top: 8px; }
+  }
+
+  /* ---------- Spectacles ---------- */
+  .shows { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+  .show { counter-increment: s; border-top: 1px solid rgba(20,24,43,.18); }
+  .show:last-child { border-bottom: 1px solid rgba(20,24,43,.18); }
+  .show a { display: grid; grid-template-columns: 70px 1fr 220px 40px; gap: 24px; align-items: baseline; padding: 30px 0; text-decoration: none; position: relative; }
+  .show a::before { content: counter(s, decimal-leading-zero); font-size: 14px; font-weight: 600; color: var(--gris); font-variant-numeric: tabular-nums; }
+  .show h3 { font-size: clamp(1.9rem, 4.2vw, 3.6rem); margin: 0; transition: color .4s var(--ease), transform .5s var(--ease); }
+  .show a:hover h3 { color: var(--accent, var(--magenta-encre)); transform: translateX(8px); }
+  .show p { margin: 10px 0 0; color: var(--gris); max-width: 46rem; font-size: 16px; }
+  .status { justify-self: start; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 9px 5px; border: 1px solid currentColor; }
+  .status.tour { color: var(--turquoise-encre); }
+  .status.soon { color: var(--jacaranda-encre); }
+  .status.crea { color: var(--magenta-encre); }
+  .arrow { font-size: 26px; transition: transform .4s var(--ease); }
+  .show a:hover .arrow { transform: translateX(6px); }
+  .show.teaser h3 { color: var(--gris); font-style: italic; }
+  @media (max-width: 860px) {
+    .show a { grid-template-columns: 1fr auto; gap: 10px 16px; }
+    .show a::before { grid-column: 1 / -1; }
+    .show .status { grid-column: 1; }
+    .arrow { grid-row: 2; grid-column: 2; }
+  }
+
+  /* ---------- Artistes ---------- */
+  .artists { display: grid; grid-template-columns: 1.6fr 1fr; gap: 24px; }
+  .artist { display: grid; grid-template-columns: 1fr 1fr; background: #fff; border: 1px solid rgba(20,24,43,.1); }
+  .artist .photo { position: relative; min-height: 380px; background:
+      radial-gradient(120% 80% at 30% 20%, rgba(210,31,208,.18), transparent 60%),
+      radial-gradient(90% 70% at 80% 90%, rgba(63,201,214,.22), transparent 60%), var(--sable-2);
+    display: grid; place-items: center; overflow: hidden; }
+  .artist .photo img { width: 64%; opacity: .95; }
+  .artist .photo small { position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: var(--gris); }
+  .artist .body { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; }
+  .artist h3 { font-size: clamp(2rem, 3.4vw, 3rem); margin: 0 0 6px; }
+  .artist .genre { color: var(--gris); margin: 0 0 22px; }
+  .members { list-style: none; margin: 0 0 28px; padding: 0; font-size: 15px; }
+  .members li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px dotted rgba(20,24,43,.3); }
+  .members li span:last-child { color: var(--gris); text-align: right; }
+  .artist .more { margin-top: auto; align-self: start; }
+  .join { border: 1px dashed rgba(20,24,43,.45); padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+  .join h3 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: 0; }
+  .join h3 em { color: var(--jacaranda-encre); }
+  .join p { color: var(--gris); margin: 0; }
+  .join img { width: 56px; color: var(--nuit); }
+  @media (max-width: 1000px) { .artists { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .artist { grid-template-columns: 1fr; } .artist .photo { min-height: 260px; } }
+
+  /* ---------- Vidéo ---------- */
+  .dark { background: var(--nuit); color: var(--sable); }
+  .video-grid { display: grid; grid-template-columns: 1fr 1.7fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
+  .video-grid h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0 0 18px; }
+  .video-grid h2 em { color: var(--turquoise); }
+  .video-grid p { color: rgba(243,238,230,.78); max-width: 30rem; }
+  .lite { background: radial-gradient(80% 90% at 70% 30%, rgba(155,123,217,.45), transparent 60%), radial-gradient(70% 80% at 20% 90%, rgba(63,201,214,.3), transparent 60%), #1E2440; }
+  .lite .ghost { position: absolute; width: 38%; right: 6%; top: 10%; opacity: .5; }
+  .lite .cap { position: absolute; left: 18px; bottom: 16px; font-size: 14px; font-weight: 600; color: var(--sable); }
+  .lite .lite-note { position: absolute; left: 18px; top: 16px; right: 18px; font-size: 13px; background: var(--sable); color: var(--nuit); padding: 8px 10px; }
+  @media (max-width: 860px) { .video-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- Espace pro ---------- */
+  .pro { background: var(--ciel-encre); color: #fff; position: relative; overflow: hidden; }
+  .pro .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding-block: clamp(56px, 8vw, 110px); }
+  .pro h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); margin: 0; }
+  .pro p { color: rgba(255,255,255,.86); max-width: 32rem; }
+  .pro ul { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; }
+  .pro li { break-inside: avoid; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.25); font-weight: 500; }
+  .pro .cta { border-color: #fff; color: #fff; margin-top: 28px; }
+  .pro .cta:hover { background: #fff; color: var(--ciel-encre); }
+  .pro .bg-bird { position: absolute; right: -60px; bottom: -80px; width: 360px; opacity: .12; color: #fff; }
+  @media (max-width: 860px) { .pro .wrap { grid-template-columns: 1fr; } .pro ul { columns: 1; } }
+
+  /* ---------- Pied de page ---------- */
+  footer { background: var(--nuit); color: var(--sable); padding-block: 72px 32px; font-size: 15px; }
+  .foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+  .foot h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,238,230,.65); margin: 0 0 14px; font-weight: 600; }
+  .foot p, .foot ul { margin: 0; padding: 0; list-style: none; color: rgba(243,238,230,.88); }
+  .foot li { padding: 4px 0; }
+  .foot a { text-decoration: none; }
+  .foot a:hover { text-decoration: underline; }
+  .foot-logo { height: 34px; width: auto; filter: invert(95%) sepia(6%) saturate(300%) hue-rotate(340deg); margin-bottom: 18px; }
+  .foot .logo-b { display: none; }
+  [data-pair="b"] .foot .logo-a { display: none; }
+  [data-pair="b"] .foot .logo-b { display: block; }
+  .legal { margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba(243,238,230,.18); display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: rgba(243,238,230,.7); }
+  @media (max-width: 900px) { .foot { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .foot { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Tierradentro, accueil">
+      <img class="logo-a" src="assets/logo-tierradentro-a.svg" alt="Tierradentro">
+      <img class="logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#">L'association</a><a href="#">Artistes</a><a href="#">Spectacles</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
+    </nav>
+    <div class="langs" aria-label="Langue"><a href="#" aria-current="true" lang="fr">FR</a><a href="#" lang="en">EN</a><a href="#" lang="es">ES</a></div>
+    <a class="btn-pro" href="#pro">Espace pro</a>
+    <button class="burger" type="button" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow">Production de spectacles vivants · Toulouse</p>
+        <h1 id="h1" class="display">Des spectacles venus <em>de l'intérieur</em> des&nbsp;terres.</h1>
+        <p class="lead">Tierradentro accompagne des artistes de la création à la tournée. Des spectacles prêts à partir, des dossiers techniques à jour, une équipe joignable. <span class="av">À valider</span></p>
+        <div class="ctas">
+          <a class="cta primary" href="#agenda">Voir les prochaines dates <span aria-hidden="true">→</span></a>
+          <a class="cta" href="#pro">Espace pro</a>
+        </div>
+      </div>
+      <div class="hero-bird">
+        <img src="assets/colibri-aquarelle.svg" alt="" width="520" height="520">
+      </div>
+    </div>
+
+    <figure class="salar" aria-hidden="true">
+      <div class="sky" data-parallax="0.04"></div>
+      <svg class="mounts" viewBox="0 0 1600 60" preserveAspectRatio="none"><use href="#mounts"/></svg>
+      <div class="plain"><div class="crust"></div></div>
+      <svg class="mounts mirror" viewBox="0 0 1600 60" preserveAspectRatio="none"><use href="#mounts"/></svg>
+      <div class="flock">
+        <svg viewBox="0 0 100 100" style="left:14%;top:18%;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:20%;top:30%;width:14px;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:71%;top:12%;width:16px"><use href="#bird-solid"/></svg>
+      </div>
+      <svg class="crosser" viewBox="0 0 100 100"><use href="#bird-line"/></svg>
+      <figcaption>tierra adentro : l'intérieur des terres</figcaption>
+    </figure>
+  </section>
+
+  <div class="wrap facts reveal">
+    <ul>
+      <li><strong>90 dates</strong><span>jouées depuis janvier 2024 <span class="av">À valider</span></span></li>
+      <li><strong>36 départements</strong><span>et le Maroc (Festival Mawazine, Rabat)</span></li>
+      <li><strong>3 spectacles</strong><span>en tournée, un en préparation</span></li>
+    </ul>
+  </div>
+
+  <section class="block" id="agenda" aria-labelledby="h-dates">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="kicker">Agenda</p><h2 id="h-dates" class="display">Prochaines dates</h2></div>
+        <a class="more" href="#">Tout l'agenda et les archives</a>
+      </div>
+      <ol class="dates reveal">
+        <li class="date"><p class="d-when"><span class="d-day">13</span><span class="d-month">nov.<small>ven. 2026</small></span></p><p class="d-where"><strong>Le Taquin</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">26</span><span class="d-month">nov.<small>jeu. 2026</small></span></p><p class="d-where"><strong>Le Palace</strong><span>Surgères (17)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">5</span><span class="d-month">déc.<small>sam. 2026</small></span></p><p class="d-where"><strong>Centre Culturel</strong><span>Eymet (24)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">22</span><span class="d-month">janv.<small>ven. 2027</small></span></p><p class="d-where"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">12</span><span class="d-month">mars<small>ven. 2027</small></span></p><p class="d-where"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">4</span><span class="d-month">juin<small>ven. 2027</small></span></p><p class="d-where"><strong>Le Bijou</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" aria-labelledby="h-shows">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="kicker">Répertoire</p><h2 id="h-shows" class="display">Nos spectacles</h2></div>
+        <a class="more" href="#">Tous les spectacles</a>
+      </div>
+      <ol class="shows reveal">
+        <li class="show"><a href="#">
+          <div><h3 class="display">El infinito y un amor</h3><p>Cuarteto Tafi · le spectacle de l'album sorti en janvier 2024. <span class="av">Texte à rédiger</span></p></div>
+          <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li class="show"><a href="#">
+          <div><h3 class="display">Des espoirs plein le corps</h3><p>Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec Justine Marmouyet (danse) et Fanny Do (piano). 1 h 15, tout public.</p></div>
+          <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li class="show"><a href="#">
+          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p>Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon. Création 2023.</p></div>
+          <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li class="show teaser"><a href="#">
+          <div><h3 class="display">La Noche Eterna</h3><p>Nouveau spectacle en préparation. Plus d'informations prochainement.</p></div>
+          <span class="status soon">À venir</span><span class="arrow" aria-hidden="true">→</span></a></li>
+        <li class="show"><a href="#">
+          <div><h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem)">Nosotras : nuestros cantos – nuestros cuerpos</h3><p>Création présentée au festival Rio Loco, Toulouse, 2025. <span class="av">À confirmer</span></p></div>
+          <span class="status crea">Création</span><span class="arrow" aria-hidden="true">→</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" aria-labelledby="h-artists">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><p class="kicker">Artistes produits</p><h2 id="h-artists" class="display">Nos artistes</h2></div>
+      </div>
+      <div class="artists reveal">
+        <article class="artist">
+          <div class="photo"><img src="assets/colibri-aquarelle.svg" alt=""><small>Photo du quartet à fournir (crédit obligatoire)</small></div>
+          <div class="body">
+            <h3 class="display">Cuarteto Tafi</h3>
+            <p class="genre">Quartet franco-argentin de world music : chant en espagnol, poétique et engagé.</p>
+            <ul class="members">
+              <li><span>Leonor Harispe</span><span>chant, textes</span></li>
+              <li><span>Ludovic Deny</span><span>bouzouki, chœurs</span></li>
+              <li><span>Matthieu Guenez</span><span>guitare, oud</span></li>
+              <li><span>Frédéric Theiler</span><span>percussions, chœurs</span></li>
+            </ul>
+            <a class="more" href="#">Découvrir le Cuarteto Tafi</a>
+          </div>
+        </article>
+        <aside class="join">
+          <img src="assets/colibri-trait.svg" alt="">
+          <h3 class="display">Rejoindre <em>Tierradentro</em></h3>
+          <p>Vous portez un projet de spectacle et cherchez une structure de production ? Présentez-le nous. <span class="av">À valider</span></p>
+          <a class="more" href="#">Nous proposer un projet</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="block dark on-dark" aria-labelledby="h-video">
+    <div class="wrap video-grid">
+      <div class="reveal">
+        <p class="kicker" style="color:rgba(243,238,230,.65)">Vidéo à la une</p>
+        <h2 id="h-video" class="display"><em>Vuelven</em></h2>
+        <p>Clip du Cuarteto Tafi. La vidéo ne se charge qu'au clic, depuis youtube-nocookie.com : aucun cookie avant lecture.</p>
+      </div>
+      <div class="lite reveal" data-youtube="" data-title="Vuelven, Cuarteto Tafi">
+        <img class="ghost" src="assets/colibri-aquarelle.svg" alt="">
+        <button type="button" aria-label="Lire la vidéo Vuelven"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#14182B"/></svg></span></button>
+        <span class="cap">Cuarteto Tafi, Vuelven</span>
+        <p class="lite-note" hidden>Maquette : l'identifiant YouTube du clip sera saisi dans le Studio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pro on-dark" id="pro" aria-labelledby="h-pro">
+    <svg class="bg-bird" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-line"/></svg>
+    <div class="wrap">
+      <div class="reveal">
+        <p class="kicker" style="color:rgba(255,255,255,.75);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px">Programmateurs</p>
+        <h2 id="h-pro" class="display">Tout ce qu'il faut pour programmer.</h2>
+        <p>Pour chaque spectacle, les documents à jour en téléchargement direct. Pas de compte, pas de mot de passe.</p>
+        <a class="cta" href="#">Accéder à l'Espace pro <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="reveal">
+        <li>Fiches techniques</li><li>Plans de scène</li><li>Dossiers de presse</li><li>Dossiers artistiques</li><li>Photos HD et crédits</li><li>Textes courts et longs</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Bandeau partenaires : masqué tant qu'aucun logo n'est saisi dans le Studio. -->
+</main>
+
+<footer class="on-dark">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="foot-logo logo-a" src="assets/logo-tierradentro-a.svg" alt="Tierradentro">
+        <img class="foot-logo logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro">
+        <p>Association loi 1901 de production de spectacles vivants, Toulouse.</p>
+      </div>
+      <div>
+        <h4>Identité</h4>
+        <ul><li>SIRET : à compléter</li><li>Licence d'entrepreneur de spectacles : à compléter</li><li>TVA : statut à compléter</li><li>Siège : adresse à compléter, Toulouse</li></ul>
+      </div>
+      <div>
+        <h4>Contacts</h4>
+        <ul><li>Production : nom, téléphone</li><li>Diffusion : nom, téléphone</li><li>Artistique : nom, téléphone</li><li><a href="#">Formulaire de contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul><li><a href="#">Agenda et archives</a></li><li><a href="#pro">Espace pro</a></li><li><a href="#">Presse</a></li><li><a href="#">Actualités</a></li></ul>
+      </div>
+    </div>
+    <div class="legal"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">Crédits</a><span>Colibri : illustration de [crédit à compléter]</span><span>© Tierradentro</span></div>
+  </div>
+</footer>
+
+<!-- Symboles réutilisés -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="mounts" viewBox="0 0 1600 60"><path d="M0 60 L0 44 L80 38 L150 42 L230 26 L300 33 L380 18 L450 30 L520 27 L600 40 L700 22 L780 10 L850 24 L930 32 L1010 21 L1090 29 L1180 14 L1260 28 L1350 36 L1440 26 L1520 33 L1600 30 L1600 60 Z" fill="#A08ED6" opacity=".6"/><path d="M0 60 L0 50 L120 46 L240 50 L330 42 L460 48 L590 43 L720 51 L860 45 L980 49 L1110 42 L1250 48 L1390 44 L1500 50 L1600 47 L1600 60 Z" fill="#7F93BD" opacity=".7"/></symbol>
+  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="currentColor"/></symbol>
+</svg>
+
+<div class="mock-bar" role="group" aria-label="Outils de maquette">
+  <span>Typo</span>
+  <button type="button" data-set-pair="a" aria-pressed="true">Fraunces + Inter Tight</button>
+  <button type="button" data-set-pair="b" aria-pressed="false">Instrument + Manrope</button>
+  <a href="index.html">Sommaire</a>
+</div>
+<script src="assets/shared.js"></script>
+</body>
+</html>

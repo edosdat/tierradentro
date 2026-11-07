@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr" data-pair="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tierradentro · Phase 0</title>
+<meta name="description" content="Direction artistique de Tierradentro : deux maquettes de page d'accueil, le logo colibri au trait et deux paires typographiques à arbitrer.">
+<link rel="icon" href="assets/colibri-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  body { padding-bottom: 80px; }
+  .intro { padding-block: clamp(40px, 7vw, 96px) clamp(28px, 4vw, 48px); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; }
+  .intro .logo { height: 34px; width: auto; margin-bottom: 40px; }
+  .intro h1 { font-size: clamp(2.8rem, 7vw, 6.4rem); margin: 0; }
+  .intro h1 em { color: var(--magenta-encre); }
+  .intro p { color: var(--gris); max-width: 42rem; font-size: 18px; margin: 20px 0 0; }
+  .intro .bird { width: clamp(140px, 22vw, 300px); }
+  h2.sec { font-family: var(--f-text); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 20px; padding-top: 18px; border-top: 1px solid var(--nuit); display: flex; justify-content: space-between; gap: 16px; }
+  h2.sec span { color: var(--gris); font-weight: 600; letter-spacing: .04em; text-transform: none; }
+  section { margin-top: clamp(48px, 7vw, 96px); }
+
+  .decide { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: q; }
+  .decide li { counter-increment: q; background: #fff; border: 1px solid rgba(20,24,43,.12); padding: 22px; }
+  .decide li::before { content: counter(q); font-family: var(--f-display); font-size: 3rem; line-height: 1; display: block; margin-bottom: 12px; color: var(--jacaranda-encre); }
+  .decide strong { display: block; font-size: 18px; margin-bottom: 6px; }
+  .decide span { color: var(--gris); font-size: 15px; }
+
+  .mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .mock { text-decoration: none; display: block; }
+  .mock .shot { aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid rgba(20,24,43,.15); background: var(--sable-2); }
+  .mock img { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.2s var(--ease); }
+  .mock:hover img { transform: scale(1.025); }
+  .mock h3 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); margin: 18px 0 6px; }
+  .mock p { margin: 0; color: var(--gris); }
+  .mock .go { display: inline-block; margin-top: 12px; font-weight: 600; border-bottom: 1px solid; }
+
+  .logos { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .tile { padding: clamp(24px, 4vw, 48px); display: grid; place-items: center; min-height: 200px; position: relative; }
+  .tile small { position: absolute; left: 14px; bottom: 10px; font-size: 12px; color: var(--gris); }
+  .tile.light { background: #fff; border: 1px solid rgba(20,24,43,.12); }
+  .tile.dark { background: var(--nuit); }
+  .tile.dark small { color: rgba(243,238,230,.7); }
+  .tile.dark img { filter: invert(95%) sepia(6%) saturate(300%) hue-rotate(340deg); }
+  .tile img.word { width: min(100%, 440px); height: auto; }
+  .sizes { display: flex; align-items: end; gap: 28px; flex-wrap: wrap; }
+  .sizes figure { margin: 0; text-align: center; font-size: 12px; color: var(--gris); }
+  .sizes img { margin: 0 auto 6px; }
+  .tile.aq img { width: min(80%, 320px); }
+  .logo-notes { margin: 18px 0 0; color: var(--gris); font-size: 15px; max-width: 60rem; }
+
+  .palette { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { border: 1px solid rgba(20,24,43,.12); background: #fff; }
+  .sw .c { height: 92px; display: flex; align-items: end; padding: 10px; font-size: 13px; font-weight: 600; }
+  .sw .m { padding: 10px; font-size: 13px; line-height: 1.45; }
+  .sw .m b { display: block; font-size: 14px; }
+  .sw .m span { color: var(--gris); }
+  .ok { color: var(--turquoise-encre); font-weight: 700; }
+  .ko { color: #B8301F; font-weight: 700; }
+
+  .wait { columns: 2; column-gap: 40px; padding: 0; margin: 0; list-style: none; }
+  .wait li { break-inside: avoid; padding: 12px 0; border-top: 1px solid rgba(20,24,43,.15); }
+  .wait b { display: block; }
+  .wait span { color: var(--gris); font-size: 15px; }
+
+  @media (max-width: 900px) { .decide, .mocks, .logos { grid-template-columns: 1fr; } .palette { grid-template-columns: 1fr 1fr; } .wait { columns: 1; } .intro { grid-template-columns: 1fr; } .intro .bird { display: none; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="intro">
+    <div>
+      <img class="logo" src="assets/logo-tierradentro-a.svg" alt="Tierradentro">
+      <h1 class="display">Phase 0 : <em>direction artistique</em></h1>
+      <p>Deux propositions de page d'accueil, le colibri au trait et deux paires typographiques. Les textes marqués <span class="av">À valider</span> sont provisoires. Rien n'a été inventé : ni citation, ni partenaire, ni chiffre hors de l'historique des dates.</p>
+    </div>
+    <img class="bird" src="assets/colibri-aquarelle.svg" alt="">
+  </header>
+
+  <section aria-labelledby="s-decide">
+    <h2 class="sec" id="s-decide">À arbitrer <span>Une réponse par question suffit</span></h2>
+    <ol class="decide">
+      <li><strong>Quelle maquette ?</strong><span>A « Salar » (clair, éditorial) ou B « Nuit » (immersif, plus spectaculaire). On peut aussi mélanger : par exemple le héros de B et l'agenda de A.</span></li>
+      <li><strong>Quelle paire typographique ?</strong><span>A : Fraunces + Inter Tight. B : Instrument Serif + Manrope. Le bouton « Typo » en bas de chaque maquette permet d'essayer l'autre paire.</span></li>
+      <li><strong>Le colibri au trait vous convient ?</strong><span>Il sera redessiné d'après l'aquarelle originale dès qu'on l'aura. Dites-moi si la silhouette, l'aile ou la queue sont à revoir.</span></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="s-mocks">
+    <h2 class="sec" id="s-mocks">Maquettes de la page d'accueil <span>Ordinateur et mobile</span></h2>
+    <div class="mocks">
+      <a class="mock" href="maquette-a-salar.html">
+        <div class="shot"><img src="apercus/maquette-a.jpg" alt="Aperçu de la maquette A"></div>
+        <h3 class="display">A · Salar</h3>
+        <p>Fond sable, grande typographie éditoriale, le salar en panorama sous le titre. Agenda en liste, spectacles en index numéroté. Sobre et « institution culturelle ».</p>
+        <span class="go">Ouvrir la maquette A</span>
+      </a>
+      <a class="mock" href="maquette-b-nuit.html">
+        <div class="shot"><img src="apercus/maquette-b.jpg" alt="Aperçu de la maquette B"></div>
+        <h3 class="display">B · Nuit sur le salar</h3>
+        <p>Héros plein écran au crépuscule : ciel profond, jacaranda, reflet sur le sel. Dates en billets, spectacles en aplats de couleur, tableau des documents pro.</p>
+        <span class="go">Ouvrir la maquette B</span>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-logo">
+    <h2 class="sec" id="s-logo">Logo : le colibri au trait <span>Fichiers SVG dans assets/</span></h2>
+    <div class="logos">
+      <div class="tile light"><img class="word" src="assets/logo-tierradentro-a.svg" alt="Logo, version Fraunces"><small>Logo, mot en Fraunces (paire A)</small></div>
+      <div class="tile light"><img class="word" src="assets/logo-tierradentro-b.svg" alt="Logo, version Instrument Serif"><small>Logo, mot en Instrument Serif (paire B)</small></div>
+      <div class="tile dark"><img class="word" src="assets/logo-tierradentro-a.svg" alt="Logo sur fond sombre"><small>Sur fond nuit</small></div>
+      <div class="tile light">
+        <div class="sizes">
+          <figure><img src="assets/colibri-trait.svg" width="120" height="120" alt=""><figcaption>120 px</figcaption></figure>
+          <figure><img src="assets/colibri-trait.svg" width="48" height="48" alt=""><figcaption>48 px</figcaption></figure>
+          <figure><img src="assets/colibri-favicon.svg" width="24" height="24" alt=""><figcaption>24 px</figcaption></figure>
+          <figure><img src="assets/colibri-favicon.svg" width="16" height="16" alt=""><figcaption>16 px</figcaption></figure>
+        </div>
+        <small>Le colibri seul, de 120 px à 16 px (favicon)</small>
+      </div>
+      <div class="tile light aq" style="grid-column:1/-1;background:var(--sable)"><img src="assets/colibri-aquarelle.svg" alt="Colibri aquarelle provisoire"><small>Colibri couleur provisoire, réservé aux moments forts. À remplacer par l'aquarelle originale.</small></div>
+    </div>
+    <p class="logo-notes">Un seul tracé fermé, sans détail superflu, pour rester lisible en 24 px. Le mot « Tierradentro » est converti en tracés : le SVG s'affiche partout, sans police installée. <strong>Droits du colibri</strong> : à confirmer avec l'illustrateur ou l'illustratrice avant la mise en ligne. Un emplacement de crédit est prévu en pied de page.</p>
+  </section>
+
+  <section aria-labelledby="s-pal">
+    <h2 class="sec" id="s-pal">Palette affinée <span>Contraste vérifié (AA = 4,5:1 pour le texte courant)</span></h2>
+    <div class="palette">
+      <div class="sw"><div class="c" style="background:#F3EEE6;color:#14182B">Sable</div><div class="m"><b>#F3EEE6</b><span>Fond principal</span></div></div>
+      <div class="sw"><div class="c" style="background:#14182B;color:#F3EEE6">Encre nuit</div><div class="m"><b>#14182B</b><span>Texte sur sable : <span class="ok">15,2:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#2E7BB5;color:#fff">Ciel</div><div class="m"><b>#2E7BB5</b><span>Texte sur sable : <span class="ko">3,9:1</span>. Aplats et titres. Pour du texte : <b style="display:inline;color:#1D5A8A">#1D5A8A</b> <span class="ok">6,3:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#D21FD0;color:#fff">Magenta colibri</div><div class="m"><b>#D21FD0</b><span>Texte sur sable : <span class="ko">3,8:1</span>. Pour du texte : <b style="display:inline;color:#A3159F">#A3159F</b> <span class="ok">5,7:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#3FC9D6;color:#14182B">Turquoise colibri</div><div class="m"><b>#3FC9D6</b><span>Sur fond nuit : <span class="ok">8,8:1</span>. Sur sable, en texte : <b style="display:inline;color:#0F6E78">#0F6E78</b> <span class="ok">5,2:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#9B7BD9;color:#14182B">Jacaranda</div><div class="m"><b>#9B7BD9</b><span>Sur fond nuit : <span class="ok">5,2:1</span>. Sur sable, en texte : <b style="display:inline;color:#6B4FB0">#6B4FB0</b> <span class="ok">5,4:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#E0422F;color:#fff">Rouge Tafi</div><div class="m"><b>#E0422F</b><span>Uniquement sur la page du Cuarteto Tafi. En texte : <b style="display:inline;color:#B8301F">#B8301F</b> <span class="ok">5,2:1</span></span></div></div>
+      <div class="sw"><div class="c" style="background:#4A4E5E;color:#fff">Gris texte</div><div class="m"><b>#4A4E5E</b><span>Textes secondaires : <span class="ok">7,2:1</span></span></div></div>
+    </div>
+    <p class="logo-notes">Les teintes d'origine restent la signature visuelle (aplats, grands titres, illustrations). Pour le texte courant, on utilise une variante plus foncée de la même teinte.</p>
+  </section>
+
+  <section aria-labelledby="s-typo">
+    <h2 class="sec" id="s-typo">Typographies <span><a href="typographies.html">Planche comparative</a></span></h2>
+    <p style="margin:0;max-width:52rem">Les deux paires composent les mêmes textes côte à côte : titres, texte courant, dates et caractères espagnols (ñ, ¿, ¡, accents). Les quatre polices sont libres (licence SIL OFL) et hébergées avec le site, comme le prévoit le brief.</p>
+    <p style="margin:18px 0 0"><a class="more" href="typographies.html" style="font-weight:600">Voir la planche typographique →</a></p>
+  </section>
+
+  <section aria-labelledby="s-wait">
+    <h2 class="sec" id="s-wait">Ce qui manque encore <span>Emplacements prévus, rien ne bloque</span></h2>
+    <ul class="wait">
+      <li><b>Captures de référence (dossier reference/)</b><span>Non reçues. Le site cuartetotafi.com n'était pas accessible depuis mon environnement. Les maquettes s'appuient donc sur la description du brief.</span></li>
+      <li><b>Aquarelle originale du colibri et ses droits</b><span>Le colibri couleur est une évocation provisoire en SVG.</span></li>
+      <li><b>Photos du quartet et des spectacles</b><span>Des emplacements sont prévus, avec crédit photo obligatoire.</span></li>
+      <li><b>Identifiants YouTube des clips</b><span>Le lecteur est prêt et ne charge rien avant le clic.</span></li>
+      <li><b>Spectacle joué à chaque date à venir</b><span>Absent du CSV : affiché « à préciser ».</span></li>
+      <li><b>Identité légale et contacts nommés</b><span>SIRET, licence, statut TVA, adresse, téléphones.</span></li>
+      <li><b>Contenu de La Noche Eterna</b><span>Une annonce sobre est affichée en attendant.</span></li>
+      <li><b>Logos partenaires</b><span>Le bandeau reste masqué tant qu'il est vide.</span></li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

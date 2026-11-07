@@ -1,0 +1,97 @@
+date;statut;spectacle;salle_ou_evenement;ville;departement;annee_certaine;note
+2027-06-04;à venir;;Le Bijou;Toulouse;31;oui;
+2027-03-12;à venir;;Salle Jacques Brel;Castanet-Tolosan;31;oui;
+2027-01-22;à venir;;Théâtre;Conques-sur-Orbiel;11;oui;
+2026-12-05;à venir;;Centre Culturel;Eymet;24;oui;
+2026-11-26;à venir;;Le Palace;Surgères;17;oui;
+2026-11-13;à venir;;Le Taquin;Toulouse;31;oui;
+2026-09-26;passé;;La Mamisèle;Saubrigues;40;oui;
+2026-09-12;passé;;Place de la Mairie;Launaguet;31;oui;
+2026-09-05;passé;;Les jardins du Prieuré;Brax;31;oui;
+2026-08-30;passé;;L'éphémère guinguette;Lacroix-Falgarde;31;oui;année imprimée « 56 » sur le site source
+2026-08-29;passé;;Festival les Bucoliques;Verfeil;31;oui;
+2026-08-28;passé;;Festival Vibrations;Rouen;76;oui;
+2026-08-14;passé;;Château de Montmaur;Montmaur;05;oui;
+2026-07-30;passé;;Les Jeudis de Bonnefont (Abbaye de Bonnefont);Proupiary;31;oui;
+2026-07-24;passé;;Les Musicales / Festival Musisc;Saint-Chinian;34;oui;
+2026-07-23;passé;;Scène d'été;Decazeville;12;oui;
+2026-07-10;passé;;Les Vendredis Musicaux;Saint-Symphorien-sur-Coise;69;oui;
+2026-07-09;passé;;Les Jeudis de Carla-Bayle;Carla-Bayle;09;oui;
+2026-07-04;passé;;Festival Teuf Teuf;Teulat;81;oui;
+2026-06-20;passé;;Fête de la musique;Launaguet;31;oui;
+2026-06-05;passé;;Fête de Saint-Cyprien;Toulouse;31;oui;
+2026-05-30;passé;;Festival Les Lointaines;Buis-les-Baronnies;26;oui;
+2026-05-19;passé;Des espoirs plein le corps;Salle Nougaro;Toulouse;31;oui;
+2026-05-07;passé;;Théâtre Le Château;Barbezieux-Saint-Hilaire;16;oui;
+2026-04-25;passé;;Théâtre Comoedia;Marmande;47;oui;
+2026-04-09;passé;;Le Jam;Montpellier;34;oui;
+2026-03-22;passé;El infinito y un amor;La Lampisterie;Brassac-les-Mines;63;oui;
+2026-02-07;passé;;Los Bambasitos;Eauze;32;oui;
+2026-01-10;passé;;Théâtre Le Colombier;Cordes-sur-Ciel;81;oui;
+2025-11-14;passé;;Le Taquin;Toulouse;31;déduite;
+2025-11-13;passé;;Le Taquin;Toulouse;31;déduite;
+2025-10-19;passé;;Festival Jazz sur son 31;Grazac;31;déduite;
+2025-10-19;passé;;Jazz sur son 31;Paulhac;31;déduite;même jour que Grazac sur le site source : à vérifier
+2025-10-10;passé;;Le Métronome;Toulouse;31;déduite;
+2025-10-09;passé;;Théâtre des Bastides;Villefranche-de-Rouergue;12;déduite;
+2025-10-04;passé;;Chansons d'ici, chansons d'ailleurs;Labouheyre;40;déduite;
+2025-09-27;passé;;Musée Ingres Bourdelle (After marché);Montauban;82;déduite;
+2025-09-13;passé;;Ostrea Fest;Gujan-Mestras;33;déduite;
+2025-09-12;passé;;Le Lac;Saint-Jean;31;déduite;
+2025-09-06;passé;;Othe-Armance Festival;Bouilly;10;déduite;
+2025-08-22;passé;;Esplanade Duchêne;Le Creusot;71;déduite;
+2025-08-14;passé;;Place de l'Église;Ardin;79;déduite;
+2025-08-09;passé;;Festival des Traversées;Île Tatihou;50;déduite;
+2025-08-08;passé;;Festival du chant de marin;Paimpol;22;déduite;
+2025-08-07;passé;;Les jeudis de l'été;Saint-Avé;56;déduite;
+2025-07-24;passé;;Les Scènes d'été;Decazeville;12;déduite;
+2025-07-18;passé;;Les vendredis de la Halle;Le Passage;47;déduite;
+2025-07-17;passé;;Festival des Étangs d'arts;Saïx;81;déduite;
+2025-07-13;passé;;La Cave Poésie;Toulouse;31;déduite;
+2025-07-12;passé;;Festival Primaveral;Apt;84;déduite;
+2025-07-10;passé;;Festival Voyage au cœur de l'été;Amiens;80;déduite;
+2025-07-03;passé;;Festival;Bellac;87;déduite;
+2025;passé;Nosotras : nuestros cantos – nuestros cuerpos (création);Festival Rio Loco;Toulouse;31;déduite;date du jour absente du site source
+2025;passé;;Les journées Carrasco;Le Menoux;36;déduite;date du jour absente
+2025;passé;;La Margelle;Civray;86;déduite;date du jour absente
+2025;passé;;La Fiesta Argentina, Guinguette Chez Alriq;Bordeaux;33;déduite;date du jour absente
+2025-05-23;passé;;La Grande Famille;Pinsaguel;31;déduite;
+2025-04-26;passé;;Les Déroutantes;Maurens-Scopont;81;oui;
+2025-04-25;passé;;Le printemps musical, Salle le Pax;Tiercé;49;oui;
+2025-03-27;passé;;Le Metronum (restitution de résidence);Toulouse;31;oui;
+2025-03-22;passé;;Festival Ciné Latino;Toulouse;31;oui;
+2025-03-12;passé;La voix des femmes d'Amérique latine;La Cave Poésie;Toulouse;31;oui;
+2025-03-07;passé;;Jazzèbre, Salle de l'Union;Céret;66;oui;
+2025-02-01;passé;La voix des femmes d'Amérique latine;Festival Cuba Hoy, Théâtre des Mazades;Toulouse;31;oui;
+2024-11-22;passé;;Théâtre, scène conventionnée;Thouars;79;déduite;
+2024-11-16;passé;;Le Café Plum;Lautrec;81;déduite;
+2024-11-07;passé;;Eurythmie;Montauban;82;déduite;
+2024-10-12;passé;;Festival Guitare;Ferrières-sur-Ariège;09;déduite;
+2024-10-11;passé;;Le Taquin;Toulouse;31;déduite;
+2024-10-10;passé;;Le Taquin;Toulouse;31;déduite;
+2024-08-25;passé;;SOS Méditerranée;Lacroix-Falgarde;31;déduite;
+2024-08-21;passé;;Festival Emmaüs;Lescar;64;déduite;
+2024-08-17;passé;;Le Bouche à Oreille;Simorre;32;déduite;
+2024-08-13;passé;;Les nuits du Bénal;Counozouls;11;déduite;
+2024-08-04;passé;;Festival du bout du monde;Crozon;29;déduite;
+2024-08-01;passé;;Les Apéros Klam;Le Bono;56;déduite;
+2024-07-21;passé;;Festival de théâtre de Figeac;Saint-Céré;46;déduite;
+2024-07-13;passé;;Parc Favols;Carbon-Blanc;33;déduite;
+2024-07-11;passé;;Esplanade des Girondins;Soulac-sur-Mer;33;déduite;
+2024-07-09;passé;;Place de la Boubée;Auch;32;déduite;
+2024-06-30;passé;;Le Jardin musical;Toulouse;31;déduite;
+2024-06-23;passé;;Festival Mawazine – Scène du Chellah;Rabat;Maroc;oui;confirmé par la billetterie Mawazine
+2024-06-21;passé;;Fête de la musique;Tournefeuille;31;déduite;
+2024-05-25;passé;;Festival Printemps de l'Aspre;Trouillas;66;déduite;
+2024-05-17;passé;;Salle du Lac;Caillac;46;déduite;
+2024-05-03;passé;;Festival Les RDV de la mémoire, Théâtre;Septfonds;82;déduite;
+2024-04-30;passé;;Centre Culturel Michel Manet;Bergerac;24;déduite;
+2024-04-12;passé;;Espace Cathare;Quillan;11;déduite;
+2024-03-21;passé;;ENIT;Tarbes;65;déduite;
+2024-03-08;passé;La voix des femmes d'Amérique latine;Salle Jacques Brel;Castanet-Tolosan;31;déduite;
+2024-02-23;passé;;L'atelier du Neez;Jurançon;64;déduite;
+2024-02-17;passé;;Théâtre;Ax-les-Thermes;09;déduite;
+2024-02-09;passé;;Festival Drums Summit, Théâtre des Mazades;Toulouse;31;déduite;
+2024-02-02;passé;;Le Tempo;Léguevin;31;déduite;
+2024-02;passé;;Festival Au fil des voix;Paris;75;déduite;date « 31/02 » invalide sur le site source
+2024-01-09;passé;;Le Train Théâtre;Portes-lès-Valence;26;déduite;

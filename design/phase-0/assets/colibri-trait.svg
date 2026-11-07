@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Colibri Tierradentro">
+  <title>Colibri Tierradentro</title>
+  <path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="38" cy="35" r="2" fill="currentColor"/>
+</svg>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr" data-pair="a">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tierradentro · Paires typographiques</title>
+<link rel="icon" href="assets/colibri-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  body { padding-bottom: 80px; }
+  header.page { padding-block: 48px 24px; border-bottom: 1px solid rgba(20,24,43,.15); }
+  header.page a { font-size: 14px; font-weight: 600; }
+  header.page h1 { font-family: "Inter Tight", sans-serif; font-size: 15px; letter-spacing: .14em; text-transform: uppercase; margin: 22px 0 6px; }
+  header.page p { margin: 0; color: var(--gris); max-width: 46rem; }
+  .pairs { display: grid; grid-template-columns: 1fr 1fr; }
+  .pair { padding: clamp(24px, 4vw, 56px) var(--gutter); border-right: 1px solid rgba(20,24,43,.15); }
+  .pair:last-child { border-right: 0; background: #FBF8F3; }
+  .pair .label { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 600 12px/1.4 "Inter Tight", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--gris); border-bottom: 1px solid var(--nuit); padding-bottom: 10px; margin-bottom: 30px; }
+  .pair .label b { color: var(--nuit); }
+  .pa { --f-display: "Fraunces", Georgia, serif; --f-text: "Inter Tight", system-ui, sans-serif; --display-wght: 380; --display-italic-wght: 300; --display-track: -0.02em; }
+  .pb { --f-display: "Instrument Serif", Georgia, serif; --f-text: "Manrope", system-ui, sans-serif; --display-wght: 400; --display-italic-wght: 400; --display-track: -0.01em; }
+  .pa .display { font-variation-settings: "SOFT" 30, "WONK" 0; }
+  .pair, .pair p:not(.display), .pair li { font-family: var(--f-text); }
+  .xxl { font-size: clamp(3.4rem, 8vw, 7.6rem); margin: 0; }
+  .xxl em { color: var(--magenta-encre); }
+  .xl { font-size: clamp(2.2rem, 4.4vw, 3.8rem); margin: 34px 0 0; }
+  .l { font-size: clamp(1.5rem, 2.4vw, 2rem); margin: 26px 0 0; line-height: 1.15; }
+  .body { font-size: 17px; line-height: 1.6; max-width: 36rem; margin: 22px 0 0; }
+  .small { font-size: 14px; color: var(--gris); margin: 10px 0 0; }
+  .caps { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 34px 0 6px; }
+  .row { display: flex; align-items: baseline; gap: 16px; padding: 14px 0; border-top: 1px solid rgba(20,24,43,.15); }
+  .row .n { font-family: var(--f-display); font-weight: var(--display-wght); font-size: 3.2rem; line-height: .9; }
+  .row strong { display: block; font-weight: 600; }
+  .row span { color: var(--gris); font-size: 15px; }
+  .glyphs { font-family: var(--f-display); font-weight: var(--display-wght); font-size: 1.6rem; line-height: 1.5; margin: 22px 0 0; color: var(--gris); word-break: break-all; }
+  .notes { margin: 30px 0 0; padding: 0; list-style: none; font-size: 15px; }
+  .notes li { padding: 8px 0 8px 22px; position: relative; border-top: 1px dotted rgba(20,24,43,.3); }
+  .notes li::before { content: "—"; position: absolute; left: 0; color: var(--gris); }
+  @media (max-width: 900px) { .pairs { grid-template-columns: 1fr; } .pair { border-right: 0; border-bottom: 1px solid rgba(20,24,43,.15); } }
+</style>
+</head>
+<body>
+<header class="page wrap">
+  <a href="index.html">← Sommaire de la phase 0</a>
+  <h1>Deux paires typographiques</h1>
+  <p>Les mêmes textes composés avec chaque paire. Polices libres (licence SIL OFL), auto-hébergées : aucun appel à Google Fonts.</p>
+</header>
+
+<main class="pairs">
+  <section class="pair pa" aria-labelledby="pa">
+    <p class="label"><b id="pa">Paire A</b><span>Fraunces · Inter Tight</span></p>
+    <p class="display xxl">Des espoirs <em>plein le corps</em></p>
+    <p class="display xl">La voix des femmes d'Amérique latine</p>
+    <p class="display l"><em>El infinito y un amor</em>, le spectacle de l'album sorti en janvier 2024.</p>
+    <p class="body">Le Cuarteto Tafi réunit chant en espagnol, bouzouki grec, guitare flamenca et oud, percussions afro-latines. Tierradentro produit ses spectacles et les accompagne en tournée, en France et à l'étranger.</p>
+    <p class="small">Fiche technique · PDF · mise à jour le 2 novembre 2026</p>
+    <p class="caps">Prochaines dates</p>
+    <div class="row"><span class="n">13</span><div><strong>Le Taquin, Toulouse (31)</strong><span>vendredi 13 novembre 2026</span></div></div>
+    <div class="row"><span class="n">26</span><div><strong>Le Palace, Surgères (17)</strong><span>jeudi 26 novembre 2026</span></div></div>
+    <p class="glyphs">Aa Ññ Éé Çç Œœ « » ¿ ¡ 0123456789 · ÁÍÓÚ àèù</p>
+    <ul class="notes">
+      <li>Serif variable à « taille optique » : fine et contrastée en grand, plus robuste en petit.</li>
+      <li>Allure chaleureuse, un peu artisanale : proche de l'aquarelle et du fait-main.</li>
+      <li>Inter Tight : grotesque très lisible, chiffres nets pour les dates et les tableaux.</li>
+      <li>Poids total ≈ 360 Ko (deux fichiers variables avec italiques).</li>
+    </ul>
+  </section>
+
+  <section class="pair pb" aria-labelledby="pb">
+    <p class="label"><b id="pb">Paire B</b><span>Instrument Serif · Manrope</span></p>
+    <p class="display xxl">Des espoirs <em>plein le corps</em></p>
+    <p class="display xl">La voix des femmes d'Amérique latine</p>
+    <p class="display l"><em>El infinito y un amor</em>, le spectacle de l'album sorti en janvier 2024.</p>
+    <p class="body">Le Cuarteto Tafi réunit chant en espagnol, bouzouki grec, guitare flamenca et oud, percussions afro-latines. Tierradentro produit ses spectacles et les accompagne en tournée, en France et à l'étranger.</p>
+    <p class="small">Fiche technique · PDF · mise à jour le 2 novembre 2026</p>
+    <p class="caps">Prochaines dates</p>
+    <div class="row"><span class="n">13</span><div><strong>Le Taquin, Toulouse (31)</strong><span>vendredi 13 novembre 2026</span></div></div>
+    <div class="row"><span class="n">26</span><div><strong>Le Palace, Surgères (17)</strong><span>jeudi 26 novembre 2026</span></div></div>
+    <p class="glyphs">Aa Ññ Éé Çç Œœ « » ¿ ¡ 0123456789 · ÁÍÓÚ àèù</p>
+    <ul class="notes">
+      <li>Serif display étroite et élégante : très « affiche de théâtre », superbe en très grand.</li>
+      <li>Un seul poids (400) : plus de caractère, moins de souplesse pour les petits titres.</li>
+      <li>Manrope : grotesque géométrique, ronde et contemporaine.</li>
+      <li>Poids total ≈ 76 Ko : la paire la plus légère.</li>
+    </ul>
+  </section>
+</main>
+<p class="wrap small" style="margin-top:30px">La date « mise à jour le 2 novembre 2026 » est un exemple de mise en page, pas une donnée réelle.</p>
+</body>
+</html>

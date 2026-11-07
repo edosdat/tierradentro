@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr" data-pair="b">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tierradentro · Maquette B « Nuit »</title>
+<meta name="description" content="Phase 0 — proposition B de page d'accueil pour Tierradentro, association toulousaine de production de spectacles vivants.">
+<link rel="icon" href="assets/colibri-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+  .light-logo { filter: invert(95%) sepia(6%) saturate(300%) hue-rotate(340deg); }
+  .logo-b { display: none; }
+  [data-pair="b"] .logo-a { display: none; }
+  [data-pair="b"] .logo-b { display: block; }
+  .kicker { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 14px; color: var(--gris); }
+  .on-dark .kicker { color: rgba(243,238,230,.7); }
+  .more { font-weight: 600; font-size: 15px; text-decoration: none; border-bottom: 1px solid; padding-bottom: 3px; white-space: nowrap; }
+  .more:hover { color: var(--magenta-encre); }
+  .on-dark .more:hover { color: var(--turquoise); }
+  section.block { padding-block: clamp(64px, 9vw, 140px); }
+
+  /* ---------- En-tête posé sur le héros ---------- */
+  .top { position: absolute; inset: 0 0 auto; z-index: 20; color: var(--sable); }
+  .top .wrap { display: flex; align-items: center; gap: 26px; height: 84px; }
+  .brand img { height: 30px; width: auto; }
+  .nav { display: flex; gap: 24px; margin-left: auto; font-size: 15px; font-weight: 500; }
+  .nav a { text-decoration: none; opacity: .88; }
+  .nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1px; }
+  .langs { display: flex; font-size: 13px; font-weight: 700; letter-spacing: .05em; border: 1px solid rgba(243,238,230,.35); }
+  .langs a { text-decoration: none; padding: 7px 9px; }
+  .langs a[aria-current] { background: var(--sable); color: var(--nuit); }
+  .btn-pro { font-size: 14px; font-weight: 700; text-decoration: none; padding: 10px 15px; background: var(--turquoise); color: var(--nuit); white-space: nowrap; }
+  .btn-pro:hover { background: var(--sable); }
+  .burger { display: none; margin-left: auto; background: none; border: 1px solid rgba(243,238,230,.5); color: var(--sable); padding: 9px 12px; font: 600 14px var(--f-text); }
+  @media (max-width: 1100px) { .nav { display: none; } .langs { margin-left: auto; } }
+  @media (max-width: 620px) { .btn-pro, .langs { display: none; } .burger { display: block; } .brand img { height: 26px; } }
+
+  /* ---------- Héros nocturne ---------- */
+  .hero { position: relative; min-height: max(640px, min(100svh, 960px)); color: var(--sable); overflow: hidden; isolation: isolate; display: flex; flex-direction: column; }
+  .hero .sky { position: absolute; inset: 0 0 24% 0; z-index: -3; background: linear-gradient(180deg, #0D1020 0%, #14182B 22%, #1C2D57 52%, #284A84 76%, #5F67B8 90%, #C9A9E3 98%, #EBD7EE 100%); }
+  .hero .stars { position: absolute; inset: 0 0 50% 0; z-index: -2; opacity: .55;
+    background-image: radial-gradient(1px 1px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 27% 8%, #fff, transparent), radial-gradient(1.4px 1.4px at 44% 22%, #fff, transparent), radial-gradient(1px 1px at 61% 12%, #fff, transparent), radial-gradient(1px 1px at 78% 30%, #fff, transparent), radial-gradient(1.2px 1.2px at 88% 9%, #fff, transparent), radial-gradient(1px 1px at 6% 40%, #fff, transparent), radial-gradient(1px 1px at 36% 44%, #fff, transparent), radial-gradient(1px 1px at 69% 46%, #fff, transparent), radial-gradient(1px 1px at 93% 52%, #fff, transparent); }
+  .hero .mounts { position: absolute; left: 0; width: 100%; height: 7%; bottom: 24%; z-index: -2; }
+  .hero .mounts.mirror { bottom: auto; top: 76%; transform: scaleY(-1); opacity: .45; filter: blur(2px); }
+  .hero .plain { position: absolute; inset: 76% 0 0 0; z-index: -3; background: linear-gradient(180deg, #E2CDEB 0%, #9A8ACF 18%, #4C5E9C 55%, #1E2A52 100%); overflow: hidden; }
+  .hero .plain::after { content: ""; position: absolute; inset: 0; background: url("assets/salar-croute.svg") center top / cover no-repeat; mix-blend-mode: screen; opacity: .55; }
+  .jacaranda { position: absolute; top: 72px; right: -30px; width: min(40vw, 540px); z-index: -1; opacity: .95; }
+  .hero-inner { position: relative; flex: 1; display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 24px; align-content: center; padding-top: 110px; padding-bottom: 31vh; }
+  .hero h1 { grid-column: 1 / span 9; font-size: clamp(4.4rem, 15vw, 15rem); line-height: .82; margin: 0; letter-spacing: -.02em; }
+  .hero h1 span { display: block; }
+  .hero h1 em { padding-left: .9em; color: #F1D9F5; }
+  [data-pair="a"] .hero h1 { font-size: clamp(3.8rem, 12.5vw, 12.5rem); }
+  .hero .side { grid-column: 1 / span 6; margin-top: 34px; }
+  .hero .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--turquoise); margin: 0 0 12px; }
+  .hero .lead { font-size: clamp(17px, 1.5vw, 21px); line-height: 1.5; margin: 0; max-width: 34rem; color: rgba(243,238,230,.92); }
+  .hero-bird { position: absolute; right: 8%; top: 24%; width: min(34vw, 460px); height: auto; z-index: 1; animation: drift 8s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate(0,0) rotate(-2deg); } to { transform: translate(-12px,-18px) rotate(1deg); } }
+  .scroll-cue { position: absolute; left: var(--gutter); bottom: 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,238,230,.85); text-decoration: none; display: flex; gap: 10px; align-items: center; }
+  .scroll-cue::before { content: ""; width: 1px; height: 34px; background: currentColor; }
+  .crosser { position: absolute; z-index: 2; top: 40%; left: -80px; width: 46px; color: var(--sable); opacity: 0; animation: cross 10s 1.5s cubic-bezier(.45,.05,.35,1) 1 forwards; }
+  @keyframes cross { 0% { transform: translate(0,0) scaleX(-1); opacity: 0; } 8% { opacity: .9; } 50% { transform: translate(50vw,-70px) scaleX(-1); } 92% { opacity: .9; } 100% { transform: translate(115vw,-30px) scaleX(-1); opacity: 0; } }
+  @media (max-width: 900px) {
+    .hero-bird { right: -4%; top: 78px; width: 42vw; opacity: .95; }
+    .hero h1 { grid-column: 1 / -1; }
+    .hero .side { grid-column: 1 / -1; }
+    .jacaranda { width: 70vw; opacity: .7; }
+    .hero-inner { padding-bottom: 30vh; }
+  }
+
+  /* ---------- Présentation ---------- */
+  .intro { display: grid; grid-template-columns: 4fr 8fr; gap: 24px clamp(24px, 5vw, 80px); }
+  .intro .statement { font-size: clamp(1.7rem, 3.3vw, 3rem); line-height: 1.12; margin: 0; }
+  .intro .statement em { color: var(--jacaranda-encre); }
+  .stats { grid-column: 2; display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(28px, 4vw, 56px); border-top: 1px solid var(--nuit); }
+  .stats div { padding: 18px 18px 0 0; }
+  .stats strong { display: block; font-family: var(--f-display); font-weight: var(--display-wght); font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1; letter-spacing: -.02em; }
+  .stats span { font-size: 14px; color: var(--gris); }
+  @media (max-width: 860px) { .intro { grid-template-columns: 1fr; } .stats { grid-column: 1; grid-template-columns: 1fr 1fr; } }
+
+  /* ---------- Billets ---------- */
+  .head { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 52px); }
+  .head h2 { font-size: clamp(2.6rem, 6vw, 5.4rem); margin: 0; }
+  .tickets { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .ticket { position: relative; background: #FBF8F3; border: 1px solid rgba(20,24,43,.16); display: grid; grid-template-rows: auto 1fr auto; transition: transform .5s var(--ease), box-shadow .5s var(--ease); }
+  .ticket:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(20,24,43,.45); }
+  .t-date { display: flex; align-items: baseline; gap: 14px; padding: 22px 22px 14px; border-bottom: 1px dashed rgba(20,24,43,.3); }
+  .t-day { font-family: var(--f-display); font-size: 4.2rem; line-height: .8; letter-spacing: -.03em; font-weight: var(--display-wght); }
+  .t-month { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .t-month small { display: block; font-weight: 500; color: var(--gris); text-transform: none; letter-spacing: 0; font-size: 14px; }
+  .t-body { padding: 16px 22px 18px; }
+  .t-body strong { display: block; font-size: 19px; }
+  .t-body span { color: var(--gris); }
+  .t-body p { margin: 12px 0 0; font-size: 14px; }
+  .t-foot { display: flex; justify-content: space-between; align-items: center; padding: 12px 22px; background: var(--sable-2); font-size: 14px; font-weight: 600; }
+  .t-foot a { color: var(--gris); }
+  .ticket::before, .ticket::after { content: ""; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--sable); border: 1px solid rgba(20,24,43,.16); top: 92px; }
+  .ticket::before { left: -9px; clip-path: inset(0 0 0 50%); }
+  .ticket::after { right: -9px; clip-path: inset(0 50% 0 0); }
+  @media (max-width: 980px) { .tickets { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .tickets { grid-template-columns: 1fr; } }
+
+  /* ---------- Spectacles : aplats de couleur ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .tile { position: relative; min-height: 360px; padding: clamp(22px, 3vw, 38px); display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; overflow: hidden; transition: transform .6s var(--ease); }
+  .tile:hover { transform: translateY(-4px); }
+  .tile h3 { font-size: clamp(2.2rem, 4.4vw, 4rem); line-height: .95; margin: 0; max-width: 12ch; }
+  .tile p { margin: 0; max-width: 32rem; font-size: 16px; }
+  .tile .meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 26px; }
+  .tile .status { font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 6px 9px 5px; border: 1.5px solid currentColor; }
+  .tile .bird { position: absolute; right: -40px; bottom: -50px; width: 230px; opacity: .14; transition: transform 1s var(--ease); }
+  .tile:hover .bird { transform: translate(-12px,-10px) rotate(-4deg); }
+  .t1 { background: var(--jacaranda); color: var(--nuit); }
+  .t2 { background: var(--nuit); color: var(--sable); }
+  .t2 .status { color: var(--turquoise); }
+  .t3 { background: var(--turquoise); color: var(--nuit); }
+  .t4 { background: var(--sable-2); color: var(--nuit); border: 1px solid rgba(20,24,43,.12); }
+  .t4 h3 { font-style: italic; color: var(--jacaranda-encre); }
+  .strip { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; gap: 18px; flex-wrap: wrap; padding: 22px 0; border-top: 1px solid rgba(20,24,43,.2); border-bottom: 1px solid rgba(20,24,43,.2); text-decoration: none; }
+  .strip h3 { font-size: clamp(1.4rem, 2.6vw, 2.2rem); margin: 0; }
+  .strip p { margin: 4px 0 0; color: var(--gris); }
+  @media (max-width: 860px) { .tiles { grid-template-columns: 1fr; } .tile { min-height: 300px; } }
+
+  /* ---------- Artistes ---------- */
+  .dark { background: var(--nuit); color: var(--sable); }
+  .artists { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(24px, 4vw, 64px); align-items: start; }
+  .artist-name { font-size: clamp(3.2rem, 9vw, 8.6rem); line-height: .86; margin: 0 0 26px; }
+  .artist-name em { color: var(--turquoise); }
+  .artists p.genre { font-size: 19px; color: rgba(243,238,230,.85); max-width: 36rem; margin: 0 0 30px; }
+  .members { list-style: none; margin: 0 0 34px; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+  .members li { padding: 14px 0; border-top: 1px solid rgba(243,238,230,.18); }
+  .members strong { display: block; font-weight: 600; }
+  .members span { color: rgba(243,238,230,.7); font-size: 15px; }
+  .portrait { aspect-ratio: 4 / 5; background: radial-gradient(90% 70% at 30% 25%, rgba(210,31,208,.35), transparent 60%), radial-gradient(80% 60% at 75% 85%, rgba(63,201,214,.3), transparent 60%), #1E2440; position: relative; display: grid; place-items: center; }
+  .portrait img { width: 70%; }
+  .portrait small { position: absolute; left: 14px; bottom: 12px; font-size: 12px; color: rgba(243,238,230,.7); }
+  .join { margin-top: 20px; padding: 22px; border: 1px solid rgba(243,238,230,.3); display: flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .join strong { font-family: var(--f-display); font-weight: var(--display-wght); font-size: 1.7rem; line-height: 1.1; display: block; }
+  .join span { color: rgba(243,238,230,.75); font-size: 15px; }
+  @media (max-width: 900px) { .artists { grid-template-columns: 1fr; } .members { grid-template-columns: 1fr; } }
+
+  /* ---------- Vidéo ---------- */
+  .video { padding-bottom: clamp(64px, 9vw, 140px); }
+  .lite { background: radial-gradient(70% 90% at 75% 30%, rgba(155,123,217,.5), transparent 60%), radial-gradient(60% 80% at 15% 85%, rgba(63,201,214,.3), transparent 60%), #1E2440; }
+  .lite .ghost { position: absolute; width: 30%; right: 8%; top: 12%; opacity: .55; }
+  .lite .cap { position: absolute; left: 22px; bottom: 20px; }
+  .lite .cap strong { display: block; font-family: var(--f-display); font-weight: var(--display-wght); font-size: clamp(1.8rem, 4vw, 3.4rem); line-height: 1; font-style: italic; }
+  .lite .cap span { font-size: 14px; color: rgba(243,238,230,.8); }
+  .lite .lite-note { position: absolute; left: 18px; top: 16px; right: 18px; font-size: 13px; background: var(--sable); color: var(--nuit); padding: 8px 10px; }
+
+  /* ---------- Espace pro : index des documents ---------- */
+  .pro-grid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(24px, 5vw, 80px); }
+  .pro-grid h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); margin: 0 0 18px; }
+  .pro-grid p { color: var(--gris); }
+  .docs { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .docs th, .docs td { text-align: left; padding: 14px 10px 14px 0; border-bottom: 1px solid rgba(20,24,43,.16); vertical-align: top; }
+  .docs thead th { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); font-weight: 600; border-bottom: 1px solid var(--nuit); }
+  .docs tbody th { font-weight: 600; }
+  .docs a { color: var(--ciel-encre); font-weight: 600; text-underline-offset: 3px; }
+  .docs .na { color: var(--gris); }
+  .table-scroll { overflow-x: auto; }
+  @media (max-width: 860px) { .pro-grid { grid-template-columns: 1fr; } .docs { min-width: 560px; } }
+
+  /* ---------- Pied de page ---------- */
+  footer { background: var(--nuit); color: var(--sable); padding: 0 0 30px; overflow: hidden; }
+  .big-word { font-family: var(--f-display); font-weight: var(--display-wght); font-size: clamp(4rem, 18vw, 17rem); line-height: .8; letter-spacing: -.03em; color: rgba(243,238,230,.08); white-space: nowrap; margin: 0 0 40px; transform: translateY(-.08em); }
+  .foot { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; font-size: 15px; }
+  .foot h4 { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,238,230,.65); margin: 0 0 12px; font-weight: 600; }
+  .foot ul { list-style: none; margin: 0; padding: 0; color: rgba(243,238,230,.88); }
+  .foot li { padding: 4px 0; }
+  .foot a { text-decoration: none; }
+  .foot a:hover { text-decoration: underline; }
+  .legal { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(243,238,230,.18); display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: rgba(243,238,230,.7); }
+  @media (max-width: 900px) { .foot { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .foot { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="top on-dark">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Tierradentro, accueil">
+      <img class="light-logo logo-a" src="assets/logo-tierradentro-a.svg" alt="Tierradentro">
+      <img class="light-logo logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro">
+    </a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#">L'association</a><a href="#">Artistes</a><a href="#">Spectacles</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
+    </nav>
+    <div class="langs" aria-label="Langue"><a href="#" aria-current="true" lang="fr">FR</a><a href="#" lang="en">EN</a><a href="#" lang="es">ES</a></div>
+    <a class="btn-pro" href="#pro">Espace pro</a>
+    <button class="burger" type="button" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero on-dark" aria-labelledby="h1">
+    <div class="sky" data-parallax="0.12"></div>
+    <div class="stars" data-parallax="0.2"></div>
+    <svg class="mounts" viewBox="0 0 1600 60" preserveAspectRatio="none" aria-hidden="true"><use href="#mounts"/></svg>
+    <div class="plain" aria-hidden="true"></div>
+    <svg class="mounts mirror" viewBox="0 0 1600 60" preserveAspectRatio="none" aria-hidden="true"><use href="#mounts"/></svg>
+
+    <svg class="jacaranda" viewBox="0 0 600 420" aria-hidden="true">
+      <g fill="none" stroke="#0E1020" stroke-linecap="round">
+        <path d="M610 -10 C520 40 470 70 380 92 C320 106 270 128 220 170" stroke-width="7"/>
+        <path d="M455 72 C430 120 420 160 428 214" stroke-width="4"/>
+        <path d="M380 92 C350 60 330 40 290 26" stroke-width="3.5"/>
+        <path d="M300 116 C270 150 262 190 268 236" stroke-width="3"/>
+        <path d="M540 30 C560 90 548 140 520 182" stroke-width="3.5"/>
+      </g>
+      <g id="blooms">
+        <g fill="#9B7BD9"><circle cx="220" cy="172" r="9"/><circle cx="232" cy="186" r="7"/><circle cx="210" cy="190" r="8"/><circle cx="224" cy="204" r="6"/><circle cx="240" cy="168" r="6"/><circle cx="205" cy="160" r="5"/></g>
+        <g fill="#B79CE8"><circle cx="428" cy="216" r="8"/><circle cx="416" cy="230" r="6"/><circle cx="440" cy="232" r="7"/><circle cx="428" cy="248" r="5"/><circle cx="446" cy="214" r="5"/></g>
+        <g fill="#8A68D0"><circle cx="268" cy="238" r="7"/><circle cx="280" cy="252" r="6"/><circle cx="258" cy="254" r="5"/><circle cx="270" cy="268" r="4"/></g>
+        <g fill="#A889E2"><circle cx="520" cy="184" r="8"/><circle cx="532" cy="198" r="6"/><circle cx="508" cy="200" r="7"/><circle cx="522" cy="214" r="5"/><circle cx="540" cy="180" r="5"/></g>
+        <g fill="#9B7BD9"><circle cx="290" cy="26" r="7"/><circle cx="278" cy="38" r="5"/><circle cx="300" cy="40" r="5"/><circle cx="350" cy="78" r="5"/><circle cx="470" cy="60" r="6"/><circle cx="484" cy="70" r="4"/></g>
+        <g fill="#C9B4F0" opacity=".9"><circle cx="196" cy="214" r="3"/><circle cx="252" cy="282" r="2.5"/><circle cx="452" cy="262" r="3"/><circle cx="500" cy="230" r="2.5"/><circle cx="410" cy="268" r="2"/></g>
+      </g>
+    </svg>
+
+    <img class="hero-bird" src="assets/colibri-aquarelle.svg" alt="" width="460" height="460">
+    <svg class="crosser" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-line"/></svg>
+
+    <div class="wrap hero-inner">
+      <h1 id="h1" class="display"><span>Tierra</span><span><em>adentro</em></span></h1>
+      <div class="side">
+        <p class="eyebrow">Production de spectacles vivants · Toulouse</p>
+        <p class="lead">Une association qui accompagne des artistes de la création à la tournée, avec des spectacles prêts à partir et des dossiers techniques à jour. <span class="av">À valider</span></p>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#intro">Découvrir</a>
+  </section>
+
+  <section class="block" id="intro" aria-labelledby="h-intro">
+    <div class="wrap intro">
+      <div class="reveal"><p class="kicker" id="h-intro">L'association</p><a class="more" href="#">Qui sommes-nous</a></div>
+      <div class="reveal">
+        <p class="statement display">« Tierra adentro », c'est l'intérieur des terres. Nous produisons des spectacles qui en viennent, et nous les emmenons <em>partout où on les attend</em>. <span class="av">À valider</span></p>
+      </div>
+      <div class="stats reveal">
+        <div><strong>90</strong><span>dates jouées depuis janvier 2024 <span class="av">À valider</span></span></div>
+        <div><strong>36</strong><span>départements, et le Maroc</span></div>
+        <div><strong>3</strong><span>spectacles en tournée</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="agenda" style="padding-top:0" aria-labelledby="h-dates">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="kicker">Agenda</p><h2 id="h-dates" class="display">Prochaines dates</h2></div>
+        <a class="more" href="#">Agenda complet et archives par année</a>
+      </div>
+      <ol class="tickets reveal">
+        <li class="ticket"><div class="t-date"><span class="t-day">13</span><span class="t-month">Nov. 2026<small>vendredi</small></span></div><div class="t-body"><strong>Le Taquin</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">26</span><span class="t-month">Nov. 2026<small>jeudi</small></span></div><div class="t-body"><strong>Le Palace</strong><span>Surgères (17)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">5</span><span class="t-month">Déc. 2026<small>samedi</small></span></div><div class="t-body"><strong>Centre Culturel</strong><span>Eymet (24)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">22</span><span class="t-month">Janv. 2027<small>vendredi</small></span></div><div class="t-body"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">12</span><span class="t-month">Mars 2027<small>vendredi</small></span></div><div class="t-body"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">4</span><span class="t-month">Juin 2027<small>vendredi</small></span></div><div class="t-body"><strong>Le Bijou</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" aria-labelledby="h-shows">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><p class="kicker">Répertoire</p><h2 id="h-shows" class="display">Nos spectacles</h2></div>
+        <a class="more" href="#">Tous les spectacles</a>
+      </div>
+      <div class="tiles reveal">
+        <a class="tile t1" href="#">
+          <div class="meta"><span class="status">En tournée</span><span>Cuarteto Tafi</span></div>
+          <div><h3 class="display">El infinito y un amor</h3><p style="margin-top:14px">Le spectacle de l'album sorti en janvier 2024. <span class="av" style="color:var(--nuit)">Texte à rédiger</span></p></div>
+          <svg class="bird" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-solid"/></svg>
+        </a>
+        <a class="tile t2 on-dark" href="#">
+          <div class="meta"><span class="status">En tournée</span><span>1 h 15 · tout public</span></div>
+          <div><h3 class="display">Des espoirs plein le corps</h3><p style="margin-top:14px">Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec Justine Marmouyet (danse) et Fanny Do (piano).</p></div>
+          <svg class="bird" viewBox="0 0 100 100" aria-hidden="true" style="color:var(--turquoise)"><use href="#bird-solid"/></svg>
+        </a>
+        <a class="tile t3" href="#">
+          <div class="meta"><span class="status">En tournée</span><span>Création 2023</span></div>
+          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p style="margin-top:14px">Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon.</p></div>
+          <svg class="bird" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-solid"/></svg>
+        </a>
+        <a class="tile t4" href="#">
+          <div class="meta"><span class="status" style="color:var(--jacaranda-encre)">À venir</span><span>En préparation</span></div>
+          <div><h3 class="display">La Noche Eterna</h3><p style="margin-top:14px;color:var(--gris)">Nouveau spectacle. Plus d'informations prochainement.</p></div>
+          <svg class="bird" viewBox="0 0 100 100" aria-hidden="true" style="color:var(--jacaranda)"><use href="#bird-line"/></svg>
+        </a>
+      </div>
+      <a class="strip reveal" href="#">
+        <div><h3 class="display">Nosotras : nuestros cantos – nuestros cuerpos</h3><p>Création présentée au festival Rio Loco, Toulouse, 2025. <span class="av">À confirmer</span></p></div>
+        <span class="more">Voir la création</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="block dark on-dark" aria-labelledby="h-artists">
+    <div class="wrap artists">
+      <div class="reveal">
+        <p class="kicker">Nos artistes</p>
+        <h2 id="h-artists" class="artist-name display">Cuarteto <em>Tafi</em></h2>
+        <p class="genre">Quartet franco-argentin de world music. Chant en espagnol, poétique et engagé, bouzouki grec, guitare flamenca et oud, percussions afro-latines.</p>
+        <ul class="members">
+          <li><strong>Leonor Harispe</strong><span>chant, textes</span></li>
+          <li><strong>Ludovic Deny</strong><span>bouzouki, chœurs</span></li>
+          <li><strong>Matthieu Guenez</strong><span>guitare, oud</span></li>
+          <li><strong>Frédéric Theiler</strong><span>percussions, chœurs</span></li>
+        </ul>
+        <a class="more" href="#">Fiche artiste, discographie et vidéos</a>
+      </div>
+      <div class="reveal">
+        <div class="portrait"><img src="assets/colibri-aquarelle.svg" alt=""><small>Photo du quartet à fournir (crédit obligatoire)</small></div>
+        <div class="join"><div><strong class="display">Votre projet ici ?</strong><span>Tierradentro accueille de nouveaux artistes. <span class="av">À valider</span></span></div><a class="more" href="#">Nous proposer un projet</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark on-dark video" aria-labelledby="h-video">
+    <div class="wrap">
+      <p class="kicker reveal" id="h-video">Vidéo à la une</p>
+      <div class="lite reveal" data-youtube="" data-title="Vuelven, Cuarteto Tafi">
+        <img class="ghost" src="assets/colibri-aquarelle.svg" alt="">
+        <button type="button" aria-label="Lire la vidéo Vuelven"><span class="play"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="#14182B"/></svg></span></button>
+        <p class="cap"><strong>Vuelven</strong><span>Cuarteto Tafi · lecture sans cookie, chargée au clic</span></p>
+        <p class="lite-note" hidden>Maquette : l'identifiant YouTube du clip sera saisi dans le Studio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="pro" aria-labelledby="h-pro">
+    <div class="wrap pro-grid">
+      <div class="reveal">
+        <p class="kicker">Espace pro</p>
+        <h2 id="h-pro" class="display">Programmer un spectacle</h2>
+        <p>Tous les documents, à jour, en téléchargement direct. Sans compte ni mot de passe.</p>
+        <a class="more" href="#">Ouvrir l'Espace pro</a>
+      </div>
+      <div class="table-scroll reveal">
+        <table class="docs">
+          <caption class="sr-only">Documents disponibles par spectacle</caption>
+          <thead><tr><th scope="col">Spectacle</th><th scope="col">Fiche technique</th><th scope="col">Dossier de presse</th><th scope="col">Photos HD</th><th scope="col">Mise à jour</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">El infinito y un amor</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
+            <tr><th scope="row">Des espoirs plein le corps</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
+            <tr><th scope="row">La voix des femmes d'Amérique latine</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
+            <tr><th scope="row">La Noche Eterna</th><td class="na">bientôt</td><td class="na">bientôt</td><td class="na">bientôt</td><td class="na">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- Bandeau partenaires : masqué tant qu'aucun logo n'est saisi dans le Studio. -->
+</main>
+
+<footer class="on-dark">
+  <p class="big-word" aria-hidden="true">Tierradentro</p>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="light-logo logo-a" src="assets/logo-tierradentro-a.svg" alt="Tierradentro" style="height:32px;width:auto;margin-bottom:14px">
+        <img class="light-logo logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro" style="height:32px;width:auto;margin-bottom:14px">
+        <ul><li>Association loi 1901</li><li>Siège : adresse à compléter, Toulouse</li></ul>
+      </div>
+      <div><h4>Identité</h4><ul><li>SIRET : à compléter</li><li>Licence de spectacles : à compléter</li><li>TVA : statut à compléter</li></ul></div>
+      <div><h4>Contacts</h4><ul><li>Production : nom, téléphone</li><li>Diffusion : nom, téléphone</li><li>Artistique : nom, téléphone</li><li><a href="#">Formulaire de contact</a></li></ul></div>
+      <div><h4>Le site</h4><ul><li><a href="#">Agenda et archives</a></li><li><a href="#pro">Espace pro</a></li><li><a href="#">Presse</a></li><li><a href="#">Actualités</a></li></ul></div>
+    </div>
+    <div class="legal"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">Crédits</a><span>Colibri : illustration de [crédit à compléter]</span><span>© Tierradentro</span></div>
+  </div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="currentColor"/></symbol>
+  <symbol id="mounts" viewBox="0 0 1600 60"><path d="M0 60 L0 44 L80 38 L150 42 L230 26 L300 33 L380 18 L450 30 L520 27 L600 40 L700 22 L780 10 L850 24 L930 32 L1010 21 L1090 29 L1180 14 L1260 28 L1350 36 L1440 26 L1520 33 L1600 30 L1600 60 Z" fill="#3B3570"/><path d="M0 60 L0 50 L120 46 L240 50 L330 42 L460 48 L590 43 L720 51 L860 45 L980 49 L1110 42 L1250 48 L1390 44 L1500 50 L1600 47 L1600 60 Z" fill="#26254F"/></symbol>
+</svg>
+
+<div class="mock-bar" role="group" aria-label="Outils de maquette">
+  <span>Typo</span>
+  <button type="button" data-set-pair="a" aria-pressed="false">Fraunces + Inter Tight</button>
+  <button type="button" data-set-pair="b" aria-pressed="true">Instrument + Manrope</button>
+  <a href="index.html">Sommaire</a>
+</div>
+<script src="assets/shared.js"></script>
+</body>
+</html>
