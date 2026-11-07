@@ -1,0 +1,50 @@
+# Sauvegarde hebdomadaire du contenu Sanity (textes, dates, images et fichiers PDF).
+# Le fichier est CHIFFRÉ avant d'être stocké : le dépôt étant public, une sauvegarde en clair
+# exposerait les brouillons et les notes internes.
+#
+# Secrets à créer dans GitHub (Settings → Secrets and variables → Actions) :
+#   SANITY_SAUVEGARDE_TOKEN : jeton Sanity en lecture seule (rôle « Viewer »)
+#   SAUVEGARDE_PHRASE        : phrase de passe longue, à conserver précieusement hors de GitHub
+#
+# Restaurer : télécharger l'archive depuis l'onglet Actions, puis
+#   gpg --decrypt sauvegarde-AAAA-MM-JJ.tar.gz.gpg > sauvegarde.tar.gz
+#   npx sanity dataset import sauvegarde.tar.gz production --replace
+name: Sauvegarde du contenu
+
+on:
+  schedule:
+    - cron: "17 3 * * 1" # chaque lundi vers 4 h (heure de Paris)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sauvegarder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Exporter le contenu
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_SAUVEGARDE_TOKEN }}
+        run: npx sanity dataset export production "sauvegarde-$(date +%F).tar.gz"
+      - name: Chiffrer
+        env:
+          PHRASE: ${{ secrets.SAUVEGARDE_PHRASE }}
+        run: |
+          test -n "$PHRASE" || { echo "Secret SAUVEGARDE_PHRASE manquant"; exit 1; }
+          for f in sauvegarde-*.tar.gz; do
+            gpg --batch --yes --pinentry-mode loopback --passphrase "$PHRASE" --symmetric --cipher-algo AES256 -o "$f.gpg" "$f"
+            rm "$f"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sauvegarde-sanity
+          path: sauvegarde-*.tar.gz.gpg
+          retention-days: 90

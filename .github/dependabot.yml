@@ -1,0 +1,23 @@
+# Mises à jour de sécurité automatiques : une proposition par semaine, regroupée.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Europe/Paris
+    open-pull-requests-limit: 5
+    groups:
+      sanity:
+        patterns: ["sanity", "@sanity/*", "next-sanity"]
+      next:
+        patterns: ["next", "eslint-config-next", "react", "react-dom", "@types/react", "@types/react-dom"]
+      autres:
+        patterns: ["*"]
+        exclude-patterns: ["sanity", "@sanity/*", "next-sanity", "next", "eslint-config-next", "react", "react-dom"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
