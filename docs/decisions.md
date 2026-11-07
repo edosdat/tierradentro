@@ -52,3 +52,13 @@ Conséquences :
   L'association et les réglages sont des documents uniques (ni création ni suppression).
   L'outil de requêtes (Vision) n'est chargé qu'en développement.
 - **Prévisualisation en direct** et **mise à jour immédiate après publication** : prévues en phase 2, quand les pages existeront.
+
+## 5. Hébergement du contenu : Sanity (plan gratuit)
+
+Décision du 7 novembre 2026, après comparaison avec Payload + Supabase (Paris) et Payload + Scaleway (Paris).
+
+- **Coût** : plan gratuit de Sanity (20 utilisateurs, 10 000 documents, 1 million de requêtes par mois), suffisant pour le site.
+  Le programme de Sanity pour les organisations à but non lucratif reste une piste pour obtenir les fonctions du plan payant sans frais.
+- **Lieu des données** : Union européenne, centre Google Cloud en Belgique. Sanity ne permet pas de choisir la France.
+  Conforme au RGPD (pas de transfert hors de l'UE pour le stockage). Le site ne doit donc pas annoncer un hébergement « en France ».
+- Le site lui-même reste hébergé sur Vercel.
