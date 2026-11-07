@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "seed": "tsx scripts/import-dates.ts",
     "seed:importer": "tsx scripts/importer.mts",
     "sanity:valider": "sanity schema validate"

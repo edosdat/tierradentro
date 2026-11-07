@@ -37,7 +37,10 @@ const TAILLE_LOT = 50
 for (let i = 0; i < docs.length; i += TAILLE_LOT) {
   const lot = docs.slice(i, i + TAILLE_LOT)
   const transaction = client.transaction()
-  for (const doc of lot) (remplacer ? transaction.createOrReplace(doc) : transaction.createIfNotExists(doc))
+  for (const doc of lot) {
+    if (remplacer) transaction.createOrReplace(doc)
+    else transaction.createIfNotExists(doc)
+  }
   await transaction.commit({visibility: 'async'})
   console.log(`  ${Math.min(i + TAILLE_LOT, docs.length)} / ${docs.length}`)
 }
