@@ -47,9 +47,12 @@ body { background: var(--color-sable); color: var(--color-nuit); }
 .apparition { animation: apparition 0.9s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes apparition { from { opacity: 0; transform: translateY(12px); } }
 
-/* Colibri en vol : battement d'ailes rapide (l'aquarelle se compresse et s'étire) */
-.colibri-vole { animation: battement 0.11s linear infinite alternate; transform-origin: 45% 55%; }
-@keyframes battement {
-  from { transform: scale(1.02, 0.94) rotate(-4deg) skewX(2deg); }
-  to { transform: scale(0.98, 1.05) rotate(3deg) skewX(-2deg); }
+/* Colibri en vol : l'aile bat très vite autour de l'épaule (comme un vrai colibri),
+   le corps reste presque immobile avec un léger mouvement de sustentation. */
+.aile-bat { animation: battement-aile 0.05s linear infinite alternate; }
+@keyframes battement-aile {
+  from { transform: rotate(10deg) scaleY(1.02); }
+  to { transform: rotate(-42deg) scaleY(0.78); }
 }
+.colibri-sustentation { animation: sustentation 0.32s ease-in-out infinite alternate; }
+@keyframes sustentation { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-5px) rotate(1deg); } }
