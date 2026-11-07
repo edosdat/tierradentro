@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import {getTranslations} from 'next-intl/server'
 import {VideoFond} from './VideoFond'
+import {ColibriVolant} from './ColibriVolant'
 
 // Héros de l'accueil : crépuscule sur le salar, jacaranda, colibri aquarelle de Ludo Deny.
 // Décor en CSS et SVG légers ; le texte reste sur des aplats de couleur unie (contraste vérifié).
@@ -62,21 +62,16 @@ export async function HerosAccueil({accroche, video}: {accroche: string; video?:
         </>
       ) : null}
 
-      <Image
-        src="/images/colibri-aquarelle.webp"
-        alt=""
-        width={793}
-        height={777}
-        priority
-        sizes="(min-width: 1024px) 34vw, 42vw"
-        className="colibri-flotte absolute right-[8%] top-[22%] z-0 w-[min(34vw,460px)] max-lg:right-[-4%] max-lg:top-[78px] max-lg:w-[42vw]"
+      <ColibriVolant
+        libelle={t('colibri')}
+        className="right-[8%] top-[22%] w-[min(34vw,460px)] max-lg:right-[-4%] max-lg:top-[78px] max-lg:w-[42vw]"
       />
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1440px] flex-1 content-center px-4 pt-28 pb-[31vh] sm:px-8 max-lg:pb-[30vh]">
-        <h1 id="titre-accueil" className="titre-display text-[clamp(3rem,11vw,11rem)] leading-[0.9] whitespace-nowrap">
+        <h1 id="titre-accueil" data-texte-heros className="titre-display w-fit text-[clamp(3rem,11vw,11rem)] leading-[0.9] whitespace-nowrap">
           Tierradentro
         </h1>
-        <div className="mt-8 max-w-xl">
+        <div data-texte-heros className="mt-8 max-w-xl">
           <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.16em] text-turquoise">{t('surtitre')}</p>
           <p className="text-lg leading-relaxed text-sable/92 sm:text-xl">{accroche}</p>
         </div>

@@ -46,3 +46,10 @@ body { background: var(--color-sable); color: var(--color-nuit); }
 /* Apparition douce au chargement : la page reste lisible même sans animation. */
 .apparition { animation: apparition 0.9s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes apparition { from { opacity: 0; transform: translateY(12px); } }
+
+/* Colibri en vol : battement d'ailes rapide (l'aquarelle se compresse et s'étire) */
+.colibri-vole { animation: battement 0.11s linear infinite alternate; transform-origin: 45% 55%; }
+@keyframes battement {
+  from { transform: scale(1.02, 0.94) rotate(-4deg) skewX(2deg); }
+  to { transform: scale(0.98, 1.05) rotate(3deg) skewX(-2deg); }
+}
