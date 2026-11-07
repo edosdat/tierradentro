@@ -1,9 +1,11 @@
 {
   "meta": {
     "titre": "Tierradentro · production de spectacles vivants",
-    "description": "Tierradentro, association toulousaine de production de spectacles vivants : projets en tournée, agenda des concerts et espace pro."
+    "description": "Tierradentro, association toulousaine de production de spectacles vivants : projets en tournée, agenda des concerts et espace pro.",
+    "suffixe": "Tierradentro"
   },
   "nav": {
+    "accueil": "Accueil",
     "association": "L'association",
     "projets": "Projets",
     "agenda": "Agenda",
@@ -12,22 +14,190 @@
     "contact": "Contact",
     "espacePro": "Espace pro",
     "langue": "Langue",
+    "menu": "Menu",
+    "fermer": "Fermer",
+    "principale": "Navigation principale",
     "allerAuContenu": "Aller au contenu"
+  },
+  "commun": {
+    "voirTout": "Tout voir",
+    "enSavoirPlus": "En savoir plus",
+    "retour": "Retour",
+    "aValider": "À valider",
+    "telecharger": "Télécharger",
+    "misAJour": "mis à jour le {date}",
+    "pdf": "PDF",
+    "aucunContenu": "Rien à afficher pour le moment.",
+    "creditPhoto": "Photo : {credit}",
+    "lienExterne": "(nouvelle fenêtre)",
+    "lireVideo": "Lire la vidéo"
+  },
+  "statut": {
+    "en-tournee": "En tournée",
+    "creation": "Création",
+    "a-venir": "À venir",
+    "archive": "Archivé"
   },
   "accueil": {
     "surtitre": "Production de spectacles vivants · Toulouse",
     "accroche": "Une association qui accompagne des artistes de la création à la tournée, avec des spectacles prêts à partir et des dossiers techniques à jour.",
-    "chantier": "Le site est en cours de construction.",
+    "decouvrir": "Découvrir",
+    "introKicker": "L'association",
+    "introLien": "Qui sommes-nous",
+    "introTexte": "Tierradentro vient de l'espagnol « tierra adentro » : l'intérieur des terres. Nous produisons des projets qui en viennent, et nous les emmenons partout où on les attend.",
+    "chiffreDates": "dates jouées depuis {annee}",
+    "chiffreDepartements": "départements",
+    "chiffrePays": "et {pays}",
+    "chiffreProjets": "projets en tournée",
     "prochainesDates": "Prochaines dates",
-    "aucuneDate": "Aucune date annoncée pour le moment."
+    "agendaComplet": "Agenda complet et archives",
+    "aucuneDate": "Aucune date annoncée pour le moment.",
+    "nosProjets": "Nos projets",
+    "nosProjetsKicker": "Ce que nous présentons",
+    "tousLesProjets": "Tous les projets",
+    "aLaUne": "Projet à la une",
+    "discographie": "Discographie",
+    "voirLeProjet": "Voir le projet",
+    "votreProjet": "Votre projet ici ?",
+    "votreProjetTexte": "Tierradentro accueille de nouveaux projets.",
+    "proposerUnProjet": "Nous proposer un projet",
+    "videoUne": "Vidéo à la une",
+    "proKicker": "Espace pro",
+    "proTitre": "Programmer un projet",
+    "proTexte": "Tous les documents, à jour, en téléchargement direct. Sans compte ni mot de passe.",
+    "proLien": "Ouvrir l'Espace pro",
+    "partenaires": "Ils nous soutiennent"
   },
   "concert": {
     "billetterie": "Billetterie",
+    "billetterieBientot": "Billetterie bientôt",
     "complet": "Complet",
-    "annule": "Annulé"
+    "annule": "Annulé",
+    "projet": "Projet"
+  },
+  "agenda": {
+    "titre": "Agenda",
+    "intro": "Toutes les dates à venir des projets présentés par Tierradentro. Une date passée rejoint les archives le lendemain.",
+    "aVenir": "À venir",
+    "archives": "Archives",
+    "archivesIntro": "Toutes les dates jouées, année par année.",
+    "filtrer": "Filtrer par projet",
+    "tousProjets": "Tous les projets",
+    "aucune": "Aucune date à venir pour ce projet.",
+    "nbDates": "{n, plural, =0 {aucune date} one {# date} other {# dates}}"
+  },
+  "projets": {
+    "titre": "Projets",
+    "intro": "Les projets présentés par Tierradentro : groupes, créations et collaborations, prêts à tourner.",
+    "rejoindre": "Rejoindre Tierradentro",
+    "rejoindreTexte": "Vous portez un projet de spectacle et cherchez une structure de production ? Présentez-le nous.",
+    "distribution": "Distribution",
+    "duree": "Durée",
+    "public": "Public",
+    "jauge": "Jauge",
+    "dates": "Prochaines dates",
+    "aucuneDate": "Pas de date annoncée pour le moment.",
+    "videos": "Vidéos",
+    "photos": "Photos",
+    "discographie": "Discographie",
+    "titres": "{n} titres",
+    "ecouter": "Écouter",
+    "paroles": "Paroles",
+    "presse": "Ils en parlent",
+    "pro": "Programmer ce projet",
+    "proTexte": "Fiche technique, dossier de presse et photos HD dans l'Espace pro.",
+    "contactDiffusion": "Contact diffusion"
+  },
+  "pro": {
+    "titre": "Espace pro",
+    "intro": "Pour les programmateurs, les salles, les festivals et la presse : tous les documents à jour, en accès direct. Aucune inscription.",
+    "documents": "Documents",
+    "aucunDocument": "Les documents de ce projet arrivent bientôt.",
+    "photosHD": "Photos HD libres de droits",
+    "photosNote": "Libres de droits pour la promotion du projet, avec mention du crédit.",
+    "texteCourt": "Texte court",
+    "texteLong": "Texte long",
+    "copier": "Copier le texte",
+    "copie": "Copié",
+    "contact": "Contact diffusion",
+    "type": {
+      "fiche-technique": "Fiche technique",
+      "plan-de-scene": "Plan de scène",
+      "dossier-de-presse": "Dossier de presse",
+      "dossier-artistique": "Dossier artistique",
+      "rapport-activite": "Rapport d'activité",
+      "autre": "Document"
+    }
+  },
+  "presse": {
+    "titre": "Presse",
+    "intro": "Ce que les médias disent des projets présentés par Tierradentro.",
+    "lire": "Lire l'article",
+    "aucun": "Aucun article pour le moment."
+  },
+  "actualites": {
+    "titre": "Actualités",
+    "intro": "Sorties d'albums, résidences, créations : les nouvelles de Tierradentro.",
+    "aucune": "Aucune actualité pour le moment.",
+    "lire": "Lire la suite"
+  },
+  "association": {
+    "titre": "L'association",
+    "mission": "Mission et projet artistique",
+    "valeurs": "Nos valeurs",
+    "equipe": "L'équipe",
+    "identite": "Fiche d'identité",
+    "nomLegal": "Nom",
+    "forme": "Forme juridique",
+    "siret": "SIRET",
+    "licence": "Licence d'entrepreneur de spectacles",
+    "tva": "TVA",
+    "siege": "Siège",
+    "aCompleter": "à compléter",
+    "rapports": "Rapports d'activité",
+    "aucunRapport": "Les rapports d'activité seront publiés ici."
+  },
+  "contact": {
+    "titre": "Contact",
+    "intro": "Une date à programmer, une demande de la presse, un projet à nous proposer : écrivez-nous.",
+    "contacts": "Vos interlocuteurs",
+    "contactsVides": "Les coordonnées de l'équipe seront publiées ici prochainement.",
+    "formulaire": "Nous écrire",
+    "nom": "Nom",
+    "email": "E-mail",
+    "structure": "Structure (facultatif)",
+    "objet": "Objet",
+    "objets": {
+      "programmation": "Programmation",
+      "presse": "Presse",
+      "proposition": "Proposition de projet",
+      "autre": "Autre"
+    },
+    "message": "Message",
+    "envoyer": "Envoyer",
+    "envoi": "Envoi…",
+    "succes": "Merci, votre message est bien parti. Nous vous répondrons rapidement.",
+    "erreurChamps": "Merci de vérifier les champs signalés.",
+    "erreurEnvoi": "Le message n'a pas pu être envoyé. Réessayez dans quelques minutes.",
+    "indisponible": "Le formulaire n'est pas encore activé. En attendant, écrivez-nous directement aux adresses ci-contre.",
+    "trop": "Trop de messages envoyés depuis votre connexion. Réessayez plus tard.",
+    "rgpd": "Vos données servent uniquement à vous répondre. Elles ne sont ni conservées sur le site ni transmises à des tiers.",
+    "requis": "obligatoire"
   },
   "pied": {
+    "association": "Association loi 1901 de production de spectacles vivants, Toulouse.",
+    "identite": "Identité",
+    "contacts": "Contacts",
+    "leSite": "Le site",
+    "mentions": "Mentions légales",
+    "confidentialite": "Confidentialité",
+    "credits": "Crédits",
     "credit": "Colibri : illustration de {nom}",
     "droits": "© Tierradentro"
+  },
+  "introuvable": {
+    "titre": "Page introuvable",
+    "texte": "Ce colibri s'est envolé ailleurs. La page demandée n'existe pas ou a changé d'adresse.",
+    "retour": "Revenir à l'accueil"
   }
 }

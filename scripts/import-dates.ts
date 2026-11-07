@@ -244,6 +244,42 @@ docs.push({
   },
 })
 
+// ---------- pages simples ----------
+const intertitre = (texte: string) => ({...paragraphe(texte), style: 'h3'})
+const pageSimple = (slug: string, titre: string, blocs: unknown[]) => ({
+  _id: `page-${slug}`,
+  _type: 'page',
+  titre: fr(titre),
+  slug: {_type: 'slug', current: slug},
+  contenu: {fr: blocs},
+})
+docs.push(
+  pageSimple('mentions-legales', 'Mentions légales', [
+    intertitre('Éditeur du site'),
+    paragraphe('Tierradentro, association loi 1901. Siège : [À COMPLÉTER]. SIRET : [À COMPLÉTER]. Licence d\'entrepreneur de spectacles : [À COMPLÉTER].'),
+    paragraphe('Directeur ou directrice de la publication : [À COMPLÉTER]. Contact : voir la page Contact.'),
+    intertitre('Hébergement'),
+    paragraphe('Site hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis (vercel.com).'),
+    paragraphe('Contenus gérés avec Sanity (sanity.io) ; les données sont stockées dans l\'Union européenne.'),
+    intertitre('Propriété intellectuelle'),
+    paragraphe('Les textes, photos, vidéos et illustrations de ce site appartiennent à leurs auteurs. Toute reproduction demande leur accord, sauf les photos de l\'Espace pro, libres de droits pour la promotion des projets avec mention du crédit.'),
+  ]),
+  pageSimple('confidentialite', 'Politique de confidentialité', [
+    intertitre('Ce que nous collectons'),
+    paragraphe('Le formulaire de contact transmet votre nom, votre e-mail, votre structure et votre message par e-mail à l\'équipe de Tierradentro. Ces données ne sont pas enregistrées sur le site et ne sont transmises à personne d\'autre. Elles servent uniquement à vous répondre.'),
+    intertitre('Cookies'),
+    paragraphe('Le site dépose un seul cookie, technique, qui retient la langue choisie. Il n\'utilise ni cookie publicitaire ni outil de suivi. Les vidéos YouTube ne sont chargées, depuis youtube-nocookie.com, que si vous cliquez pour les lire.'),
+    intertitre('Vos droits'),
+    paragraphe('Conformément au RGPD, vous pouvez demander l\'accès, la rectification ou la suppression des données vous concernant en écrivant à l\'association (page Contact). Vous pouvez aussi saisir la CNIL (cnil.fr).'),
+  ]),
+  pageSimple('credits', 'Crédits', [
+    paragraphe('Illustration du colibri : Ludo Deny.'),
+    paragraphe('Polices : Fraunces (Undercase Type) et Inter Tight (Rasmus Andersson), sous licence SIL Open Font License.'),
+    paragraphe('Photos : le nom de chaque photographe est indiqué avec la photo.'),
+    paragraphe('Conception et réalisation du site : [À COMPLÉTER].'),
+  ]),
+)
+
 // ---------- écriture ----------
 const sortie = resolve(racine, 'data/seed.ndjson')
 writeFileSync(sortie, docs.map((d) => JSON.stringify(d)).join('\n') + '\n')

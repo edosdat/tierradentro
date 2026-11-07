@@ -31,3 +31,18 @@ body { background: var(--color-sable); color: var(--color-nuit); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+
+/* Héros de l'accueil */
+.etoiles {
+  background-image: radial-gradient(1px 1px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 27% 8%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 44% 22%, #fff, transparent), radial-gradient(1px 1px at 61% 12%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 30%, #fff, transparent), radial-gradient(1.2px 1.2px at 88% 9%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 40%, #fff, transparent), radial-gradient(1px 1px at 36% 44%, #fff, transparent),
+    radial-gradient(1px 1px at 69% 46%, #fff, transparent), radial-gradient(1px 1px at 93% 52%, #fff, transparent);
+}
+.colibri-flotte { animation: flotte 8s ease-in-out infinite alternate; }
+@keyframes flotte { from { transform: translate(0, 0) rotate(-2deg); } to { transform: translate(-12px, -18px) rotate(1deg); } }
+
+/* Apparition douce au chargement : la page reste lisible même sans animation. */
+.apparition { animation: apparition 0.9s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes apparition { from { opacity: 0; transform: translateY(12px); } }

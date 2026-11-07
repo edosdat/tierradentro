@@ -13,7 +13,7 @@ Le Cuarteto Tafi est l'un des projets présentés, à côté de collaborations e
 |---|---|---|
 | 0 | Direction artistique : maquette B « Nuit », Fraunces + Inter Tight, colibri du Cuarteto Tafi | Validée |
 | 1 | Next.js 16 + Sanity (Studio en français sur `/studio`), schémas, import des dates | **Livrée**, contenu importé |
-| 2 | Pages publiques en français | À faire |
+| 2 | Pages publiques en français | **Livrée** |
 | 3 | Anglais et espagnol, SEO, données structurées | À faire |
 | 4 | Sécurité, performance, accessibilité, guide d'administration | À faire |
 
@@ -26,7 +26,9 @@ Le Cuarteto Tafi est l'un des projets présentés, à côté de collaborations e
 
 ```
 src/
-  app/[locale]/        pages du site (une seule pour l'instant, provisoire)
+  app/[locale]/        pages du site (accueil, projets, agenda, espace pro, presse, actualités, association, contact, pages simples)
+  app/api/revalidation webhook Sanity → mise à jour immédiate du site
+  components/          en-tête, pied de page, cartes, billets, vidéo, filtres…
   app/studio/          Studio Sanity
   i18n/                langues et routage
   sanity/schemaTypes/  modèle de contenu (projets, dates, personnes, presse…)
@@ -74,6 +76,28 @@ SANITY_API_WRITE_TOKEN=… npm run seed:importer   # jeton « Editor » créé d
 - 7 personnes et la distribution de chaque projet.
 - Discographie et 6 vidéos du Cuarteto Tafi (reprises de cuartetotafi.com).
 - 34 articles de presse en **brouillon**, repris de la page presse du Tafi : nom du média et date de parution à compléter.
+
+## Mise à jour du site après une publication
+
+Sans réglage, le site relit le contenu au moins toutes les heures. Pour qu'une publication apparaisse en quelques secondes :
+
+1. Choisir un mot de passe long et aléatoire (le « secret »).
+2. Vercel → projet tierradentro → *Settings → Environment Variables* : ajouter `SANITY_REVALIDATE_SECRET` avec ce secret, puis redéployer.
+3. sanity.io/manage → projet → *API → Webhooks → Create webhook* :
+   adresse `https://<adresse du site>/api/revalidation`, jeu de données `production`,
+   déclencheurs *Create*, *Update*, *Delete*, projection `{_type}`, méthode `POST`, et le même secret.
+
+## Formulaire de contact
+
+Il s'active quand ces variables sont renseignées dans Vercel :
+
+| Variable | Rôle |
+|---|---|
+| `RESEND_API_KEY` | clé du service d'envoi d'e-mails Resend |
+| `RESEND_FROM` | expéditeur, par exemple `Tierradentro <site@tierradentro.fr>` (domaine vérifié chez Resend) |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` et `TURNSTILE_SECRET_KEY` | protection anti-robots Cloudflare Turnstile (facultatif mais recommandé) |
+
+L'adresse qui reçoit les messages se règle dans le Studio : *Réglages du site → Adresse qui reçoit le formulaire de contact*.
 
 ## Commandes utiles
 

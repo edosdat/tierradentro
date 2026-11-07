@@ -5,6 +5,7 @@ import {locale as localeRacine} from 'next/root-params'
 import {hasLocale, NextIntlClientProvider} from 'next-intl'
 import {getTranslations} from 'next-intl/server'
 import {routing} from '@/i18n/routing'
+import {PiedDePage} from '@/components/PiedDePage'
 import '../globals.css'
 
 // Polices auto-hébergées : aucun appel à Google Fonts.
@@ -31,7 +32,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('meta')
-  return {title: t('titre'), description: t('description')}
+  return {title: {default: t('titre'), template: `%s · ${t('suffixe')}`}, description: t('description')}
 }
 
 export default async function LayoutSite({children}: LayoutProps<'/[locale]'>) {
@@ -40,7 +41,10 @@ export default async function LayoutSite({children}: LayoutProps<'/[locale]'>) {
   return (
     <html lang={locale} className={`${fraunces.variable} ${interTight.variable}`}>
       <body className="min-h-dvh font-sans antialiased">
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          {children}
+          <PiedDePage />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

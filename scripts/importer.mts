@@ -22,6 +22,8 @@ const docs = readFileSync(resolve(import.meta.dirname, '../data/seed.ndjson'), '
   .split('\n')
   .filter(Boolean)
   .map((ligne) => JSON.parse(ligne))
+  // Import partiel : `npm run seed:importer -- page reglages` n'envoie que ces types de documents.
+  .filter((doc) => process.argv.length <= 2 || process.argv.slice(2).includes(doc._type))
 
 const TAILLE_LOT = 50
 for (let i = 0; i < docs.length; i += TAILLE_LOT) {
