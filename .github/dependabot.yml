@@ -9,6 +9,14 @@ updates:
       time: "06:00"
       timezone: Europe/Paris
     open-pull-requests-limit: 5
+    # Versions majeures bloquées tant que l'outillage ne les supporte pas (ESLint ne gère pas encore TypeScript 7).
+    ignore:
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
+      - dependency-name: eslint
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       sanity:
         patterns: ["sanity", "@sanity/*", "next-sanity"]
