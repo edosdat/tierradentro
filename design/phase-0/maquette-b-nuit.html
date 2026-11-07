@@ -58,7 +58,7 @@
   .scroll-cue { position: absolute; left: var(--gutter); bottom: 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: rgba(243,238,230,.85); text-decoration: none; display: flex; gap: 10px; align-items: center; }
   .scroll-cue::before { content: ""; width: 1px; height: 34px; background: currentColor; }
   .crosser { position: absolute; z-index: 2; top: 40%; left: -80px; width: 46px; color: var(--sable); opacity: 0; animation: cross 10s 1.5s cubic-bezier(.45,.05,.35,1) 1 forwards; }
-  @keyframes cross { 0% { transform: translate(0,0) scaleX(-1); opacity: 0; } 8% { opacity: .9; } 50% { transform: translate(50vw,-70px) scaleX(-1); } 92% { opacity: .9; } 100% { transform: translate(115vw,-30px) scaleX(-1); opacity: 0; } }
+  @keyframes cross { 0% { transform: translate(0,0); opacity: 0; } 8% { opacity: .9; } 50% { transform: translate(50vw,-70px); } 92% { opacity: .9; } 100% { transform: translate(115vw,-30px); opacity: 0; } }
   @media (max-width: 900px) {
     .hero-bird { right: -4%; top: 78px; width: 42vw; opacity: .95; }
     .hero h1 { grid-column: 1 / -1; }
@@ -184,7 +184,7 @@
       <img class="light-logo logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro">
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#">L'association</a><a href="#">Artistes</a><a href="#">Spectacles</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
+      <a href="#">L'association</a><a href="#">Projets</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
     </nav>
     <div class="langs" aria-label="Langue"><a href="#" aria-current="true" lang="fr">FR</a><a href="#" lang="en">EN</a><a href="#" lang="es">ES</a></div>
     <a class="btn-pro" href="#pro">Espace pro</a>
@@ -240,7 +240,7 @@
       <div class="stats reveal">
         <div><strong>90</strong><span>dates jouées depuis janvier 2024 <span class="av">À valider</span></span></div>
         <div><strong>36</strong><span>départements, et le Maroc</span></div>
-        <div><strong>3</strong><span>spectacles en tournée</span></div>
+        <div><strong>3</strong><span>projets en tournée</span></div>
       </div>
     </div>
   </section>
@@ -252,12 +252,12 @@
         <a class="more" href="#">Agenda complet et archives par année</a>
       </div>
       <ol class="tickets reveal">
-        <li class="ticket"><div class="t-date"><span class="t-day">13</span><span class="t-month">Nov. 2026<small>vendredi</small></span></div><div class="t-body"><strong>Le Taquin</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
-        <li class="ticket"><div class="t-date"><span class="t-day">26</span><span class="t-month">Nov. 2026<small>jeudi</small></span></div><div class="t-body"><strong>Le Palace</strong><span>Surgères (17)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
-        <li class="ticket"><div class="t-date"><span class="t-day">5</span><span class="t-month">Déc. 2026<small>samedi</small></span></div><div class="t-body"><strong>Centre Culturel</strong><span>Eymet (24)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
-        <li class="ticket"><div class="t-date"><span class="t-day">22</span><span class="t-month">Janv. 2027<small>vendredi</small></span></div><div class="t-body"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
-        <li class="ticket"><div class="t-date"><span class="t-day">12</span><span class="t-month">Mars 2027<small>vendredi</small></span></div><div class="t-body"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
-        <li class="ticket"><div class="t-date"><span class="t-day">4</span><span class="t-month">Juin 2027<small>vendredi</small></span></div><div class="t-body"><strong>Le Bijou</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · spectacle à préciser</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">13</span><span class="t-month">Nov. 2026<small>vendredi</small></span></div><div class="t-body"><strong>Le Taquin</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">26</span><span class="t-month">Nov. 2026<small>jeudi</small></span></div><div class="t-body"><strong>Le Palace</strong><span>Surgères (17)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">5</span><span class="t-month">Déc. 2026<small>samedi</small></span></div><div class="t-body"><strong>Centre Culturel</strong><span>Eymet (24)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">22</span><span class="t-month">Janv. 2027<small>vendredi</small></span></div><div class="t-body"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">12</span><span class="t-month">Mars 2027<small>vendredi</small></span></div><div class="t-body"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
+        <li class="ticket"><div class="t-date"><span class="t-day">4</span><span class="t-month">Juin 2027<small>vendredi</small></span></div><div class="t-body"><strong>Le Bijou</strong><span>Toulouse (31)</span><p>Cuarteto Tafi · concert</p></div><div class="t-foot"><span>Billetterie</span><a href="#">bientôt</a></div></li>
       </ol>
     </div>
   </section>
@@ -265,34 +265,34 @@
   <section class="block" style="padding-top:0" aria-labelledby="h-shows">
     <div class="wrap">
       <div class="head reveal">
-        <div><p class="kicker">Répertoire</p><h2 id="h-shows" class="display">Nos spectacles</h2></div>
-        <a class="more" href="#">Tous les spectacles</a>
+        <div><p class="kicker">Ce que nous présentons</p><h2 id="h-shows" class="display">Nos projets</h2></div>
+        <a class="more" href="#">Tous les projets</a>
       </div>
       <div class="tiles reveal">
         <a class="tile t1" href="#">
-          <div class="meta"><span class="status">En tournée</span><span>Cuarteto Tafi</span></div>
-          <div><h3 class="display">El infinito y un amor</h3><p style="margin-top:14px">Le spectacle de l'album sorti en janvier 2024. <span class="av" style="color:var(--nuit)">Texte à rédiger</span></p></div>
+          <div class="meta"><span class="status">En tournée</span><span>Quartet · world music</span></div>
+          <div><h3 class="display">Cuarteto Tafi</h3><p style="margin-top:14px">Quartet franco-argentin. En concert avec <i>El infinito y un amor</i>, l'album sorti en janvier 2024.</p></div>
           <svg class="bird" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-solid"/></svg>
         </a>
         <a class="tile t2 on-dark" href="#">
           <div class="meta"><span class="status">En tournée</span><span>1 h 15 · tout public</span></div>
-          <div><h3 class="display">Des espoirs plein le corps</h3><p style="margin-top:14px">Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec Justine Marmouyet (danse) et Fanny Do (piano).</p></div>
+          <div><h3 class="display">Des espoirs plein le corps</h3><p style="margin-top:14px">Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec des musiciens du Cuarteto Tafi, Justine Marmouyet (danse) et Fanny Do (piano). <span class="av">Distribution à valider</span></p></div>
           <svg class="bird" viewBox="0 0 100 100" aria-hidden="true" style="color:var(--turquoise)"><use href="#bird-solid"/></svg>
         </a>
         <a class="tile t3" href="#">
           <div class="meta"><span class="status">En tournée</span><span>Création 2023</span></div>
-          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p style="margin-top:14px">Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon.</p></div>
+          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p style="margin-top:14px">Avec des musiciens du Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon. <span class="av" style="color:var(--nuit)">Distribution à valider</span></p></div>
           <svg class="bird" viewBox="0 0 100 100" aria-hidden="true"><use href="#bird-solid"/></svg>
         </a>
         <a class="tile t4" href="#">
           <div class="meta"><span class="status" style="color:var(--jacaranda-encre)">À venir</span><span>En préparation</span></div>
-          <div><h3 class="display">La Noche Eterna</h3><p style="margin-top:14px;color:var(--gris)">Nouveau spectacle. Plus d'informations prochainement.</p></div>
+          <div><h3 class="display">La Noche Eterna</h3><p style="margin-top:14px;color:var(--gris)">Nouveau projet. Plus d'informations prochainement.</p></div>
           <svg class="bird" viewBox="0 0 100 100" aria-hidden="true" style="color:var(--jacaranda)"><use href="#bird-line"/></svg>
         </a>
       </div>
       <a class="strip reveal" href="#">
         <div><h3 class="display">Nosotras : nuestros cantos – nuestros cuerpos</h3><p>Création présentée au festival Rio Loco, Toulouse, 2025. <span class="av">À confirmer</span></p></div>
-        <span class="more">Voir la création</span>
+        <span class="more">Voir le projet</span>
       </a>
     </div>
   </section>
@@ -300,7 +300,7 @@
   <section class="block dark on-dark" aria-labelledby="h-artists">
     <div class="wrap artists">
       <div class="reveal">
-        <p class="kicker">Nos artistes</p>
+        <p class="kicker">Projet à la une</p>
         <h2 id="h-artists" class="artist-name display">Cuarteto <em>Tafi</em></h2>
         <p class="genre">Quartet franco-argentin de world music. Chant en espagnol, poétique et engagé, bouzouki grec, guitare flamenca et oud, percussions afro-latines.</p>
         <ul class="members">
@@ -309,11 +309,11 @@
           <li><strong>Matthieu Guenez</strong><span>guitare, oud</span></li>
           <li><strong>Frédéric Theiler</strong><span>percussions, chœurs</span></li>
         </ul>
-        <a class="more" href="#">Fiche artiste, discographie et vidéos</a>
+        <a class="more" href="#">Le projet : discographie, vidéos, dates</a>
       </div>
       <div class="reveal">
         <div class="portrait"><img src="assets/colibri-aquarelle.svg" alt=""><small>Photo du quartet à fournir (crédit obligatoire)</small></div>
-        <div class="join"><div><strong class="display">Votre projet ici ?</strong><span>Tierradentro accueille de nouveaux artistes. <span class="av">À valider</span></span></div><a class="more" href="#">Nous proposer un projet</a></div>
+        <div class="join"><div><strong class="display">Votre projet ici ?</strong><span>Tierradentro accueille de nouveaux projets. <span class="av">À valider</span></span></div><a class="more" href="#">Nous proposer un projet</a></div>
       </div>
     </div>
   </section>
@@ -334,16 +334,16 @@
     <div class="wrap pro-grid">
       <div class="reveal">
         <p class="kicker">Espace pro</p>
-        <h2 id="h-pro" class="display">Programmer un spectacle</h2>
+        <h2 id="h-pro" class="display">Programmer un projet</h2>
         <p>Tous les documents, à jour, en téléchargement direct. Sans compte ni mot de passe.</p>
         <a class="more" href="#">Ouvrir l'Espace pro</a>
       </div>
       <div class="table-scroll reveal">
         <table class="docs">
           <caption class="sr-only">Documents disponibles par spectacle</caption>
-          <thead><tr><th scope="col">Spectacle</th><th scope="col">Fiche technique</th><th scope="col">Dossier de presse</th><th scope="col">Photos HD</th><th scope="col">Mise à jour</th></tr></thead>
+          <thead><tr><th scope="col">Projet</th><th scope="col">Fiche technique</th><th scope="col">Dossier de presse</th><th scope="col">Photos HD</th><th scope="col">Mise à jour</th></tr></thead>
           <tbody>
-            <tr><th scope="row">El infinito y un amor</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
+            <tr><th scope="row">Cuarteto Tafi</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
             <tr><th scope="row">Des espoirs plein le corps</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
             <tr><th scope="row">La voix des femmes d'Amérique latine</th><td><a href="#">PDF</a></td><td><a href="#">PDF</a></td><td><a href="#">Galerie</a></td><td class="na">à saisir</td></tr>
             <tr><th scope="row">La Noche Eterna</th><td class="na">bientôt</td><td class="na">bientôt</td><td class="na">bientôt</td><td class="na">—</td></tr>
@@ -373,8 +373,8 @@
 </footer>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="currentColor"/></symbol>
+  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M97 30 L72 32 C71 26 66 22 60 22 C54 22 50 27 50 32 C41 24 29 13 11 4 C16 12 20 17 24 21 L17 22 C24 30 31 37 38 42 L32 45 C36 47 40 49 43 50 C37 58 36 67 40 75 L28 90 L39 87 L42 98 L49 88 L57 97 L58 86 L66 89 L55 74 C63 64 69 52 70 42 C70 39 71 37 72 35 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M97 30 L72 32 C71 26 66 22 60 22 C54 22 50 27 50 32 C41 24 29 13 11 4 C16 12 20 17 24 21 L17 22 C24 30 31 37 38 42 L32 45 C36 47 40 49 43 50 C37 58 36 67 40 75 L28 90 L39 87 L42 98 L49 88 L57 97 L58 86 L66 89 L55 74 C63 64 69 52 70 42 C70 39 71 37 72 35 Z" fill="currentColor"/></symbol>
   <symbol id="mounts" viewBox="0 0 1600 60"><path d="M0 60 L0 44 L80 38 L150 42 L230 26 L300 33 L380 18 L450 30 L520 27 L600 40 L700 22 L780 10 L850 24 L930 32 L1010 21 L1090 29 L1180 14 L1260 28 L1350 36 L1440 26 L1520 33 L1600 30 L1600 60 Z" fill="#3B3570"/><path d="M0 60 L0 50 L120 46 L240 50 L330 42 L460 48 L590 43 L720 51 L860 45 L980 49 L1110 42 L1250 48 L1390 44 L1500 50 L1600 47 L1600 60 Z" fill="#26254F"/></symbol>
 </svg>
 

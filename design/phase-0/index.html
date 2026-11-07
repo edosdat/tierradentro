@@ -81,8 +81,13 @@
     <ol class="decide">
       <li><strong>Quelle maquette ?</strong><span>A « Salar » (clair, éditorial) ou B « Nuit » (immersif, plus spectaculaire). On peut aussi mélanger : par exemple le héros de B et l'agenda de A.</span></li>
       <li><strong>Quelle paire typographique ?</strong><span>A : Fraunces + Inter Tight. B : Instrument Serif + Manrope. Le bouton « Typo » en bas de chaque maquette permet d'essayer l'autre paire.</span></li>
-      <li><strong>Le colibri au trait vous convient ?</strong><span>Il sera redessiné d'après l'aquarelle originale dès qu'on l'aura. Dites-moi si la silhouette, l'aile ou la queue sont à revoir.</span></li>
+      <li><strong>Le colibri au trait vous convient ?</strong><span>Redessiné d'après l'aquarelle des captures : vertical, tourné vers la droite, aile levée, queue en éventail. Dites-moi si la silhouette est à revoir.</span></li>
     </ol>
+  </section>
+
+  <section aria-labelledby="s-struct">
+    <h2 class="sec" id="s-struct">Structure retenue <span>docs/decisions.md</span></h2>
+    <p style="margin:0;max-width:52rem">Le site présente une <strong>liste plate de projets</strong>. Le Cuarteto Tafi est l'un d'eux, au même niveau que <i>Des espoirs plein le corps</i>, <i>La voix des femmes d'Amérique latine</i>, <i>La Noche Eterna</i> et <i>Nosotras</i>. La navigation propose « Projets » à la place de « Artistes » et « Spectacles ». Les musiciens et danseurs sont listés dans chaque projet et peuvent apparaître dans plusieurs.</p>
   </section>
 
   <section aria-labelledby="s-mocks">
@@ -91,13 +96,13 @@
       <a class="mock" href="maquette-a-salar.html">
         <div class="shot"><img src="apercus/maquette-a.jpg" alt="Aperçu de la maquette A"></div>
         <h3 class="display">A · Salar</h3>
-        <p>Fond sable, grande typographie éditoriale, le salar en panorama sous le titre. Agenda en liste, spectacles en index numéroté. Sobre et « institution culturelle ».</p>
+        <p>Fond sable, grande typographie éditoriale, le salar en panorama sous le titre (sable chaud, nuages bas, jacaranda isolé). Agenda en liste, projets en index. Sobre et « institution culturelle ».</p>
         <span class="go">Ouvrir la maquette A</span>
       </a>
       <a class="mock" href="maquette-b-nuit.html">
         <div class="shot"><img src="apercus/maquette-b.jpg" alt="Aperçu de la maquette B"></div>
         <h3 class="display">B · Nuit sur le salar</h3>
-        <p>Héros plein écran au crépuscule : ciel profond, jacaranda, reflet sur le sel. Dates en billets, spectacles en aplats de couleur, tableau des documents pro.</p>
+        <p>Héros plein écran au crépuscule : ciel profond, jacaranda, reflet sur le sel. Dates en billets, projets en aplats de couleur, tableau des documents pro.</p>
         <span class="go">Ouvrir la maquette B</span>
       </a>
     </div>
@@ -118,7 +123,7 @@
         </div>
         <small>Le colibri seul, de 120 px à 16 px (favicon)</small>
       </div>
-      <div class="tile light aq" style="grid-column:1/-1;background:var(--sable)"><img src="assets/colibri-aquarelle.svg" alt="Colibri aquarelle provisoire"><small>Colibri couleur provisoire, réservé aux moments forts. À remplacer par l'aquarelle originale.</small></div>
+      <div class="tile light aq" style="grid-column:1/-1;background:var(--sable)"><img src="assets/colibri-aquarelle.svg" alt="Colibri aquarelle provisoire"><small>Colibri couleur provisoire, réservé aux moments forts. Le site utilisera le fichier original de l'aquarelle (droits à confirmer).</small></div>
     </div>
     <p class="logo-notes">Un seul tracé fermé, sans détail superflu, pour rester lisible en 24 px. Le mot « Tierradentro » est converti en tracés : le SVG s'affiche partout, sans police installée. <strong>Droits du colibri</strong> : à confirmer avec l'illustrateur ou l'illustratrice avant la mise en ligne. Un emplacement de crédit est prévu en pied de page.</p>
   </section>
@@ -147,12 +152,12 @@
   <section aria-labelledby="s-wait">
     <h2 class="sec" id="s-wait">Ce qui manque encore <span>Emplacements prévus, rien ne bloque</span></h2>
     <ul class="wait">
-      <li><b>Captures de référence (dossier reference/)</b><span>Non reçues. Le site cuartetotafi.com n'était pas accessible depuis mon environnement. Les maquettes s'appuient donc sur la description du brief.</span></li>
-      <li><b>Aquarelle originale du colibri et ses droits</b><span>Le colibri couleur est une évocation provisoire en SVG.</span></li>
+            <li><b>Aquarelle originale du colibri et ses droits</b><span>Le colibri couleur est une évocation provisoire en SVG.</span></li>
       <li><b>Photos du quartet et des spectacles</b><span>Des emplacements sont prévus, avec crédit photo obligatoire.</span></li>
       <li><b>Identifiants YouTube des clips</b><span>Le lecteur est prêt et ne charge rien avant le clic.</span></li>
-      <li><b>Spectacle joué à chaque date à venir</b><span>Absent du CSV : affiché « à préciser ».</span></li>
+      <li><b>Projet de chaque date à venir</b><span>Le CSV ne le précise pas : ces dates sont rattachées au Cuarteto Tafi.</span></li>
       <li><b>Identité légale et contacts nommés</b><span>SIRET, licence, statut TVA, adresse, téléphones.</span></li>
+      <li><b>Distribution de chaque projet</b><span>Qui joue dans <i>Des espoirs plein le corps</i> et <i>La voix des femmes d'Amérique latine</i> : à valider.</span></li>
       <li><b>Contenu de La Noche Eterna</b><span>Une annonce sobre est affichée en attendant.</span></li>
       <li><b>Logos partenaires</b><span>Le bandeau reste masqué tant qu'il est vide.</span></li>
     </ul>

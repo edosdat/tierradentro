@@ -50,22 +50,24 @@
 
   /* ---------- Salar ---------- */
   .salar { position: relative; height: clamp(300px, 46vw, 580px); overflow: hidden; margin: 24px 0 0; isolation: isolate; }
-  .salar .sky { position: absolute; inset: 0 0 40% 0; background: linear-gradient(180deg, #1F5F91 0%, #2E7BB5 40%, #86B9DE 80%, #CFE3F0 100%); }
-  .salar .mounts { position: absolute; left: 0; width: 100%; height: 9%; bottom: 40%; z-index: 1; }
-  .salar .mounts.mirror { bottom: auto; top: 60%; transform: scaleY(-1); opacity: .35; filter: blur(1.5px); z-index: 1; }
-  .salar .plain { position: absolute; inset: 60% 0 0 0; background: linear-gradient(180deg, #BFD8EA 0%, #E4EEF4 22%, #F7F6F2 60%, var(--sable) 100%); overflow: hidden; }
-  .salar .crust { position: absolute; inset: 0; background: url("assets/salar-croute.svg") center top / cover no-repeat; opacity: .9; }
+  .salar .sky { position: absolute; inset: 0 0 40% 0; background: linear-gradient(180deg, #2A73AE 0%, #3C86BE 35%, #79AFD6 70%, #C9DCE6 100%); }
+  .salar .clouds { position: absolute; left: -5%; right: -5%; bottom: 39%; height: 22%; z-index: 1; filter: blur(10px); opacity: .9;
+    background: radial-gradient(18% 70% at 8% 100%, #F4F6F7 0, transparent 70%), radial-gradient(14% 60% at 30% 100%, #EEF2F4 0, transparent 70%), radial-gradient(20% 80% at 52% 100%, #F6F7F7 0, transparent 70%), radial-gradient(14% 60% at 74% 100%, #EDF1F3 0, transparent 70%), radial-gradient(18% 75% at 94% 100%, #F4F6F7 0, transparent 70%); }
+  .salar .plain { position: absolute; inset: 60% 0 0 0; background: linear-gradient(180deg, #DCD3C4 0%, #E9E0D1 18%, #EFE8DC 55%, var(--sable) 100%); overflow: hidden; }
+  .salar .crust { position: absolute; inset: 0; background: url("assets/salar-croute.svg") center top / cover no-repeat; opacity: .45; filter: sepia(.7) saturate(.7); }
+  .salar .tree { position: absolute; z-index: 2; left: 16%; bottom: 37%; height: 40%; width: auto; }
+  .salar .tree-shadow { position: absolute; z-index: 1; left: 17%; bottom: 36.2%; width: 9%; height: 1.4%; border-radius: 50%; background: rgba(90,70,50,.25); filter: blur(3px); }
   .salar .flock { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
   .salar .flock svg { position: absolute; width: 22px; color: var(--nuit); opacity: .75; }
   .salar figcaption { position: absolute; right: var(--gutter); bottom: 14px; z-index: 3; font-size: 12px; letter-spacing: .06em; color: var(--gris); font-style: italic; }
   .crosser { position: absolute; z-index: 4; top: 22%; left: -80px; width: 54px; color: var(--nuit); animation: cross 9s 1.2s cubic-bezier(.45,.05,.35,1) 1 forwards; opacity: 0; }
   @keyframes cross {
-    0% { transform: translate(0, 0) scaleX(-1); opacity: 0; }
+    0% { transform: translate(0, 0) ; opacity: 0; }
     6% { opacity: .9; }
-    40% { transform: translate(42vw, -40px) scaleX(-1); }
-    55% { transform: translate(52vw, -10px) scaleX(-1); }
+    40% { transform: translate(42vw, -40px); }
+    55% { transform: translate(52vw, -10px); }
     94% { opacity: .9; }
-    100% { transform: translate(115vw, -90px) scaleX(-1); opacity: 0; }
+    100% { transform: translate(115vw, -90px) ; opacity: 0; }
   }
 
   /* ---------- Preuves ---------- */
@@ -204,7 +206,7 @@
       <img class="logo-b" src="assets/logo-tierradentro-b.svg" alt="Tierradentro">
     </a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#">L'association</a><a href="#">Artistes</a><a href="#">Spectacles</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
+      <a href="#">L'association</a><a href="#">Projets</a><a href="#agenda">Agenda</a><a href="#">Presse</a><a href="#">Actualités</a><a href="#">Contact</a>
     </nav>
     <div class="langs" aria-label="Langue"><a href="#" aria-current="true" lang="fr">FR</a><a href="#" lang="en">EN</a><a href="#" lang="es">ES</a></div>
     <a class="btn-pro" href="#pro">Espace pro</a>
@@ -231,13 +233,15 @@
 
     <figure class="salar" aria-hidden="true">
       <div class="sky" data-parallax="0.04"></div>
-      <svg class="mounts" viewBox="0 0 1600 60" preserveAspectRatio="none"><use href="#mounts"/></svg>
+      <div class="clouds"></div>
       <div class="plain"><div class="crust"></div></div>
-      <svg class="mounts mirror" viewBox="0 0 1600 60" preserveAspectRatio="none"><use href="#mounts"/></svg>
+      <span class="tree-shadow"></span>
+      <svg class="tree" viewBox="0 0 120 130"><use href="#jacaranda-tree"/></svg>
       <div class="flock">
-        <svg viewBox="0 0 100 100" style="left:14%;top:18%;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
-        <svg viewBox="0 0 100 100" style="left:20%;top:30%;width:14px;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
-        <svg viewBox="0 0 100 100" style="left:71%;top:12%;width:16px"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:14.5%;top:30%;width:12px"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:27%;top:26%;width:11px;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:26%;top:44%;width:9px;transform:scaleX(-1)"><use href="#bird-solid"/></svg>
+        <svg viewBox="0 0 100 100" style="left:71%;top:14%;width:16px"><use href="#bird-solid"/></svg>
       </div>
       <svg class="crosser" viewBox="0 0 100 100"><use href="#bird-line"/></svg>
       <figcaption>tierra adentro : l'intérieur des terres</figcaption>
@@ -248,7 +252,7 @@
     <ul>
       <li><strong>90 dates</strong><span>jouées depuis janvier 2024 <span class="av">À valider</span></span></li>
       <li><strong>36 départements</strong><span>et le Maroc (Festival Mawazine, Rabat)</span></li>
-      <li><strong>3 spectacles</strong><span>en tournée, un en préparation</span></li>
+      <li><strong>3 projets</strong><span>en tournée, un en préparation</span></li>
     </ul>
   </div>
 
@@ -259,12 +263,12 @@
         <a class="more" href="#">Tout l'agenda et les archives</a>
       </div>
       <ol class="dates reveal">
-        <li class="date"><p class="d-when"><span class="d-day">13</span><span class="d-month">nov.<small>ven. 2026</small></span></p><p class="d-where"><strong>Le Taquin</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
-        <li class="date"><p class="d-when"><span class="d-day">26</span><span class="d-month">nov.<small>jeu. 2026</small></span></p><p class="d-where"><strong>Le Palace</strong><span>Surgères (17)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
-        <li class="date"><p class="d-when"><span class="d-day">5</span><span class="d-month">déc.<small>sam. 2026</small></span></p><p class="d-where"><strong>Centre Culturel</strong><span>Eymet (24)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
-        <li class="date"><p class="d-when"><span class="d-day">22</span><span class="d-month">janv.<small>ven. 2027</small></span></p><p class="d-where"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
-        <li class="date"><p class="d-when"><span class="d-day">12</span><span class="d-month">mars<small>ven. 2027</small></span></p><p class="d-where"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
-        <li class="date"><p class="d-when"><span class="d-day">4</span><span class="d-month">juin<small>ven. 2027</small></span></p><p class="d-where"><strong>Le Bijou</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Spectacle à préciser</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">13</span><span class="d-month">nov.<small>ven. 2026</small></span></p><p class="d-where"><strong>Le Taquin</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">26</span><span class="d-month">nov.<small>jeu. 2026</small></span></p><p class="d-where"><strong>Le Palace</strong><span>Surgères (17)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">5</span><span class="d-month">déc.<small>sam. 2026</small></span></p><p class="d-where"><strong>Centre Culturel</strong><span>Eymet (24)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">22</span><span class="d-month">janv.<small>ven. 2027</small></span></p><p class="d-where"><strong>Théâtre</strong><span>Conques-sur-Orbiel (11)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">12</span><span class="d-month">mars<small>ven. 2027</small></span></p><p class="d-where"><strong>Salle Jacques Brel</strong><span>Castanet-Tolosan (31)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
+        <li class="date"><p class="d-when"><span class="d-day">4</span><span class="d-month">juin<small>ven. 2027</small></span></p><p class="d-where"><strong>Le Bijou</strong><span>Toulouse (31)</span></p><p class="d-what">Cuarteto Tafi<em>Concert</em></p><a class="d-tix" href="#">Billetterie bientôt</a></li>
       </ol>
     </div>
   </section>
@@ -272,21 +276,21 @@
   <section class="block" style="padding-top:0" aria-labelledby="h-shows">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><p class="kicker">Répertoire</p><h2 id="h-shows" class="display">Nos spectacles</h2></div>
-        <a class="more" href="#">Tous les spectacles</a>
+        <div><p class="kicker">Ce que nous présentons</p><h2 id="h-shows" class="display">Nos projets</h2></div>
+        <a class="more" href="#">Tous les projets</a>
       </div>
       <ol class="shows reveal">
         <li class="show"><a href="#">
-          <div><h3 class="display">El infinito y un amor</h3><p>Cuarteto Tafi · le spectacle de l'album sorti en janvier 2024. <span class="av">Texte à rédiger</span></p></div>
+          <div><h3 class="display">Cuarteto Tafi</h3><p>Quartet franco-argentin de world music. En concert avec <i>El infinito y un amor</i>, l'album sorti en janvier 2024.</p></div>
           <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
         <li class="show"><a href="#">
-          <div><h3 class="display">Des espoirs plein le corps</h3><p>Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec Justine Marmouyet (danse) et Fanny Do (piano). 1 h 15, tout public.</p></div>
+          <div><h3 class="display">Des espoirs plein le corps</h3><p>Le parcours d'un corps de femme, de la naissance à l'émancipation. Avec des musiciens du Cuarteto Tafi, Justine Marmouyet (danse) et Fanny Do (piano). 1 h 15, tout public. <span class="av">Distribution à valider</span></p></div>
           <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
         <li class="show"><a href="#">
-          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p>Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon. Création 2023.</p></div>
+          <div><h3 class="display">La voix des femmes d'Amérique latine</h3><p>Avec des musiciens du Cuarteto Tafi et Jean-Luc Amestoy à l'accordéon. Création 2023. <span class="av">Distribution à valider</span></p></div>
           <span class="status tour">En tournée</span><span class="arrow" aria-hidden="true">→</span></a></li>
         <li class="show teaser"><a href="#">
-          <div><h3 class="display">La Noche Eterna</h3><p>Nouveau spectacle en préparation. Plus d'informations prochainement.</p></div>
+          <div><h3 class="display">La Noche Eterna</h3><p>Nouveau projet en préparation. Plus d'informations prochainement.</p></div>
           <span class="status soon">À venir</span><span class="arrow" aria-hidden="true">→</span></a></li>
         <li class="show"><a href="#">
           <div><h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem)">Nosotras : nuestros cantos – nuestros cuerpos</h3><p>Création présentée au festival Rio Loco, Toulouse, 2025. <span class="av">À confirmer</span></p></div>
@@ -298,7 +302,7 @@
   <section class="block" style="padding-top:0" aria-labelledby="h-artists">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><p class="kicker">Artistes produits</p><h2 id="h-artists" class="display">Nos artistes</h2></div>
+        <div><p class="kicker">À la une</p><h2 id="h-artists" class="display">Le projet du moment</h2></div>
       </div>
       <div class="artists reveal">
         <article class="artist">
@@ -312,7 +316,7 @@
               <li><span>Matthieu Guenez</span><span>guitare, oud</span></li>
               <li><span>Frédéric Theiler</span><span>percussions, chœurs</span></li>
             </ul>
-            <a class="more" href="#">Découvrir le Cuarteto Tafi</a>
+            <a class="more" href="#">Voir le projet</a>
           </div>
         </article>
         <aside class="join">
@@ -385,9 +389,15 @@
 
 <!-- Symboles réutilisés -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="bird-line" viewBox="0 0 100 100"><path d="M97 30 L72 32 C71 26 66 22 60 22 C54 22 50 27 50 32 C41 24 29 13 11 4 C16 12 20 17 24 21 L17 22 C24 30 31 37 38 42 L32 45 C36 47 40 49 43 50 C37 58 36 67 40 75 L28 90 L39 87 L42 98 L49 88 L57 97 L58 86 L66 89 L55 74 C63 64 69 52 70 42 C70 39 71 37 72 35 Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="jacaranda-tree" viewBox="0 0 120 130">
+    <path d="M58 130 C59 112 57 98 60 84 M60 92 C52 84 44 78 36 74 M60 88 C68 80 76 74 86 70 M59 100 C54 96 48 94 42 93 M60 84 C60 74 58 66 56 58" fill="none" stroke="#5B4636" stroke-width="2.6" stroke-linecap="round"/>
+    <g fill="#9B7BD9"><circle cx="40" cy="62" r="16"/><circle cx="62" cy="50" r="19"/><circle cx="84" cy="60" r="16"/><circle cx="26" cy="72" r="10"/><circle cx="98" cy="70" r="10"/></g>
+    <g fill="#B49BE6"><circle cx="50" cy="44" r="10"/><circle cx="74" cy="42" r="10"/><circle cx="34" cy="56" r="7"/><circle cx="90" cy="54" r="7"/></g>
+    <g fill="#7F5FC4" opacity=".8"><circle cx="58" cy="66" r="9"/><circle cx="44" cy="74" r="7"/><circle cx="78" cy="72" r="7"/></g>
+  </symbol>
   <symbol id="mounts" viewBox="0 0 1600 60"><path d="M0 60 L0 44 L80 38 L150 42 L230 26 L300 33 L380 18 L450 30 L520 27 L600 40 L700 22 L780 10 L850 24 L930 32 L1010 21 L1090 29 L1180 14 L1260 28 L1350 36 L1440 26 L1520 33 L1600 30 L1600 60 Z" fill="#A08ED6" opacity=".6"/><path d="M0 60 L0 50 L120 46 L240 50 L330 42 L460 48 L590 43 L720 51 L860 45 L980 49 L1110 42 L1250 48 L1390 44 L1500 50 L1600 47 L1600 60 Z" fill="#7F93BD" opacity=".7"/></symbol>
-  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M3 46 L28 40 C29 32 35 28 41 29 C46 30 48 34 48 38 C58 28 70 14 94 4 C86 14 82 18 78 22 L86 22 C74 34 66 40 59 44 C66 52 73 60 80 67 L95 75 L85 79 L90 93 L74 79 C56 76 40 68 36 57 C34 51 32 47 28 46 Z" fill="currentColor"/></symbol>
+  <symbol id="bird-solid" viewBox="0 0 100 100"><path d="M97 30 L72 32 C71 26 66 22 60 22 C54 22 50 27 50 32 C41 24 29 13 11 4 C16 12 20 17 24 21 L17 22 C24 30 31 37 38 42 L32 45 C36 47 40 49 43 50 C37 58 36 67 40 75 L28 90 L39 87 L42 98 L49 88 L57 97 L58 86 L66 89 L55 74 C63 64 69 52 70 42 C70 39 71 37 72 35 Z" fill="currentColor"/></symbol>
 </svg>
 
 <div class="mock-bar" role="group" aria-label="Outils de maquette">
