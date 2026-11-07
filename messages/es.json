@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "titre": "Tierradentro · producción de artes escénicas",
+    "description": "Tierradentro, asociación de producción de artes escénicas con sede en Toulouse: proyectos en gira, agenda de conciertos y espacio profesional."
+  },
+  "nav": {
+    "association": "La asociación",
+    "projets": "Proyectos",
+    "agenda": "Agenda",
+    "presse": "Prensa",
+    "actualites": "Noticias",
+    "contact": "Contacto",
+    "espacePro": "Espacio pro",
+    "langue": "Idioma",
+    "allerAuContenu": "Ir al contenido"
+  },
+  "accueil": {
+    "surtitre": "Producción de artes escénicas · Toulouse",
+    "accroche": "Una asociación que acompaña a artistas desde la creación hasta la gira, con espectáculos listos para viajar y fichas técnicas al día.",
+    "chantier": "El sitio está en construcción.",
+    "prochainesDates": "Próximas fechas",
+    "aucuneDate": "Todavía no hay fechas anunciadas.",
+    "sanityNonConfigure": "Las fechas aparecerán aquí en cuanto se conecte el contenido."
+  },
+  "concert": {
+    "billetterie": "Entradas",
+    "complet": "Agotado",
+    "annule": "Cancelado"
+  },
+  "pied": {
+    "credit": "Colibrí: ilustración de {nom}"
+  }
+}

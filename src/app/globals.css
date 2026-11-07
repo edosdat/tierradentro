@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Palette Tierradentro (voir design/phase-0). Les variantes « encre » sont réservées au texte sur fond clair (contraste AA). */
+@theme {
+  --color-sable: #F3EEE6;
+  --color-sable-2: #E9E2D6;
+  --color-nuit: #14182B;
+  --color-nuit-2: #1E2440;
+  --color-ciel: #2E7BB5;
+  --color-ciel-encre: #1D5A8A;
+  --color-magenta: #D21FD0;
+  --color-magenta-encre: #A3159F;
+  --color-turquoise: #3FC9D6;
+  --color-turquoise-encre: #0F6E78;
+  --color-jacaranda: #9B7BD9;
+  --color-jacaranda-encre: #6B4FB0;
+  --color-gris: #4A4E5E;
+  --color-rouge-tafi: #E0422F;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--color-sable); color: var(--color-nuit); }
+:focus-visible { outline: 3px solid var(--color-magenta-encre); outline-offset: 3px; }
+.sur-nuit :focus-visible { outline-color: var(--color-turquoise); }
+
+.titre-display { font-family: var(--font-display); font-variation-settings: "SOFT" 30, "WONK" 0; letter-spacing: -0.02em; line-height: .95; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

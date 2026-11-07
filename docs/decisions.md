@@ -37,3 +37,18 @@ Conséquences :
 - ***Des espoirs plein le corps*** : les quatre musiciens du Cuarteto Tafi, Justine Marmouyet (danse), Fanny Do (piano).
 - ***La voix des femmes d'Amérique latine*** : les mêmes artistes (les quatre musiciens du Cuarteto Tafi et Fanny Do),
   avec Jean-Luc Amestoy (accordéon).
+
+## 4. Choix techniques de la phase 1
+
+- **Next.js 16.4** avec Cache Components (activé par défaut) : le contenu Sanity est mis en cache côté serveur.
+  La liste des prochaines dates est recalculée au moins toutes les heures, ce qui fait basculer une date passée dans les archives sans intervention.
+- **Langues** : next-intl, adresses `/fr`, `/en`, `/es`. Les textes de l'interface sont dans `messages/` ;
+  toute phrase manquante en anglais ou en espagnol s'affiche en français.
+- **Champs traduits dans Sanity** : chaque texte a un champ Français (visible, obligatoire quand le texte l'est)
+  et des champs English / Español rangés dans un volet « Traductions » replié. C'est plus simple pour deux personnes
+  que des onglets par langue sur tout le formulaire.
+- **Dates de concert** : la date et l'heure sont deux champs séparés. L'historique ne donne pas d'heure, et une heure inventée s'afficherait sur le site.
+- **Studio** : interface en français, « Dates de concert » en premier avec les vues « À venir » et « Passées ».
+  L'association et les réglages sont des documents uniques (ni création ni suppression).
+  L'outil de requêtes (Vision) n'est chargé qu'en développement.
+- **Prévisualisation en direct** et **mise à jour immédiate après publication** : prévues en phase 2, quand les pages existeront.

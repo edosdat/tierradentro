@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "titre": "Tierradentro · production de spectacles vivants",
+    "description": "Tierradentro, association toulousaine de production de spectacles vivants : projets en tournée, agenda des concerts et espace pro."
+  },
+  "nav": {
+    "association": "L'association",
+    "projets": "Projets",
+    "agenda": "Agenda",
+    "presse": "Presse",
+    "actualites": "Actualités",
+    "contact": "Contact",
+    "espacePro": "Espace pro",
+    "langue": "Langue",
+    "allerAuContenu": "Aller au contenu"
+  },
+  "accueil": {
+    "surtitre": "Production de spectacles vivants · Toulouse",
+    "accroche": "Une association qui accompagne des artistes de la création à la tournée, avec des spectacles prêts à partir et des dossiers techniques à jour.",
+    "chantier": "Le site est en cours de construction.",
+    "prochainesDates": "Prochaines dates",
+    "aucuneDate": "Aucune date annoncée pour le moment.",
+    "sanityNonConfigure": "Les dates s'afficheront ici dès que le contenu sera branché."
+  },
+  "concert": {
+    "billetterie": "Billetterie",
+    "complet": "Complet",
+    "annule": "Annulé"
+  },
+  "pied": {
+    "credit": "Colibri : illustration de {nom}",
+    "droits": "© Tierradentro"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "titre": "Tierradentro · live performance production",
+    "description": "Tierradentro, a live performance production company based in Toulouse: touring projects, concert dates and press area."
+  },
+  "nav": {
+    "association": "About us",
+    "projets": "Projects",
+    "agenda": "Dates",
+    "presse": "Press",
+    "actualites": "News",
+    "contact": "Contact",
+    "espacePro": "Press & venues",
+    "langue": "Language",
+    "allerAuContenu": "Skip to content"
+  },
+  "accueil": {
+    "surtitre": "Live performance production · Toulouse",
+    "accroche": "A non-profit that supports artists from creation to touring, with shows ready to travel and up-to-date technical riders.",
+    "chantier": "This website is under construction.",
+    "prochainesDates": "Upcoming dates",
+    "aucuneDate": "No dates announced yet.",
+    "sanityNonConfigure": "Dates will appear here once the content is connected."
+  },
+  "concert": {
+    "billetterie": "Tickets",
+    "complet": "Sold out",
+    "annule": "Cancelled"
+  },
+  "pied": {
+    "credit": "Hummingbird: illustration by {nom}"
+  }
+}
