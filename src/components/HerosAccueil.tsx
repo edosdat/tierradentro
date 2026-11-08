@@ -44,7 +44,7 @@ function Jacaranda() {
 export async function HerosAccueil({accroche, video}: {accroche: string; video?: {url?: string; cadrage?: number}}) {
   const t = await getTranslations('accueil')
   return (
-    <section aria-labelledby="titre-accueil" className="sur-nuit relative isolate flex min-h-[max(640px,min(100svh,960px))] flex-col overflow-hidden text-sable">
+    <section aria-labelledby="titre-accueil" className="sur-nuit relative isolate flex min-h-[max(640px,min(100svh,960px))] flex-col overflow-clip text-sable">
       <div className="absolute inset-x-0 top-0 bottom-[24%] -z-30 bg-[linear-gradient(180deg,#0D1020_0%,#14182B_22%,#1C2D57_52%,#284A84_76%,#5F67B8_90%,#C9A9E3_98%,#EBD7EE_100%)]" />
       <div className="etoiles absolute inset-x-0 top-0 bottom-1/2 -z-20 opacity-55" />
       <Montagnes className="absolute inset-x-0 bottom-[24%] -z-20 h-[7%] w-full" />

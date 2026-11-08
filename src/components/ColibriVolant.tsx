@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import {useRef, useState, type CSSProperties} from 'react'
+import {useEffect, useRef, useState, type CSSProperties} from 'react'
 
 // Le colibri de l'accueil. Comme un vrai colibri (50 à 80 battements par seconde), l'aile n'est
 // qu'un voile flou pendant le vol : on la découpe dans l'aquarelle et on la fait battre autour de
@@ -37,31 +37,62 @@ const traineeAile = (i: number, enVol: boolean) =>
 // Pointe du bec dans l'aquarelle (en fraction de l'image).
 const BEC = {x: 0.946, y: 0.284}
 const ECHELLE_BUTINAGE = 0.55
-const DUREE_APPROCHE = 1200
-const DUREE_BUTINAGE = 1700
+// Durées des vols (ms) : lentes, pour qu'on ait le temps de le suivre.
+const DUREE_APPROCHE = 2200
+const DUREE_BUTINAGE = 1800
+const DUREE_DEPART = 2600
+const RETOUR_APRES = 3500
+const DUREE_RETOUR = 3000
 
 export function ColibriVolant({libelle, className = ''}: {libelle: string; className?: string}) {
   const bouton = useRef<HTMLButtonElement>(null)
   const minuteries = useRef<number[]>([])
-  const [etat, setEtat] = useState({x: 0, y: 0, echelle: 1, versLaGauche: false, duree: 1400})
-  const [enVol, setEnVol] = useState(false)
+  const [etat, setEtat] = useState({x: 0, y: 0, echelle: 1, versLaGauche: false, duree: DUREE_DEPART})
+  // Comme un vrai colibri, il bat des ailes en permanence ; on s'arrête seulement quand il n'est plus à l'écran
+  // (économie de batterie) ou si l'appareil demande moins d'animations.
+  const [battement, setBattement] = useState(false)
+
+  useEffect(() => {
+    const b = bouton.current
+    if (!b || matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const obs = new IntersectionObserver(([e]) => setBattement(e.isIntersecting))
+    obs.observe(b)
+    return () => {
+      obs.disconnect()
+      minuteries.current.forEach(clearTimeout)
+    }
+  }, [])
 
   const apres = (ms: number, fn: () => void) => minuteries.current.push(window.setTimeout(fn, ms))
+  const annuler = () => {
+    minuteries.current.forEach(clearTimeout)
+    minuteries.current = []
+  }
 
-  // Mesures communes : la zone du ciel, la taille de l'oiseau sans échelle, sa position de départ (sans déplacement).
+  // Repères : la zone du ciel, la taille de l'oiseau (sans échelle), sa place d'origine dans la page
+  // (indépendante du vol en cours) et sa position visible actuelle.
   function mesurer() {
     const b = bouton.current
     const ciel = b?.closest('section')
     if (!b || !ciel) return null
     const zone = ciel.getBoundingClientRect()
-    const largeur = b.offsetWidth
-    const hauteur = b.offsetHeight
-    const r = b.getBoundingClientRect()
-    return {ciel, zone, largeur, hauteur, origineX: r.left - zone.left - etat.x, origineY: r.top - zone.top - etat.y}
+    const visible = b.getBoundingClientRect()
+    return {
+      ciel,
+      zone,
+      largeur: b.offsetWidth,
+      hauteur: b.offsetHeight,
+      origineX: b.offsetLeft,
+      origineY: b.offsetTop,
+      iciX: visible.left - zone.left,
+      iciY: visible.top - zone.top,
+      iciL: visible.width,
+      iciH: visible.height,
+    }
   }
 
-  // Une destination libre dans le ciel, qui ne recouvre pas le titre ni le texte.
-  function placeLibre(m: NonNullable<ReturnType<typeof mesurer>>, depuis: {x: number; y: number}) {
+  // Une destination libre et entièrement visible, qui ne recouvre ni le titre ni le texte.
+  function placeLibre(m: NonNullable<ReturnType<typeof mesurer>>) {
     const textes = [...m.ciel.querySelectorAll('[data-texte-heros]')].map((el) => {
       const r = el.getBoundingClientRect()
       return {g: r.left - m.zone.left, h: r.top - m.zone.top, d: r.right - m.zone.left, b: r.bottom - m.zone.top}
@@ -72,15 +103,17 @@ export function ColibriVolant({libelle, className = ''}: {libelle: string; class
         const h = Math.max(0, Math.min(y + m.hauteur * 0.85, t.b) - Math.max(y + m.hauteur * 0.15, t.h))
         return total + l * h
       }, 0)
-    const maxX = m.zone.width - m.largeur * 0.85
-    // Jamais sous la barre de menu (76 px), pour qu'on puisse toujours le toucher.
+    // Ni hors des bords, ni sous la barre de menu (76 px), ni sous le bas de l'écran.
+    const marge = 8
+    const maxX = Math.max(marge, m.zone.width - m.largeur - marge)
     const minY = 96
-    const maxY = Math.max(minY, m.zone.height * 0.68 - m.hauteur)
-    let meilleure = {x: depuis.x, y: depuis.y, score: Infinity}
+    const basVisible = Math.min(m.zone.height * 0.72, window.innerHeight - m.zone.top)
+    const maxY = Math.max(minY, basVisible - m.hauteur)
+    let meilleure = {x: m.iciX, y: m.iciY, score: Infinity}
     for (let essai = 0; essai < 40; essai++) {
-      const x = -m.largeur * 0.15 + Math.random() * (maxX + m.largeur * 0.15)
+      const x = marge + Math.random() * (maxX - marge)
       const y = minY + Math.random() * (maxY - minY)
-      const score = recouvrement(x, y) + (Math.hypot(x - depuis.x, y - depuis.y) < m.zone.width * 0.2 ? 1e9 : 0)
+      const score = recouvrement(x, y) + (Math.hypot(x - m.iciX, y - m.iciY) < m.zone.width * 0.2 ? 1e9 : 0)
       if (score < meilleure.score) meilleure = {x, y, score}
     }
     return meilleure
@@ -89,21 +122,23 @@ export function ColibriVolant({libelle, className = ''}: {libelle: string; class
   function repartir() {
     const m = mesurer()
     if (!m) return
-    const ici = {x: m.origineX + etat.x, y: m.origineY + etat.y}
-    const cible = placeLibre(m, ici)
-    setEnVol(true)
-    setEtat({x: cible.x - m.origineX, y: cible.y - m.origineY, echelle: 1, versLaGauche: cible.x < ici.x, duree: 1400})
-    apres(1400 + 500, () => setEnVol(false))
+    const cible = placeLibre(m)
+    setEtat({x: cible.x - m.origineX, y: cible.y - m.origineY, echelle: 1, versLaGauche: cible.x < m.iciX, duree: DUREE_DEPART})
+    apres(DUREE_DEPART + RETOUR_APRES, rentrer)
+  }
+
+  // Il revient à sa place de départ, à droite du titre.
+  function rentrer() {
+    const m = mesurer()
+    setEtat({x: 0, y: 0, echelle: 1, versLaGauche: m ? m.origineX < m.iciX : false, duree: DUREE_RETOUR})
   }
 
   function sEnvoler() {
-    minuteries.current.forEach(clearTimeout)
-    minuteries.current = []
+    annuler()
     const m = mesurer()
     if (!m) return
-    const moinsAnimations = matchMedia('(prefers-reduced-motion: reduce)').matches
     const fleurs = [...m.ciel.querySelectorAll<HTMLElement>('[data-fleur]')]
-    if (moinsAnimations || !fleurs.length) return repartir()
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !fleurs.length) return repartir()
 
     // 1. Il vole jusqu'au « i » ou au « o » final et y pose le bec.
     const choisie = fleurs[Math.floor(Math.random() * fleurs.length)]
@@ -111,16 +146,14 @@ export function ColibriVolant({libelle, className = ''}: {libelle: string; class
     // Le point du « i », ou le haut de la boucle du « o ».
     const hauteurVisee = choisie.textContent === 'i' ? 0.3 : 0.5
     const lettre = {x: fleur.left - m.zone.left + fleur.width / 2, y: fleur.top - m.zone.top + fleur.height * hauteurVisee}
-    const ici = {x: m.origineX + etat.x + m.largeur / 2, y: m.origineY + etat.y + m.hauteur / 2}
     // Il se tourne vers la lettre : le bec est à droite de l'image, ou à gauche s'il est retourné.
-    const versLaGauche = lettre.x < ici.x
+    const versLaGauche = lettre.x < m.iciX + m.iciL / 2
     const becX = (versLaGauche ? 1 - BEC.x : BEC.x) * m.largeur * ECHELLE_BUTINAGE
     const becY = BEC.y * m.hauteur * ECHELLE_BUTINAGE
     const x = lettre.x - becX + (versLaGauche ? 2 : -2)
     const y = lettre.y - becY
-    setEnVol(true)
     setEtat({x: x - m.origineX, y: y - m.origineY, echelle: ECHELLE_BUTINAGE, versLaGauche, duree: DUREE_APPROCHE})
-    // 2. Il butine sur place en battant des ailes, 3. puis repart vers un coin libre du ciel.
+    // 2. Il butine sur place, 3. repart vers un coin libre du ciel, 4. puis revient à sa place.
     apres(DUREE_APPROCHE + DUREE_BUTINAGE, repartir)
   }
 
@@ -139,7 +172,7 @@ export function ColibriVolant({libelle, className = ''}: {libelle: string; class
       className={`absolute z-20 cursor-pointer border-0 bg-transparent p-0 transition-transform ease-[cubic-bezier(.45,.05,.3,1)] focus-visible:outline-offset-8 motion-reduce:transition-none ${className}`}
     >
       <span className={`block transition-transform duration-300 ${etat.versLaGauche ? '-scale-x-100' : ''}`}>
-        <span className={`relative block ${enVol ? 'colibri-sustentation' : 'colibri-flotte'}`}>
+        <span className={`relative block ${battement ? 'colibri-sustentation' : 'colibri-flotte'}`}>
           {/* Corps (sans l'aile) */}
           {image({priority: true, style: {maskImage: masqueCorps, WebkitMaskImage: masqueCorps, maskSize: '100% 100%', WebkitMaskSize: '100% 100%'}})}
           {/* Aile nette, puis deux traînées floues qui apparaissent pendant le vol */}
@@ -147,7 +180,7 @@ export function ColibriVolant({libelle, className = ''}: {libelle: string; class
             <span
               key={i}
               aria-hidden="true"
-              className={`absolute inset-0 ${enVol ? 'aile-bat' : ''} ${traineeAile(i, enVol)}`}
+              className={`absolute inset-0 ${battement ? 'aile-bat' : ''} ${traineeAile(i, battement)}`}
               style={{clipPath: decoupeAile, transformOrigin: EPAULE, animationDelay: `${-i * 0.016}s`}}
             >
               {image({})}
