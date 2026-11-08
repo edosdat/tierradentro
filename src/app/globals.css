@@ -56,3 +56,8 @@ body { background: var(--color-sable); color: var(--color-nuit); }
 }
 .colibri-sustentation { animation: sustentation 0.32s ease-in-out infinite alternate; }
 @keyframes sustentation { from { transform: translateY(0) rotate(-1deg); } to { transform: translateY(-5px) rotate(1deg); } }
+
+/* Compteurs par projet des archives : seul le total est visible sans filtre. */
+[data-compte]:not([data-compte=""]) {
+  display: none;
+}

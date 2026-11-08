@@ -49,7 +49,15 @@ export default async function PageAgenda() {
                     <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-5">
                       <span className="titre-display text-4xl">{annee}</span>
                       <span className="text-gris">
-                        {t('nbDates', {n: liste.length})} <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-180">↓</span>
+                        <span data-compte="">{t('nbDates', {n: liste.length})}</span>
+                        {[...Map.groupBy(liste, (c) => c.projet?.slug ?? '').entries()].map(([slug, l]) =>
+                          slug ? (
+                            <span key={slug} data-compte={slug}>
+                              {t('nbDates', {n: l.length})}
+                            </span>
+                          ) : null,
+                        )}{' '}
+                        <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-180">↓</span>
                       </span>
                     </summary>
                     <ol className="mb-6 border-t border-nuit/15">
