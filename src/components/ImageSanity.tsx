@@ -12,14 +12,20 @@ type Props = {
   className?: string
   prioritaire?: boolean
   avecCredit?: boolean
+  /** Logo : image entière, sans recadrage, à ses propres proportions (largeur = hauteur × ratio). */
+  entiere?: boolean
 }
 
 // Image Sanity : formats modernes (AVIF/WebP) choisis par le CDN, plusieurs tailles, texte alternatif traduit.
-export async function ImageSanity({image, largeur, hauteur, tailles = '100vw', className = '', prioritaire = false, avecCredit = false}: Props) {
+export async function ImageSanity({image, largeur: largeurDemandee, hauteur, tailles = '100vw', className = '', prioritaire = false, avecCredit = false, entiere = false}: Props) {
   if (!image?.asset) return null
   const locale = await getLocale()
+  // Logo entier : les dimensions d'origine sont inscrites dans la référence (image-<id>-<largeur>x<hauteur>-<format>).
+  const [, l0, h0] = image.asset._ref.match(/-(\d+)x(\d+)-/) ?? []
+  const largeur = entiere && l0 && h0 ? Math.round((hauteur * Number(l0)) / Number(h0)) : largeurDemandee
   const largeurs = [320, 480, 640, 800, 1080, 1440, 1920].filter((l) => l <= largeur * 2)
-  const src = (l: number) => urlImage(image).width(l).height(Math.round((l * hauteur) / largeur)).url()
+  const src = (l: number) =>
+    entiere ? urlImage(image).width(l).fit('max').url() : urlImage(image).width(l).height(Math.round((l * hauteur) / largeur)).url()
   const alt = tr(image.alt, locale) ?? ''
   const img = (
     // eslint-disable-next-line @next/next/no-img-element

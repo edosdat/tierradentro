@@ -286,10 +286,10 @@ export default async function Accueil() {
                   <li key={p._id}>
                     {p.lien ? (
                       <a href={p.lien} target="_blank" rel="noopener noreferrer">
-                        <ImageSanity image={{...p.logo, alt: {fr: p.logo.alt}}} largeur={200} hauteur={100} tailles="200px" className="h-16 w-auto object-contain" />
+                        <ImageSanity image={{...p.logo, alt: {fr: p.logo.alt}}} largeur={200} hauteur={64} tailles="170px" entiere className="h-auto max-h-16 w-auto max-w-[170px] object-contain" />
                       </a>
                     ) : (
-                      <ImageSanity image={{...p.logo, alt: {fr: p.logo.alt}}} largeur={200} hauteur={100} tailles="200px" className="h-16 w-auto object-contain" />
+                      <ImageSanity image={{...p.logo, alt: {fr: p.logo.alt}}} largeur={200} hauteur={64} tailles="170px" entiere className="h-auto max-h-16 w-auto max-w-[170px] object-contain" />
                     )}
                   </li>
                 ))}
