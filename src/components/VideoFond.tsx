@@ -4,7 +4,7 @@ import {useEffect, useRef, useState} from 'react'
 
 // Vidéo de fond sans son, en boucle, comme sur la guest list.
 // Elle ne démarre pas si la personne a demandé moins d'animations ou si sa connexion est en mode économie de données.
-export function VideoFond({src, cadrage = 50}: {src: string; cadrage?: number}) {
+export function VideoFond({src, cadrage = 50, className = 'absolute inset-0'}: {src: string; cadrage?: number; className?: string}) {
   const video = useRef<HTMLVideoElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -30,7 +30,7 @@ export function VideoFond({src, cadrage = 50}: {src: string; cadrage?: number}) 
       aria-hidden="true"
       tabIndex={-1}
       style={{objectPosition: `50% ${cadrage}%`}}
-      className={`absolute inset-0 -z-10 h-full w-full object-cover transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}
+      className={`${className} -z-10 object-cover transition-opacity duration-1000 ${visible ? 'opacity-100' : 'opacity-0'}`}
     />
   )
 }

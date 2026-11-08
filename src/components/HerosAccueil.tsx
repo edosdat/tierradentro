@@ -57,7 +57,14 @@ export async function HerosAccueil({accroche, video}: {accroche: string; video?:
       {video?.url ? (
         <>
           {/* La vidéo recouvre le décor quand elle démarre ; le voile garde le texte lisible. */}
-          <VideoFond src={video.url} cadrage={video.cadrage} />
+          {/* Fond uni sous la vidéo, puis la vidéo légèrement dézoomée : elle n'occupe pas toute la hauteur
+              (on voit plus large) et ses bords haut et bas se fondent dans la nuit. */}
+          <div aria-hidden="true" className="absolute inset-0 -z-[15] bg-[linear-gradient(180deg,#0D1020,#14182B_40%,#1C2D57)]" />
+          <VideoFond
+            src={video.url}
+            cadrage={video.cadrage}
+            className="absolute inset-x-0 top-[7%] h-[86%] w-full [mask-image:linear-gradient(180deg,transparent,black_14%,black_86%,transparent)] max-lg:top-[13%] max-lg:h-[62%]"
+          />
           <div aria-hidden="true" className="absolute inset-0 -z-[5] bg-[linear-gradient(90deg,rgba(13,16,32,.82)_0%,rgba(13,16,32,.55)_45%,rgba(13,16,32,.25)_100%),linear-gradient(180deg,rgba(13,16,32,.55)_0%,transparent_30%,transparent_70%,rgba(13,16,32,.7)_100%)]" />
           {/* Sur téléphone, le texte occupe toute la largeur : voile plus uniforme. */}
           <div aria-hidden="true" className="absolute inset-0 -z-[5] bg-[rgba(13,16,32,.45)] lg:hidden" />
@@ -71,7 +78,8 @@ export async function HerosAccueil({accroche, video}: {accroche: string; video?:
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1440px] flex-1 content-center px-4 pt-28 pb-[31vh] sm:px-8 max-lg:pb-[30vh]">
         <h1 id="titre-accueil" data-texte-heros className="titre-display w-fit text-[clamp(3rem,11vw,11rem)] leading-[0.9] whitespace-nowrap">
-          Tierradentro
+          {/* Le colibri vient butiner le « i » ou le « o » final (data-fleur). */}
+          T<span data-fleur>i</span>erradentr<span data-fleur>o</span>
         </h1>
         <div data-texte-heros className="mt-8 max-w-xl">
           <p className="mb-3 text-[13px] font-bold uppercase tracking-[0.16em] text-turquoise">{t('surtitre')}</p>
