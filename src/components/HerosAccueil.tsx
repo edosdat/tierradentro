@@ -59,6 +59,8 @@ export async function HerosAccueil({accroche, video}: {accroche: string; video?:
           {/* La vidéo recouvre le décor quand elle démarre ; le voile garde le texte lisible. */}
           <VideoFond src={video.url} cadrage={video.cadrage} />
           <div aria-hidden="true" className="absolute inset-0 -z-[5] bg-[linear-gradient(90deg,rgba(13,16,32,.82)_0%,rgba(13,16,32,.55)_45%,rgba(13,16,32,.25)_100%),linear-gradient(180deg,rgba(13,16,32,.55)_0%,transparent_30%,transparent_70%,rgba(13,16,32,.7)_100%)]" />
+          {/* Sur téléphone, le texte occupe toute la largeur : voile plus uniforme. */}
+          <div aria-hidden="true" className="absolute inset-0 -z-[5] bg-[rgba(13,16,32,.45)] lg:hidden" />
         </>
       ) : null}
 
