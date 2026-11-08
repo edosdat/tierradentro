@@ -195,8 +195,14 @@ export default async function PageProjet({params}: PageProps<'/[locale]/projets/
                 </Kicker>
                 <ul className="border-t border-nuit">
                   {p.distribution.map((m) => (
-                    <li key={m._key} className="flex justify-between gap-4 border-b border-nuit/15 py-3">
-                      <span className="font-semibold">{m.personne?.nom}</span>
+                    <li key={m._key} className="flex items-center justify-between gap-4 border-b border-nuit/15 py-3">
+                      <span className="flex items-center gap-3 font-semibold">
+                        {m.personne?.photo?.asset ? (
+                          // Portrait décoratif : le nom est écrit juste à côté.
+                          <ImageSanity image={{...m.personne.photo, alt: undefined}} largeur={56} hauteur={56} tailles="56px" className="size-14 shrink-0 rounded-full bg-nuit/10 object-cover" />
+                        ) : null}
+                        {m.personne?.nom}
+                      </span>
                       <span className="text-right text-gris">{tr(m.role, locale) ?? tr(m.personne?.instruments, locale)}</span>
                     </li>
                   ))}
