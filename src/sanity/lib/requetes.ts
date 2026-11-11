@@ -55,7 +55,7 @@ export type Article = {_id: string; titre: string; media: string; date: string; 
 export type ProjetComplet = ProjetCourt & {
   presentation?: Traduit<Bloc>
   jauge?: Traduit
-  distribution?: {_key: string; role?: Traduit; personne: {nom: string; instruments?: Traduit; photo?: ImageSanity}}[]
+  distribution?: {_key: string; role?: Traduit; personne: {nom: string; slug?: string; instruments?: Traduit; photo?: ImageSanity}}[]
   contactDiffusion?: Contact
   galerie?: (NonNullable<ImageSanity> & {_key: string})[]
   videos?: Video[]
@@ -81,13 +81,25 @@ export const slugsProjets = () => chercher<string[]>(SLUGS_PROJETS)
 
 const PROJET = defineQuery(`*[_type == "projet" && slug.current == $slug][0] {
   ${PROJET_COURT}, presentation, jauge, contactDiffusion, galerie, videos, texteCourt, texteLong,
-  distribution[]{_key, role, personne->{nom, instruments, photo}},
+  distribution[]{_key, role, personne->{nom, "slug": slug.current, instruments, photo}},
   discographie[]{_key, titre, dateSortie, annee, nombreTitres, pochette, ecoute, "paroles": paroles.asset->url},
   ${DOCUMENTS},
   "dates": *[_type == "concert" && references(^._id) && date >= $aujourdhui] | order(date asc) { ${CONCERT} },
   "presse": *[_type == "presse" && references(^._id)] | order(date desc) { _id, titre, media, date, extrait, lien }
 }`)
 export const projet = (slug: string) => chercher<ProjetComplet | null>(PROJET, {slug}, true)
+
+// ---------- artistes ----------
+export type Artiste = {_id: string; nom: string; slug: string; instruments?: Traduit; photo?: ImageSanity; bio?: Traduit; projets: (ProjetCourt & {role?: Traduit})[]}
+const ARTISTE = defineQuery(`*[_type == "personne" && slug.current == $slug][0] {
+  _id, nom, "slug": slug.current, instruments, photo, bio,
+  "projets": *[_type == "projet" && defined(slug.current) && references(^._id)] | order(ordre asc, titre asc) {
+    ${PROJET_COURT}, "role": distribution[personne._ref == ^.^._id][0].role
+  }
+}`)
+export const artiste = (slug: string) => chercher<Artiste | null>(ARTISTE, {slug})
+const SLUGS_ARTISTES = defineQuery(`*[_type == "personne" && defined(slug.current)].slug.current`)
+export const slugsArtistes = () => chercher<string[]>(SLUGS_ARTISTES)
 
 // ---------- agenda ----------
 const A_VENIR = defineQuery(`*[_type == "concert" && date >= $aujourdhui] | order(date asc, heure asc) { ${CONCERT} }`)

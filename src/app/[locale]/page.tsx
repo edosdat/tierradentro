@@ -155,7 +155,13 @@ export default async function Accueil() {
                   <ul className="mb-8 grid gap-x-8 sm:grid-cols-2">
                     {une.distribution.map((m) => (
                       <li key={m._key} className="border-t border-sable/20 py-3">
-                        <strong className="block font-semibold">{m.personne?.nom}</strong>
+                        {m.personne?.slug ? (
+                          <Link href={`/artistes/${m.personne.slug}`} className="block font-semibold underline decoration-sable/30 underline-offset-4 hover:decoration-current">
+                            {m.personne.nom}
+                          </Link>
+                        ) : (
+                          <strong className="block font-semibold">{m.personne?.nom}</strong>
+                        )}
                         <span className="text-[15px] text-sable/70">{tr(m.role, locale) ?? tr(m.personne?.instruments, locale)}</span>
                       </li>
                     ))}
@@ -176,11 +182,11 @@ export default async function Accueil() {
               </div>
               <div>
                 <div
-                  className="relative grid aspect-[4/5] place-items-center overflow-hidden"
+                  className={`relative grid place-items-center overflow-hidden ${une.imagePrincipale?.asset ? '' : 'aspect-[4/5]'}`}
                   style={{background: 'radial-gradient(90% 70% at 30% 25%, rgba(210,31,208,.35), transparent 60%), radial-gradient(80% 60% at 75% 85%, rgba(63,201,214,.3), transparent 60%), #1E2440'}}
                 >
                   {une.imagePrincipale?.asset ? (
-                    <ImageSanity image={une.imagePrincipale} largeur={640} hauteur={800} tailles="(min-width: 1024px) 40vw, 100vw" className="h-full w-full object-cover" avecCredit />
+                    <ImageSanity image={une.imagePrincipale} largeur={800} hauteur={800} entiere tailles="(min-width: 1024px) 45vw, 100vw" className="h-auto w-full" avecCredit />
                   ) : (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src="/images/colibri-aquarelle.webp" alt="" width={793} height={777} className="h-auto w-[70%]" />

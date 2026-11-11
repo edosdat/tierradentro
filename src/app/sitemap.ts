@@ -1,11 +1,11 @@
 import type {MetadataRoute} from 'next'
 import {routing} from '@/i18n/routing'
 import {SITE_URL} from '@/lib/seo'
-import {slugsActualites, slugsPages, slugsProjets} from '@/sanity/lib/requetes'
+import {slugsActualites, slugsArtistes, slugsPages, slugsProjets} from '@/sanity/lib/requetes'
 
 // Plan du site pour les moteurs de recherche, avec les trois langues de chaque page.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [projets, actualites, pages] = await Promise.all([slugsProjets(), slugsActualites(), slugsPages()])
+  const [projets, actualites, pages, artistes] = await Promise.all([slugsProjets(), slugsActualites(), slugsPages(), slugsArtistes()])
   const chemins = [
     '',
     '/association',
@@ -16,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/actualites',
     '/contact',
     ...projets.map((s) => `/projets/${s}`),
+    ...artistes.map((s) => `/artistes/${s}`),
     ...actualites.map((s) => `/actualites/${s}`),
     ...pages.map((s) => `/${s}`),
   ]

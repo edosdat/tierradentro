@@ -200,5 +200,11 @@
     "titre": "Page introuvable",
     "texte": "Ce colibri s'est envolé ailleurs. La page demandée n'existe pas ou a changé d'adresse.",
     "retour": "Revenir à l'accueil"
+  },
+  "artiste": {
+    "joueDans": "Avec Tierradentro, joue dans",
+    "biographie": "Biographie",
+    "programmer": "Pour programmer un de ces projets, rendez-vous sur sa page ou dans l'Espace pro.",
+    "description": "{nom}, {instruments}. Artiste des projets présentés par Tierradentro."
   }
 }

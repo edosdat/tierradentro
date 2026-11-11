@@ -50,7 +50,7 @@ export default async function PageProjet({params}: PageProps<'/[locale]/projets/
       <main id="contenu">
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd([groupe(p, locale), ...p.dates.map((d) => evenement(d, locale))])} />
         <section className={`${c.fond} ${c.texte} ${c.sombre ? 'sur-nuit' : ''} relative overflow-hidden`}>
-          <Conteneur className="grid gap-10 pt-14 pb-16 sm:pt-20 lg:grid-cols-[7fr_5fr] lg:items-end">
+          <Conteneur className="grid gap-10 pt-14 pb-16 sm:pt-20 lg:grid-cols-[6fr_6fr] lg:items-end">
             <div>
               <p className="mb-5 text-sm">
                 <Link href="/projets" className="underline-offset-4 hover:underline">
@@ -63,7 +63,7 @@ export default async function PageProjet({params}: PageProps<'/[locale]/projets/
               {p.accroche ? <p className="mt-6 max-w-2xl text-lg leading-relaxed">{tr(p.accroche, locale)}</p> : null}
             </div>
             {p.imagePrincipale?.asset ? (
-              <ImageSanity image={p.imagePrincipale} largeur={720} hauteur={900} tailles="(min-width: 1024px) 40vw, 100vw" className="w-full object-cover" prioritaire avecCredit />
+              <ImageSanity image={p.imagePrincipale} largeur={900} hauteur={900} entiere tailles="(min-width: 1024px) 45vw, 100vw" className="h-auto w-full" prioritaire avecCredit />
             ) : null}
           </Conteneur>
         </section>
@@ -196,13 +196,24 @@ export default async function PageProjet({params}: PageProps<'/[locale]/projets/
                 <ul className="border-t border-nuit">
                   {p.distribution.map((m) => (
                     <li key={m._key} className="flex items-center justify-between gap-4 border-b border-nuit/15 py-3">
-                      <span className="flex items-center gap-3 font-semibold">
-                        {m.personne?.photo?.asset ? (
-                          // Portrait décoratif : le nom est écrit juste à côté.
-                          <ImageSanity image={{...m.personne.photo, alt: undefined}} largeur={56} hauteur={56} tailles="56px" className="size-14 shrink-0 rounded-full bg-nuit/10 object-cover" />
-                        ) : null}
-                        {m.personne?.nom}
-                      </span>
+                      {(() => {
+                        const contenu = (
+                          <>
+                            {m.personne?.photo?.asset ? (
+                              // Portrait décoratif : le nom est écrit juste à côté.
+                              <ImageSanity image={{...m.personne.photo, alt: undefined}} largeur={56} hauteur={56} tailles="56px" className="size-14 shrink-0 rounded-full bg-nuit/10 object-cover" />
+                            ) : null}
+                            <span className={m.personne?.slug ? 'underline decoration-nuit/30 underline-offset-4 group-hover:decoration-current' : ''}>{m.personne?.nom}</span>
+                          </>
+                        )
+                        return m.personne?.slug ? (
+                          <Link href={`/artistes/${m.personne.slug}`} className="group flex items-center gap-3 font-semibold">
+                            {contenu}
+                          </Link>
+                        ) : (
+                          <span className="flex items-center gap-3 font-semibold">{contenu}</span>
+                        )
+                      })()}
                       <span className="text-right text-gris">{tr(m.role, locale) ?? tr(m.personne?.instruments, locale)}</span>
                     </li>
                   ))}

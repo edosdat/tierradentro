@@ -200,5 +200,11 @@
     "titre": "Página no encontrada",
     "texte": "Este colibrí ha volado a otra parte. La página que buscas no existe o ha cambiado de dirección.",
     "retour": "Volver al inicio"
+  },
+  "artiste": {
+    "joueDans": "Con Tierradentro, actúa en",
+    "biographie": "Biografía",
+    "programmer": "Para programar uno de estos proyectos, visita su página o el espacio pro.",
+    "description": "{nom}, {instruments}. Artista de los proyectos presentados por Tierradentro."
   }
 }

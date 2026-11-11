@@ -200,5 +200,11 @@
     "titre": "Page not found",
     "texte": "This hummingbird has flown elsewhere. The page you are looking for does not exist or has moved.",
     "retour": "Back to the home page"
+  },
+  "artiste": {
+    "joueDans": "With Tierradentro, performs in",
+    "biographie": "Biography",
+    "programmer": "To book one of these projects, visit its page or the venues & press area.",
+    "description": "{nom}, {instruments}. Artist in projects presented by Tierradentro."
   }
 }

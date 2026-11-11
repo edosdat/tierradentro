@@ -18,9 +18,10 @@ export const personne = defineType({
   type: 'document',
   fields: [
     defineField({name: 'nom', title: 'Nom', type: 'string', validation: (rule) => rule.required()}),
+    slug('nom'),
     defineField({name: 'instruments', title: 'Instruments ou rôle', description: 'Exemple : « bouzouki, chœurs ».', type: 'texteCourtTraduit', validation: francaisObligatoire}),
     defineField({name: 'photo', title: 'Photo', type: 'imageCreditee'}),
-    defineField({name: 'bio', title: 'Biographie courte', type: 'texteLongTraduit'}),
+    defineField({name: 'bio', title: 'Biographie', description: 'Affichée sur la page de l\'artiste, ouverte depuis la distribution des projets.', type: 'texteLongTraduit'}),
   ],
   orderings: [{title: 'Nom', name: 'nom', by: [{field: 'nom', direction: 'asc'}]}],
   preview: {select: {title: 'nom', subtitle: 'instruments.fr', media: 'photo'}},

@@ -57,7 +57,7 @@ export function groupe(p: ProjetComplet, locale: string) {
       ? {
           member: p.distribution.map((m) => ({
             '@type': 'OrganizationRole',
-            member: {'@type': 'Person', name: m.personne?.nom},
+            member: {'@type': 'Person', name: m.personne?.nom, ...(m.personne?.slug ? {url: `${SITE_URL}/${locale}/artistes/${m.personne.slug}`} : {})},
             roleName: tr(m.role, locale) ?? tr(m.personne?.instruments, locale),
           })),
         }
