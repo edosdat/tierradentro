@@ -3,7 +3,7 @@ import {getLocale} from 'next-intl/server'
 import {routing} from '@/i18n/routing'
 
 // Adresse publique du site (à changer quand le nom de domaine sera branché).
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tierradentro-eight.vercel.app').replace(/\/$/, '')
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tierradentro.fr').replace(/\/$/, '')
 
 const ogLocale = {fr: 'fr_FR', en: 'en_GB', es: 'es_ES'} as const
 

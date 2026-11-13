@@ -1,6 +1,6 @@
 # Guide de l'administration · Tierradentro
 
-**Adresse : https://tierradentro-eight.vercel.app/studio** (connexion avec ton compte Google).
+**Adresse : https://tierradentro.fr/studio** (connexion avec ton compte Google).
 Tout ce que tu publies apparaît sur le site **en quelques secondes**. Rien n'est en ligne tant que tu n'as pas touché **Publier**.
 
 ## Ajouter une date de concert

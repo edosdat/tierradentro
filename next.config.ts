@@ -34,6 +34,17 @@ const entetesCommuns = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Ancienne adresse Vercel → domaine officiel. /api reste joignable (webhook Sanity).
+  async redirects() {
+    return [
+      {
+        source: '/:chemin((?!api/).*)',
+        has: [{type: 'host', value: 'tierradentro-eight.vercel.app'}],
+        destination: 'https://tierradentro.fr/:chemin',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       // Site public : politique stricte.
