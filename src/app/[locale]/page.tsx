@@ -77,30 +77,6 @@ export default async function Accueil() {
           </Conteneur>
         </section>
 
-        {/* Prochaines dates */}
-        <section aria-labelledby="titre-dates" className="pb-[clamp(64px,9vw,140px)]">
-          <Conteneur>
-            <TeteSection
-              id="titre-dates"
-              titre={t('prochainesDates')}
-              action={
-                <Link href="/agenda">
-                  <LienFleche>{t('agendaComplet')}</LienFleche>
-                </Link>
-              }
-            />
-            {dates.length ? (
-              <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {dates.slice(0, 6).map((c) => (
-                  <Billet key={c._id} c={c} />
-                ))}
-              </ol>
-            ) : (
-              <p className="text-gris">{t('aucuneDate')}</p>
-            )}
-          </Conteneur>
-        </section>
-
         {/* Projets */}
         <section aria-labelledby="titre-projets" className="pb-[clamp(64px,9vw,140px)]">
           <Conteneur>
@@ -136,6 +112,30 @@ export default async function Accueil() {
                 ))}
               </ul>
             ) : null}
+          </Conteneur>
+        </section>
+
+        {/* Prochaines dates */}
+        <section aria-labelledby="titre-dates" className="pb-[clamp(64px,9vw,140px)]">
+          <Conteneur>
+            <TeteSection
+              id="titre-dates"
+              titre={t('prochainesDates')}
+              action={
+                <Link href="/agenda">
+                  <LienFleche>{t('agendaComplet')}</LienFleche>
+                </Link>
+              }
+            />
+            {dates.length ? (
+              <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {dates.slice(0, 6).map((c) => (
+                  <Billet key={c._id} c={c} />
+                ))}
+              </ol>
+            ) : (
+              <p className="text-gris">{t('aucuneDate')}</p>
+            )}
           </Conteneur>
         </section>
 
