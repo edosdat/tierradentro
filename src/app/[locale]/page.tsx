@@ -51,7 +51,7 @@ export default async function Accueil() {
                 <LienFleche>{t('introLien')}</LienFleche>
               </Link>
             </div>
-            <p className="titre-display text-[clamp(1.7rem,3.3vw,3rem)] leading-[1.12] [text-wrap:pretty]">{t('introTexte')}</p>
+            <p className="titre-display text-[clamp(1.7rem,3.3vw,3rem)] leading-[1.12] [text-wrap:pretty]">{tr(regl?.presentation, locale) ?? t('introTexte')}</p>
             {chiffres.dates > 0 ? (
               <dl className="grid grid-cols-2 border-t border-nuit sm:grid-cols-3 md:col-start-2">
                 <div className="pt-4 pr-4">

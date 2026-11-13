@@ -165,6 +165,12 @@ export const reglages = defineType({
   type: 'document',
   fields: [
     defineField({name: 'accroche', title: 'Accroche de la page d\'accueil', type: 'texteLongTraduit'}),
+    defineField({
+      name: 'presentation',
+      title: 'Texte de présentation (accueil)',
+      description: 'La grande phrase sous « L\'association », juste après la vidéo. Laisser vide pour garder le texte d\'origine.',
+      type: 'texteLongTraduit',
+    }),
     defineField({name: 'contacts', title: 'Contacts affichés', description: 'Production, diffusion, direction artistique…', type: 'array', of: [{type: 'contact'}]}),
     defineField({name: 'emailContact', title: 'Adresse qui reçoit le formulaire de contact', type: 'email'}),
     defineField({name: 'reseaux', title: 'Réseaux sociaux', type: 'array', of: [{type: 'lienExterne'}]}),
